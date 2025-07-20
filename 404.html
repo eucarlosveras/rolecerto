@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecionando</title>
+    <script>
+        // Redirecionar para index.html mantendo os parâmetros
+        const path = window.location.pathname;
+        const search = window.location.search;
+        const hash = window.location.hash;
+        
+        // Preservar parâmetros importantes
+        const preserveParams = ['eventData', 'event'];
+        
+        // Filtrar parâmetros que queremos manter
+        const params = new URLSearchParams(search);
+        const preserved = new URLSearchParams();
+        
+        for (const key of preserveParams) {
+            if (params.has(key)) {
+                preserved.set(key, params.get(key));
+            }
+        }
+        
+        // Montar nova URL
+        const newUrl = `/${path.endsWith('/') ? '' : ''}index.html${preserved.toString() ? '?' + preserved.toString() : ''}${hash}`;
+        
+        // Redirecionar
+        location.replace(newUrl);
+    </script>
+</head>
+<body>
+    <p>Redirecionando para a aplicação...</p>
+</body>
+</html>
