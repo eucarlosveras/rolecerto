@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta tags para melhor comportamento em iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Rolê Certo | Eventos com amigos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -32,7 +35,7 @@
             color: var(--dark);
             line-height: 1.6;
             min-height: 100vh;
-            padding-bottom: 80px;
+            position: relative; /* Adicionado para referência do footer */
         }
 
         .container {
@@ -113,6 +116,7 @@
         /* Main Content */
         main {
             padding: 40px 0;
+            padding-bottom: 80px; /* Espaço para o footer fixo */
         }
 
         .page-title {
@@ -194,7 +198,7 @@
             padding: 15px 20px;
             background-color: var(--light);
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Alterado para 2 colunas */
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
         }
 
@@ -270,6 +274,7 @@
             justify-content: center;
             gap: 8px;
             font-size: 0.95rem;
+            min-height: 44px; /* Tamanho mínimo para toque */
         }
 
         .btn:hover {
@@ -520,6 +525,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            min-height: 44px; /* Tamanho mínimo para toque */
         }
 
         .attendance-btn.confirm {
@@ -562,6 +568,7 @@
             position: fixed;
             bottom: 0;
             width: 100%;
+            z-index: 1000; /* Garante que fique acima do conteúdo */
         }
 
         .footer-content {
@@ -586,7 +593,7 @@
             color: #adb5bd;
         }
 
-        /* Responsive */
+        /* Responsive - Melhorias para dispositivos móveis */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -630,6 +637,62 @@
             
             .attendance-options {
                 flex-direction: column;
+            }
+        }
+
+        /* Melhorias adicionais para telas pequenas (até 480px) */
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.5rem;
+            }
+            
+            .logo {
+                font-size: 1.4rem;
+            }
+            
+            .nav-links a {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+            
+            .create-btn {
+                padding: 8px 16px;
+            }
+            
+            .event-card .card-body {
+                grid-template-columns: 1fr; /* 1 coluna em vez de 2 */
+            }
+            
+            .card-footer {
+                grid-template-columns: 1fr; /* 1 coluna */
+                gap: 8px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .action-buttons .btn {
+                width: 100%;
+            }
+            
+            .form-control {
+                font-size: 16px; /* Evita zoom automático no iOS */
+                padding: 14px 12px; /* Mais fácil para toque */
+            }
+            
+            .event-type-large {
+                font-size: 0.9rem;
+                padding: 5px 12px;
+            }
+            
+            .event-title {
+                font-size: 1.5rem;
+            }
+            
+            .btn, .attendance-btn, .nav-links a {
+                touch-action: manipulation; /* Melhora resposta ao toque */
             }
         }
 
@@ -943,6 +1006,129 @@
     </footer>
 
     <script>
+        // Função para inicialização do app
+        function initApp() {
+            // Verifica se há um evento na URL
+            checkUrlForEvent();
+            
+            // Criar evento de exemplo se não houver eventos
+            const events = getEvents();
+            if (events.length === 0) {
+                const sampleEvent = {
+                    id: 'event-sample',
+                    type: 'park',
+                    name: 'Piquenique',
+                    location: 'Parque da Cidade',
+                    date: '2025-07-27',
+                    time: '14:00',
+                    description: 'Traga sua bebida favorita e algo para compartilhar!',
+                    organizer: 'Libira',
+                    createdAt: '2025-07-27T00:05:00',
+                    participants: generateSampleParticipants()
+                };
+                events.push(sampleEvent);
+                saveEvents(events);
+            }
+            
+            // Navegação
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const page = link.getAttribute('data-page');
+                    showPage(`${page}-page`);
+                });
+            });
+            
+            document.getElementById('create-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                // Limpa o formulário ao criar novo evento
+                document.getElementById('eventForm').reset();
+                document.getElementById('eventId').value = '';
+                document.getElementById('save-btn').innerHTML = '<i class="fas fa-calendar-plus"></i> Criar Evento';
+                showPage('create-page');
+            });
+            
+            document.getElementById('cancel-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                showPage('home-page');
+            });
+            
+            document.getElementById('back-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                showPage('home-page');
+            });
+            
+            // Formulário de criação de evento
+            document.getElementById('eventForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const eventId = document.getElementById('eventId').value;
+                const eventType = document.getElementById('eventType').value;
+                const eventName = document.getElementById('eventName').value;
+                const eventLocation = document.getElementById('eventLocation').value;
+                const eventDate = document.getElementById('eventDate').value;
+                const eventTime = document.getElementById('eventTime').value;
+                const eventDescription = document.getElementById('eventDescription').value;
+                
+                let events = getEvents();
+                
+                if (eventId) {
+                    // Edição de evento existente
+                    events = events.map(e => {
+                        if (e.id === eventId) {
+                            return {
+                                ...e,
+                                type: eventType,
+                                name: eventName,
+                                location: eventLocation,
+                                date: eventDate,
+                                time: eventTime,
+                                description: eventDescription
+                            };
+                        }
+                        return e;
+                    });
+                    showToast('Evento atualizado com sucesso!', 'success');
+                } else {
+                    // Criação de novo evento
+                    const newEvent = {
+                        id: 'event-' + Date.now(),
+                        type: eventType,
+                        name: eventName,
+                        location: eventLocation,
+                        date: eventDate,
+                        time: eventTime,
+                        description: eventDescription,
+                        organizer: 'Você',
+                        createdAt: new Date().toISOString(),
+                        participants: [
+                            { 
+                                id: 'organizer', 
+                                name: 'Você', 
+                                initials: 'V', 
+                                status: 'confirmed' 
+                            }
+                        ]
+                    };
+                    events.push(newEvent);
+                    showToast('Evento criado com sucesso!', 'success');
+                }
+                
+                saveEvents(events);
+                
+                setTimeout(() => {
+                    showPage('home-page');
+                }, 1500);
+            });
+            
+            // Configurar data mínima para o campo de data (hoje)
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('eventDate').setAttribute('min', today);
+            
+            // Carrega os eventos ativos inicialmente
+            loadActiveEvents();
+        }
+
         // Armazenamento de eventos usando localStorage
         function getEvents() {
             const events = localStorage.getItem('rolecerto_events');
@@ -1528,128 +1714,12 @@
             ];
         }
         
-        // Event listeners para navegação
-        document.addEventListener('DOMContentLoaded', function() {
-            // Verifica se há um evento na URL
-            checkUrlForEvent();
-            
-            // Criar evento de exemplo se não houver eventos
-            const events = getEvents();
-            if (events.length === 0) {
-                const sampleEvent = {
-                    id: 'event-sample',
-                    type: 'park',
-                    name: 'Piquenique',
-                    location: 'Parque da Cidade',
-                    date: '2025-07-27',
-                    time: '14:00',
-                    description: 'Traga sua bebida favorita e algo para compartilhar!',
-                    organizer: 'Libira',
-                    createdAt: '2025-07-27T00:05:00',
-                    participants: generateSampleParticipants()
-                };
-                events.push(sampleEvent);
-                saveEvents(events);
-            }
-            
-            // Navegação
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const page = link.getAttribute('data-page');
-                    showPage(`${page}-page`);
-                });
-            });
-            
-            document.getElementById('create-btn').addEventListener('click', (e) => {
-                e.preventDefault();
-                // Limpa o formulário ao criar novo evento
-                document.getElementById('eventForm').reset();
-                document.getElementById('eventId').value = '';
-                document.getElementById('save-btn').innerHTML = '<i class="fas fa-calendar-plus"></i> Criar Evento';
-                showPage('create-page');
-            });
-            
-            document.getElementById('cancel-btn').addEventListener('click', (e) => {
-                e.preventDefault();
-                showPage('home-page');
-            });
-            
-            document.getElementById('back-btn').addEventListener('click', (e) => {
-                e.preventDefault();
-                showPage('home-page');
-            });
-            
-            // Formulário de criação de evento
-            document.getElementById('eventForm').addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                const eventId = document.getElementById('eventId').value;
-                const eventType = document.getElementById('eventType').value;
-                const eventName = document.getElementById('eventName').value;
-                const eventLocation = document.getElementById('eventLocation').value;
-                const eventDate = document.getElementById('eventDate').value;
-                const eventTime = document.getElementById('eventTime').value;
-                const eventDescription = document.getElementById('eventDescription').value;
-                
-                let events = getEvents();
-                
-                if (eventId) {
-                    // Edição de evento existente
-                    events = events.map(e => {
-                        if (e.id === eventId) {
-                            return {
-                                ...e,
-                                type: eventType,
-                                name: eventName,
-                                location: eventLocation,
-                                date: eventDate,
-                                time: eventTime,
-                                description: eventDescription
-                            };
-                        }
-                        return e;
-                    });
-                    showToast('Evento atualizado com sucesso!', 'success');
-                } else {
-                    // Criação de novo evento
-                    const newEvent = {
-                        id: 'event-' + Date.now(),
-                        type: eventType,
-                        name: eventName,
-                        location: eventLocation,
-                        date: eventDate,
-                        time: eventTime,
-                        description: eventDescription,
-                        organizer: 'Você',
-                        createdAt: new Date().toISOString(),
-                        participants: [
-                            { 
-                                id: 'organizer', 
-                                name: 'Você', 
-                                initials: 'V', 
-                                status: 'confirmed' 
-                            }
-                        ]
-                    };
-                    events.push(newEvent);
-                    showToast('Evento criado com sucesso!', 'success');
-                }
-                
-                saveEvents(events);
-                
-                setTimeout(() => {
-                    showPage('home-page');
-                }, 1500);
-            });
-            
-            // Configurar data mínima para o campo de data (hoje)
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('eventDate').setAttribute('min', today);
-            
-            // Carrega os eventos ativos inicialmente
-            loadActiveEvents();
-        });
+        // Inicialização otimizada
+        if (document.readyState !== 'loading') {
+            initApp();
+        } else {
+            document.addEventListener('DOMContentLoaded', initApp);
+        }
     </script>
 </body>
 </html>
