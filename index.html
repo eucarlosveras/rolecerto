@@ -1,6 +1,4 @@
-   
-    
-     <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -196,7 +194,7 @@
             padding: 15px 20px;
             background-color: var(--light);
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Alterado para 2 colunas */
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
         }
 
@@ -1001,6 +999,40 @@
             }
         }
         
+        // Função para importar evento da URL
+        function importEventFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventData = urlParams.get('importEvent');
+            
+            if (eventData) {
+                try {
+                    // Decodificar e parsear os dados do evento
+                    const decodedData = decodeURIComponent(atob(eventData));
+                    const event = JSON.parse(decodedData);
+                    const events = getEvents();
+                    
+                    // Verificar se evento já existe
+                    const exists = events.some(e => e.id === event.id);
+                    
+                    if (!exists) {
+                        events.push(event);
+                        saveEvents(events);
+                        showToast('Evento importado com sucesso!', 'success');
+                        
+                        // Atualizar URL para mostrar detalhes
+                        window.history.replaceState({}, '', `?event=${event.id}`);
+                        showEventDetail(event.id);
+                    } else {
+                        // Se já existe, apenas mostra os detalhes
+                        showEventDetail(event.id);
+                    }
+                } catch (e) {
+                    console.error('Erro ao importar evento:', e);
+                    showToast('Erro ao importar evento!', 'error');
+                }
+            }
+        }
+        
         // Carregar eventos ativos
         function loadActiveEvents() {
             const activeEventsContainer = document.getElementById('active-events');
@@ -1462,7 +1494,7 @@
             }
         }
         
-        // Compartilhar evento via WhatsApp com link direto
+        // Compartilhar evento via WhatsApp com dados completos
         function shareEvent(eventId) {
             const events = getEvents();
             const event = events.find(e => e.id === eventId);
@@ -1479,8 +1511,14 @@
                 year: 'numeric'
             });
             
-            // Cria um link direto para o evento
-            const eventLink = `${window.location.origin}${window.location.pathname}?event=${eventId}`;
+            // Codificar evento para URL (suporta caracteres especiais)
+            const jsonString = JSON.stringify(event);
+            const uriEncoded = encodeURIComponent(jsonString);
+            const base64 = btoa(uriEncoded);
+            const safeForUrl = encodeURIComponent(base64);
+            
+            // Criar link com dados completos do evento
+            const eventLink = `${window.location.origin}${window.location.pathname}?importEvent=${safeForUrl}`;
             
             const message = encodeURIComponent(
                 `🎉 Você está convidado para: *${event.name}*\n\n` +
@@ -1532,6 +1570,9 @@
         
         // Event listeners para navegação
         document.addEventListener('DOMContentLoaded', function() {
+            // Importar evento da URL se existir
+            importEventFromUrl();
+            
             // Verifica se há um evento na URL
             checkUrlForEvent();
             
@@ -1655,4 +1696,3 @@
     </script>
 </body>
 </html>
-   
