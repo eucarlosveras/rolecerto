@@ -723,11 +723,69 @@
     </button>
 
     <script>
-        // Inicialmente, eventosData é um objeto vazio
-        let eventosData = {};
-
-        // Referência para o nó 'eventos' no Firebase
-        const eventosRef = firebase.database().ref('eventos');
+        let eventosData = {
+            1: {
+                id: 1,
+                titulo: "Piquenique no Parque",
+                tipo: "parque",
+                data: "2025-07-26",
+                hora: "14:00",
+                local: "Parque da Cidade, São Paulo",
+                descricao: "Traga sua cesta de piquenique e venha aproveitar uma tarde agradável no parque! Não esqueça de trazer sua toalha e jogos para diversão.",
+                criador: "Libira",
+                criadoEm: "27 de julho de 2025 às 00:05",
+                participantes: [
+                    { nome: "Libira", status: "confirmado" },
+                    { nome: "Carlos", status: "confirmado" },
+                    { nome: "Ana", status: "pendente" },
+                    { nome: "Pedro", status: "recusado" }
+                ]
+            },
+            2: {
+                id: 2,
+                titulo: "Festa de Aniversário",
+                tipo: "outros",
+                data: "2025-07-28",
+                hora: "20:00",
+                local: "Rua das Flores, 123 - Jardim América",
+                descricao: "Celebração dos meus 30 anos! Traga sua bebida preferida. Teremos música ao vivo e buffet completo.",
+                criador: "Você",
+                criadoEm: "20 de julho de 2025 às 18:55",
+                participantes: [
+                    { nome: "Você", status: "confirmado" },
+                    { nome: "Mariana", status: "confirmado" },
+                    { nome: "Ricardo", status: "pendente" }
+                ]
+            },
+            3: {
+                id: 3,
+                titulo: "Happy Hour Sexta",
+                tipo: "barzinho",
+                data: "2025-07-29",
+                hora: "19:00",
+                local: "Bar do Zé, Centro - São Paulo",
+                descricao: "Vamos descontrair depois de uma semana longa de trabalho! Promoção de chopp artesanal até as 21h.",
+                criador: "Você",
+                criadoEm: "20 de julho de 2025 às 19:50",
+                participantes: [
+                    { nome: "Você", status: "confirmado" },
+                    { nome: "Fernanda", status: "confirmado" },
+                    { nome: "Rafael", status: "pendente" }
+                ]
+            },
+            4: {
+                id: 4,
+                titulo: "Festa na Piscina",
+                tipo: "outros",
+                data: "2025-08-05",
+                hora: "15:00",
+                local: "Condomínio Sol Nascente, Bloco B",
+                descricao: "Festa de verão com piscina e churrasco! Traga sua toalha e traje de banho.",
+                criador: "Você",
+                criadoEm: "22 de julho de 2025 às 10:30",
+                participantes: []
+            }
+        };
 
         const navButtons = document.querySelectorAll('.nav-btn');
         const pages = document.querySelectorAll('.page');
@@ -738,23 +796,9 @@
         let currentEventId = null;
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Carrega os eventos do Firebase
-            loadEventosFromFirebase();
+            renderEventos();
             setupEventListeners();
         });
-
-        // Função para carregar eventos do Firebase
-        function loadEventosFromFirebase() {
-            eventosRef.on('value', (snapshot) => {
-                eventosData = snapshot.val() || {};
-                renderEventos();
-            });
-        }
-
-        // Função para salvar eventos no Firebase
-        function saveEventosToFirebase() {
-            eventosRef.set(eventosData);
-        }
 
         function setupEventListeners() {
             // Navegação - ambos os botões permanecem ativos
@@ -776,7 +820,7 @@
             eventForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                const newId = Date.now().toString(); // Usa timestamp para ID único
+                const newId = Math.max(...Object.keys(eventosData).map(Number)) + 1;
                 
                 const novoEvento = {
                     id: newId,
@@ -797,12 +841,8 @@
                     participantes: []
                 };
                 
-                // Adiciona o novo evento ao objeto eventosData
                 eventosData[newId] = novoEvento;
-                
-                // Salva no Firebase
-                saveEventosToFirebase();
-                
+                renderEventos();
                 alert('Evento criado com sucesso!');
                 this.reset();
                 pages.forEach(page => page.classList.remove('active'));
@@ -1030,9 +1070,6 @@
                         evento.participantes.push({ nome, status });
                     }
                     
-                    // Salva a alteração no Firebase
-                    saveEventosToFirebase();
-                    
                     const feedback = document.getElementById('feedback');
                     feedback.textContent = `Sua presença foi registrada como: ${formatarStatus(status)}`;
                     feedback.className = `feedback feedback-${status} ativo`;
@@ -1059,8 +1096,6 @@
                     const eventId = this.dataset.id;
                     if (confirm('Tem certeza que deseja excluir este evento?')) {
                         delete eventosData[eventId];
-                        // Salva após excluir
-                        saveEventosToFirebase();
                         alert(`Evento ID: ${eventId} excluído com sucesso!`);
                         pages.forEach(page => page.classList.remove('active'));
                         document.getElementById('eventos').classList.add('active');
@@ -1104,20 +1139,20 @@
         }
     </script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
-    <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyCQP5r1XeE03WWW-CPbHfqWyB5D9N9T-V0",
-            authDomain: "rolecerteventos.firebaseapp.com",
-            projectId: "rolecerteventos",
-            storageBucket: "rolecerteventos.appspot.com",
-            messagingSenderId: "758496389166",
-            appId: "1:758496389166:web:be8f89aa0cb3c8b72457bf",
-            databaseURL: "https://rolecerteventos-default-rtdb.firebaseio.com"
-        };
-        
-        // Inicialize o Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyCQP5r1XeE03WWW-CPbHfqWyB5D9N9T-V0",
+    authDomain: "rolecerteventos.firebaseapp.com",
+    projectId: "rolecerteventos",
+    storageBucket: "rolecerteventos.appspot.com",
+    messagingSenderId: "758496389166",
+    appId: "1:758496389166:web:be8f89aa0cb3c8b72457bf",
+    databaseURL: "https://rolecerteventos-default-rtdb.firebaseio.com"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+</script>
+
 </body>
 </html>
