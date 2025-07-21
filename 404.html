@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0;URL='/'" />
+  <title>Página não encontrada - Redirecionando...</title>
+  <script>
+    // Redireciona para a página principal, preservando hashes e parâmetros
+    if (location.pathname !== "/" && !location.pathname.endsWith("index.html")) {
+      location.replace("/" + location.search + location.hash);
+    }
+  </script>
+  <style>
+    body { 
+      font-family: sans-serif; 
+      text-align: center; 
+      padding-top: 60px; 
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h2>Página não encontrada</h2>
+  <p>Você será redirecionado para a página principal.</p>
+</body>
+</html>
