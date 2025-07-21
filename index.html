@@ -1138,5 +1138,21 @@
             });
         }
     </script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyCQP5r1XeE03WWW-CPbHfqWyB5D9N9T-V0",
+    authDomain: "rolecerteventos.firebaseapp.com",
+    projectId: "rolecerteventos",
+    storageBucket: "rolecerteventos.appspot.com",
+    messagingSenderId: "758496389166",
+    appId: "1:758496389166:web:be8f89aa0cb3c8b72457bf",
+    databaseURL: "https://rolecerteventos-default-rtdb.firebaseio.com"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+</script>
+
 </body>
 </html>
