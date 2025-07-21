@@ -3,1718 +3,1139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rolê Certo | Eventos com amigos</title>
+    <title>Rolê Certo | Eventos Sociais</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --park: #4CAF50;
-            --trail: #795548;
-            --bar: #2196F3;
-            --trip: #FF9800;
-            --other: #9C27B0;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --light-gray: #e9ecef;
-            --border-radius: 12px;
-            --box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-            
-            --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            --font-title: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --verde: #4CAF50;
+            --marrom: #795548;
+            --azul: #2196F3;
+            --laranja: #FF9800;
+            --roxo: #9C27B0;
+            --cinza-claro: #f8f9fa;
+            --cinza-escuro: #343a40;
+            --branco: #ffffff;
+            --sombra: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --sombra-card: 0 6px 16px rgba(0, 0, 0, 0.1);
+            --borda: 1px solid rgba(0, 0, 0, 0.08);
+            --transicao: all 0.3s ease;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
         }
 
         body {
-            font-family: var(--font-main);
-            background: linear-gradient(135deg, #f0f4f8 0%, #e6f0ff 100%);
-            color: var(--dark);
-            line-height: 1.6;
+            background: linear-gradient(135deg, #f0f4f8 0%, #dfe7f0 100%);
+            color: #333;
             min-height: 100vh;
-            position: relative;
-            font-size: 1rem;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
 
         header {
-            background: linear-gradient(90deg, #4361ee, #3a0ca3);
-            color: white;
-            padding: 0.8rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
+            background: linear-gradient(90deg, #4A00E0 0%, #8E2DE2 100%);
+            color: var(--branco);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: var(--sombra);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
         }
 
         .logo {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            font-family: var(--font-title);
-        }
-
-        .logo i {
-            color: #4cc9f0;
-            font-size: 1.3rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 8px;
-            margin: 10px 0;
-        }
-
-        .nav-links a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 50px;
-            transition: var(--transition);
-            font-size: 0.9rem;
-            display: flex;
+            flex-direction: column;
             align-items: center;
             gap: 5px;
+            margin-bottom: 15px;
         }
 
-        .nav-links a:hover, .nav-links a.active {
-            background: rgba(255, 255, 255, 0.15);
+        .logo-main {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-sub {
+            font-size: 1.3rem;
+            font-weight: 500;
+            opacity: 0.9;
             color: white;
-        }
-
-        .create-btn {
-            background: #4cc9f0;
-            color: #212529;
-            border: none;
-            border-radius: 50px;
-            padding: 8px 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.9rem;
-        }
-
-        main {
-            padding: 30px 0;
-            padding-bottom: 30px;
         }
 
         .page-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            color: #3a0ca3;
-            position: relative;
-            padding-bottom: 12px;
-            font-family: var(--font-title);
-        }
-
-        .page-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 4px;
-            background: #4cc9f0;
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            font-size: 1.05rem;
-            color: #4361ee;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
             font-weight: 500;
-            line-height: 1.5;
+            margin-top: 5px;
+            opacity: 0.9;
         }
 
-        .card {
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            overflow: hidden;
-            transition: var(--transition);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 70vh;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
             margin-bottom: 25px;
-            border: 1px solid var(--light-gray);
+        }
+
+        /* Botões sempre ativos e visíveis */
+        .nav-btn {
+            background: linear-gradient(135deg, #8E2DE2, #4A00E0);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transicao);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            color: var(--branco);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .event-card {
+            background: var(--branco);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--sombra-card);
+            transition: var(--transicao);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         }
 
         .card-header {
-            padding: 18px;
-            color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .park-bg { background: linear-gradient(90deg, var(--park), #388E3C); }
-        .trail-bg { background: linear-gradient(90deg, var(--trail), #5D4037); }
-        .bar-bg { background: linear-gradient(90deg, var(--bar), #1976D2); }
-        .trip-bg { background: linear-gradient(90deg, var(--trip), #F57C00); }
-        .other-bg { background: linear-gradient(90deg, var(--other), #7B1FA2); }
-
-        .card-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: white;
-            font-family: var(--font-title);
-        }
-
-        .card-badge {
-            padding: 4px 10px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .card-body {
-            padding: 18px;
-        }
-
-        .card-footer {
-            padding: 14px 18px;
-            background-color: var(--light);
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
-        }
-
-        .event-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .event-card .card-body {
-            display: grid;
-            grid-template-columns: 70px 1fr;
-            gap: 12px;
-        }
-
-        .event-date {
-            text-align: center;
-            color: white;
-            padding: 8px;
-            border-radius: var(--border-radius);
-        }
-
-        .event-day {
-            font-size: 1.6rem;
-            font-weight: 700;
-            line-height: 1;
-            font-family: var(--font-title);
-        }
-
-        .event-month {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            margin-top: 4px;
-        }
-
-        .event-info {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .event-location {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--dark);
-            font-size: 0.95rem;
-        }
-
-        .event-description {
-            color: #495057;
-            font-size: 0.95rem;
-            margin-top: 8px;
-            line-height: 1.5;
-        }
-
-        .event-created {
-            color: #6c757d;
-            font-size: 0.88rem;
-            margin-top: 4px;
-            font-style: italic;
-        }
-
-        .btn {
-            padding: 10px 16px;
-            border-radius: 50px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            font-size: 0.95rem;
-            min-height: 44px;
-        }
-
-        .btn-primary {
-            background: #4361ee;
-            color: white;
-        }
-
-        .btn-secondary {
-            background: #6c757d;
-            color: white;
-        }
-
-        .btn-whatsapp {
-            background: #25D366;
-            color: white;
-        }
-
-        .btn-edit {
-            background: #FFC107;
-            color: var(--dark);
-        }
-
-        .btn-delete {
-            background: #dc3545;
-            color: white;
-        }
-
-        /* Página de Detalhes do Evento - Estilos melhorados */
-        .event-detail-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            overflow: hidden;
-        }
-
-        .event-header {
-            padding: 25px 30px;
-            color: white;
-            border-radius: var(--border-radius) var(--border-radius) 0 0;
-            margin-bottom: 20px;
+            padding: 18px 20px;
+            color: var(--branco);
+            position: relative;
         }
 
         .event-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .event-type-large {
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 50px;
+            font-size: 1.4rem;
             font-weight: 600;
-            font-size: 0.95rem;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
+            max-width: 70%;
         }
 
-        .event-info-grid {
+        .event-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .date-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .date-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--branco);
+        }
+
+        .day {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .month {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: -5px;
+        }
+
+        .date-info {
+            flex: 1;
+        }
+
+        .event-date {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .event-time {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .event-info {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .event-info i {
+            min-width: 24px;
+            color: #8E2DE2;
+            font-size: 1.1rem;
+            margin-top: 4px;
+        }
+
+        .event-detail {
+            margin-left: 10px;
+            color: #555;
+        }
+
+        .card-footer {
+            display: flex;
+            padding: 15px;
+            background: var(--cinza-claro);
+            border-top: var(--borda);
+        }
+
+        .card-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            background: var(--branco);
+            color: #555;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transicao);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-btn:hover {
+            background: #4A00E0;
+            color: var(--branco);
+            box-shadow: 0 4px 10px rgba(74, 0, 224, 0.25);
+        }
+
+        .details-btn:hover {
+            background: var(--azul);
+        }
+
+        .share-btn:hover {
+            background: var(--verde);
+        }
+
+        .detalhes-container {
+            background: var(--branco);
+            border-radius: 16px;
+            box-shadow: var(--sombra-card);
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .detalhes-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: var(--borda);
+        }
+
+        .detalhes-titulo {
+            font-size: 2rem;
+            color: #4A00E0;
+            font-weight: 600;
+        }
+
+        .detalhes-badge {
+            background: #4A00E0;
+            color: var(--branco);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .detalhes-info {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            margin-bottom: 25px;
-            padding: 0 30px;
+            margin-bottom: 30px;
         }
 
         .info-item {
             display: flex;
             align-items: flex-start;
             gap: 15px;
-            padding: 15px;
-            background: var(--light);
-            border-radius: var(--border-radius);
-            border: 1px solid var(--light-gray);
         }
 
         .info-icon {
+            color: #8E2DE2;
             font-size: 1.5rem;
-            color: #4361ee;
-            min-width: 40px;
-            text-align: center;
         }
 
-        .info-content h3 {
-            font-size: 0.85rem;
-            color: #6c757d;
+        .info-text h3 {
             margin-bottom: 5px;
+            color: #555;
         }
 
-        .info-content p {
-            font-size: 1.1rem;
-            margin: 0;
+        .info-text p {
+            color: #333;
             font-weight: 500;
         }
 
-        .event-description {
-            background: var(--light);
+        .presenca-section {
+            margin: 30px 0;
             padding: 20px;
-            border-radius: var(--border-radius);
-            border: 1px solid var(--light-gray);
-            margin: 0 30px 25px;
-            line-height: 1.6;
+            background: #f8f9fa;
+            border-radius: 10px;
         }
 
-        .participants-section {
-            padding: 0 30px;
-            margin-bottom: 25px;
-        }
-
-        .participants-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .participant-column {
-            background: var(--light);
-            border-radius: var(--border-radius);
-            border: 1px solid var(--light-gray);
-            padding: 20px;
-        }
-
-        .column-title {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
+        .presenca-title {
             margin-bottom: 15px;
-            font-size: 1.1rem;
+            color: #4A00E0;
+            font-weight: 500;
         }
 
-        .participant-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        .input-nome {
+            width: 100%;
+            padding: 12px 15px;
+            border: var(--borda);
+            border-radius: 10px;
+            font-size: 1rem;
+            margin-bottom: 15px;
         }
 
-        .participant-list li {
+        .opcoes-presenca {
             display: flex;
-            align-items: center;
             gap: 10px;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .participant-list li:last-child {
-            border-bottom: none;
-        }
-
-        .participant-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: #4361ee;
-            color: white;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            font-weight: 600;
-            font-size: 0.9rem;
+            flex-wrap: wrap;
         }
 
-        .attendance-section {
-            padding: 0 30px;
-            margin-bottom: 30px;
-        }
-
-        .attendance-form {
-            margin-top: 15px;
-        }
-
-        .attendance-input {
-            margin-bottom: 15px;
-        }
-
-        .attendance-options {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .attendance-btn {
-            flex: 1;
-            padding: 12px;
+        .btn-presenca {
+            padding: 12px 20px;
             border: none;
-            border-radius: var(--border-radius);
-            font-weight: 600;
+            border-radius: 30px;
             cursor: pointer;
-            transition: var(--transition);
+            font-weight: 500;
+            transition: var(--transicao);
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 8px;
         }
 
-        .attendance-btn.confirm {
-            background: #4CAF50;
-            color: white;
+        .btn-confirmar {
+            background: var(--verde);
+            color: var(--branco);
         }
 
-        .attendance-btn.maybe {
-            background: #FFC107;
-            color: var(--dark);
+        .btn-talvez {
+            background: var(--laranja);
+            color: var(--branco);
         }
 
-        .attendance-btn.decline {
-            background: #F44336;
-            color: white;
+        .btn-recusar {
+            background: var(--roxo);
+            color: var(--branco);
         }
 
-        .attendance-btn:hover {
+        .btn-presenca:hover {
             opacity: 0.9;
+            transform: translateY(-3px);
         }
 
-        .attendance-response {
+        .feedback {
+            text-align: center;
+            padding: 10px;
             margin-top: 15px;
-            padding: 10px 15px;
-            border-radius: var(--border-radius);
-            background: var(--light);
-            border: 1px solid var(--light-gray);
+            border-radius: 8px;
             display: none;
         }
 
-        .attendance-response.show {
+        .feedback.ativo {
             display: block;
+            animation: fadeIn 0.5s;
         }
 
-        #response-status.confirmed {
-            color: #4CAF50;
-            font-weight: 600;
+        .feedback-confirmado {
+            background: rgba(76, 175, 80, 0.2);
+            color: var(--verde);
         }
 
-        #response-status.pending {
-            color: #FFC107;
-            font-weight: 600;
+        .feedback-talvez {
+            background: rgba(255, 152, 0, 0.2);
+            color: var(--laranja);
         }
 
-        #response-status.declined {
-            color: #F44336;
-            font-weight: 600;
+        .feedback-recusado {
+            background: rgba(156, 39, 176, 0.2);
+            color: var(--roxo);
         }
 
-        .action-buttons {
+        .acoes-container {
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            padding: 0 30px 30px;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .event-footer {
-            text-align: center;
-            padding: 20px;
-            color: #6c757d;
-            font-size: 0.9rem;
-            border-top: 1px solid var(--light-gray);
-            margin-top: 30px;
+        .btn-acao {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transicao);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Responsive */
+        .btn-voltar {
+            background: #666;
+            color: var(--branco);
+        }
+
+        .btn-editar {
+            background: var(--laranja);
+            color: var(--branco);
+        }
+
+        .btn-excluir {
+            background: #f44336;
+            color: var(--branco);
+        }
+
+        .btn-acao:hover {
+            opacity: 0.9;
+            transform: translateY(-3px);
+        }
+
+        .form-container {
+            background: var(--branco);
+            border-radius: 16px;
+            box-shadow: var(--sombra-card);
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: var(--borda);
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn-submit {
+            background: var(--verde);
+            color: var(--branco);
+            border: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0;
+            transition: var(--transicao);
+        }
+
+        .btn-submit:hover {
+            background: #3d8b40;
+            transform: translateY(-3px);
+        }
+
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4A00E0, #8E2DE2);
+            color: var(--branco);
+            border: none;
+            box-shadow: 0 6px 20px rgba(74, 0, 224, 0.4);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            z-index: 100;
+            transition: var(--transicao);
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 8px 25px rgba(74, 0, 224, 0.6);
+        }
+
+        .categoria-parque { background: linear-gradient(135deg, var(--verde), #3d8b40); }
+        .categoria-trilha { background: linear-gradient(135deg, var(--marrom), #5d4037); }
+        .categoria-barzinho { background: linear-gradient(135deg, var(--azul), #0d47a1); }
+        .categoria-viagem { background: linear-gradient(135deg, var(--laranja), #ef6c00); }
+        .categoria-outros { background: linear-gradient(135deg, var(--roxo), #6a1b9a); }
+
+        .categoria-parque .event-badge { background: rgba(0, 0, 0, 0.15); }
+        .categoria-trilha .event-badge { background: rgba(0, 0, 0, 0.15); }
+        .categoria-barzinho .event-badge { background: rgba(0, 0, 0, 0.15); }
+        .categoria-viagem .event-badge { background: rgba(0, 0, 0, 0.15); }
+        .categoria-outros .event-badge { background: rgba(0, 0, 0, 0.15); }
+
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
-            body {
-                font-size: 1.05rem;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .nav-links {
+            .nav-container {
                 flex-wrap: wrap;
-                justify-content: center;
             }
             
-            .form-grid {
+            .form-row {
                 grid-template-columns: 1fr;
             }
             
-            .event-grid {
-                grid-template-columns: 1fr;
+            .opcoes-presenca {
+                flex-direction: column;
             }
             
-            .page-title {
-                font-size: 1.7rem;
-            }
-            
-            .action-buttons {
+            .acoes-container {
                 flex-wrap: wrap;
-                justify-content: center;
             }
             
-            .event-info-grid {
-                grid-template-columns: 1fr;
+            .logo-main {
+                font-size: 2rem;
             }
             
-            .participants-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .attendance-form {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .attendance-options {
-                flex-direction: column;
-            }
-            
-            .card-title {
-                font-size: 1.25rem;
-            }
-            
-            .event-location {
-                font-size: 1rem;
-            }
-            
-            .event-created {
-                font-size: 0.92rem;
-            }
-            
-            .btn {
-                font-size: 1rem;
-            }
-            
-            .event-title {
-                font-size: 1.7rem;
+            .logo-sub {
+                font-size: 1.1rem;
             }
         }
 
         @media (max-width: 480px) {
-            body {
-                font-size: 1.08rem;
-            }
-            
-            .page-title {
-                font-size: 1.6rem;
-                margin-bottom: 20px;
-            }
-            
-            .logo {
-                font-size: 1.3rem;
-            }
-            
-            .nav-links a {
-                padding: 6px 10px;
-                font-size: 0.92rem;
-            }
-            
-            .create-btn {
-                padding: 8px 14px;
-                font-size: 0.92rem;
-            }
-            
-            .event-card .card-body {
+            .grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .event-date {
-                width: 70px;
-                margin-bottom: 12px;
             }
             
             .card-footer {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-            
-            .action-buttons {
                 flex-direction: column;
                 gap: 10px;
             }
             
-            .action-buttons .btn {
-                width: 100%;
-                font-size: 1rem;
+            .detalhes-container, .form-container {
+                padding: 20px;
             }
             
-            .form-control {
-                font-size: 16px;
-                padding: 14px 12px;
+            .floating-btn {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
             }
             
-            .event-type-large {
-                font-size: 0.95rem;
-                padding: 5px 12px;
-            }
-            
-            .event-title {
-                font-size: 1.5rem;
-            }
-            
-            .info-content h3 {
-                font-size: 0.95rem;
-            }
-            
-            .info-content p {
-                font-size: 1.15rem;
-            }
-            
-            .column-title {
-                font-size: 1.05rem;
-            }
-            
-            .participant-list li {
-                font-size: 1rem;
+            .nav-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
             }
         }
 
-        /* Page Transitions */
-        .page {
-            display: none;
-        }
-        
-        .page.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        /* Toast Notification */
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: white;
-            color: #212529;
-            padding: 15px 25px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            z-index: 1000;
-            transform: translateX(200%);
-            transition: transform 0.3s ease;
-            font-size: 1rem;
-        }
-        
-        .toast.show {
-            transform: translateX(0);
-        }
-        
-        .toast i {
-            font-size: 1.3rem;
-        }
-        
-        .toast.success i {
-            color: #4CAF50;
-        }
-        
-        .toast.error i {
-            color: #F44336;
-        }
     </style>
 </head>
 <body>
-    <!-- Toast Notification -->
-    <div class="toast" id="toast">
-        <i class="fas fa-check-circle"></i>
-        <span id="toast-message">Evento criado com sucesso!</span>
-    </div>
-
-    <!-- Header -->
     <header>
-        <div class="container header-content">
-            <div class="logo">
-                <i class="fas fa-calendar-alt"></i>
-                <span>Rolê Certo</span>
-            </div>
-            
-            <nav class="nav-links">
-                <a href="#" class="nav-link active" data-page="home"><i class="fas fa-home"></i> Início</a>
-                <a href="#" class="nav-link" data-page="history"><i class="fas fa-history"></i> Histórico</a>
-            </nav>
-            
-            <button class="create-btn" id="create-btn">
-                <i class="fas fa-plus"></i> Criar Evento
-            </button>
+        <div class="logo">
+            <div class="logo-main">Rolê Certo</div>
+            <div class="logo-sub">Eventos Ativos</div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Página Inicial (Eventos Ativos) -->
-        <div id="home-page" class="page active">
-            <h1 class="page-title">Eventos Ativos</h1>
-            <p class="section-subtitle">Próximos encontros marcados com seus amigos</p>
-            
-            <div class="event-grid" id="active-events">
-                <!-- Eventos serão carregados dinamicamente -->
+    <div class="container">
+        <div class="nav-container">
+            <button class="nav-btn active" data-page="eventos">
+                <i class="fas fa-calendar-check"></i> Eventos
+            </button>
+            <button class="nav-btn active" data-page="historico">
+                <i class="fas fa-history"></i> Histórico
+            </button>
+        </div>
+
+        <div id="eventos" class="page active">
+            <div class="grid" id="eventos-grid">
+                <!-- Eventos serão carregados dinamicamente aqui -->
             </div>
         </div>
-        
-        <!-- Página de Histórico -->
-        <div id="history-page" class="page">
-            <h1 class="page-title">Histórico de Eventos</h1>
-            <p class="section-subtitle">Eventos passados que você participou</p>
-            
-            <div class="event-grid" id="past-events">
-                <!-- Eventos históricos serão carregados dinamicamente -->
+
+        <div id="historico" class="page">
+            <div style="text-align: center; padding: 30px; background: white; border-radius: 16px; box-shadow: var(--sombra-card);">
+                <h2 style="color: #4A00E0; margin-bottom: 20px;">Histórico de Eventos</h2>
+                <p>Nenhum evento histórico disponível no momento.</p>
             </div>
         </div>
-        
-        <!-- Página de Criação de Evento -->
-        <div id="create-page" class="page">
-            <h1 class="page-title">Criar Novo Evento</h1>
-            <p class="section-subtitle">Preencha os detalhes do seu próximo encontro</p>
-            
+
+        <div id="criar" class="page">
             <div class="form-container">
-                <form id="eventForm">
-                    <input type="hidden" id="eventId">
-                    <div class="form-grid">
+                <h2 style="text-align: center; margin-bottom: 25px; color: #4A00E0;">Criar Novo Evento</h2>
+                <form id="event-form">
+                    <div class="form-group">
+                        <label class="form-label" for="event-type">Tipo de Evento</label>
+                        <select class="form-select" id="event-type" required>
+                            <option value="">Selecione o tipo</option>
+                            <option value="parque">Parque</option>
+                            <option value="trilha">Trilha</option>
+                            <option value="barzinho">Barzinho</option>
+                            <option value="viagem">Viagem</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="event-name">Nome do Evento</label>
+                        <input type="text" class="form-input" id="event-name" placeholder="Ex: Piquenique no Parque" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="event-location">Local</label>
+                        <input type="text" class="form-input" id="event-location" placeholder="Ex: Parque da Cidade" required>
+                    </div>
+                    
+                    <div class="form-row">
                         <div class="form-group">
-                            <label for="eventType" class="form-label">Tipo de Evento</label>
-                            <select id="eventType" class="form-control" required>
-                                <option value="">Selecione o tipo</option>
-                                <option value="park">Parque</option>
-                                <option value="trail">Trilha</option>
-                                <option value="bar">Barzinho</option>
-                                <option value="trip">Viagem</option>
-                                <option value="other">Outros</option>
-                            </select>
+                            <label class="form-label" for="event-date">Data</label>
+                            <input type="date" class="form-input" id="event-date" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="eventName" class="form-label">Nome do Evento</label>
-                            <input type="text" id="eventName" class="form-control" placeholder="Ex: Churrasco de domingo" required>
+                            <label class="form-label" for="event-time">Horário</label>
+                            <input type="time" class="form-input" id="event-time" required>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="eventLocation" class="form-label">Local</label>
-                        <input type="text" id="eventLocation" class="form-control" placeholder="Digite o local ou endereço" required>
+                        <label class="form-label" for="event-description">Descrição</label>
+                        <textarea class="form-textarea" id="event-description" placeholder="Detalhes sobre o evento..."></textarea>
                     </div>
                     
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="eventDate" class="form-label">Data</label>
-                            <input type="date" id="eventDate" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="eventTime" class="form-label">Horário</label>
-                            <input type="time" id="eventTime" class="form-control" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="eventDescription" class="form-label">Descrição (Opcional)</label>
-                        <textarea id="eventDescription" class="form-control" rows="4" placeholder="Detalhes do evento, o que trazer, etc."></textarea>
-                    </div>
-                    
-                    <div class="action-buttons">
-                        <button type="button" class="btn btn-secondary" id="cancel-btn">
-                            <i class="fas fa-times"></i> Cancelar
-                        </button>
-                        <button type="submit" class="btn btn-primary" id="save-btn">
-                            <i class="fas fa-calendar-plus"></i> Criar Evento
-                        </button>
-                    </div>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-plus-circle"></i> Criar Evento
+                    </button>
                 </form>
             </div>
         </div>
-        
-        <!-- Página de Detalhes do Evento -->
-        <div id="event-detail-page" class="page">
-            <div class="event-detail-container">
-                <div class="event-header" id="event-header">
-                    <h2 class="event-title" id="detail-title">Bau do Raul</h2>
-                    <span class="event-type-large" id="detail-type">Outros</span>
-                </div>
-                
-                <div class="event-info-grid">
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="info-content">
-                            <h3>Local</h3>
-                            <p id="detail-location">MIS - Avenida Europa, 158, Jardim Europa, São Paulo</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <div class="info-content">
-                            <h3>Data</h3>
-                            <p id="detail-date">22 de julho de 2025</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="info-content">
-                            <h3>Horário</h3>
-                            <p id="detail-time">17:00</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-user-friends"></i>
-                        </div>
-                        <div class="info-content">
-                            <h3>Organizador</h3>
-                            <p id="detail-organizer">Você</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Descrição</label>
-                    <div class="event-description" id="detail-description">
-                        <p>Já está em cartaz a mais nova megaeoposição do MIS! São centenas de itens originais guardados pelo próprio Raul Seixas e sua família, apresentados em cenários grandiosos que referenciam músicas mais icônicas e ajudam a contar quem foi o eterno Maluco Beleza! Uma retrospectiva de escala inédita sobre sua vida e carreira. 💬 Nas terças e terceiras quartas-feiras do mês, ingressos gratuitos.</p>
-                    </div>
-                </div>
-                
-                <div class="participants-section">
-                    <h3>Participantes</h3>
-                    <div class="participants-grid">
-                        <div class="participant-column">
-                            <div class="column-title">
-                                <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
-                                <span id="confirmed-title">Confirmados (<span id="confirmed-count">2</span>)</span>
-                            </div>
-                            <ul class="participant-list" id="confirmed-list">
-                                <li>
-                                    <div class="participant-avatar">V</div>
-                                    <span>Você</span>
-                                </li>
-                                <li>
-                                    <div class="participant-avatar">C</div>
-                                    <span>Carlos</span>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="participant-column">
-                            <div class="column-title">
-                                <i class="fas fa-hourglass-half" style="color: #FFC107;"></i>
-                                <span id="pending-title">Pendentes (<span id="pending-count">0</span>)</span>
-                            </div>
-                            <ul class="participant-list" id="pending-list">
-                                <!-- Pendentes serão carregados aqui -->
-                                <li>Nenhum participante pendente</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="participant-column">
-                            <div class="column-title">
-                                <i class="fas fa-times-circle" style="color: #F44336;"></i>
-                                <span id="declined-title">Recusados (<span id="declined-count">0</span>)</span>
-                            </div>
-                            <ul class="participant-list" id="declined-list">
-                                <!-- Recusados serão carregados aqui -->
-                                <li>Nenhum participante recusado</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Seção de Confirmação de Presença -->
-                <div class="attendance-section" id="attendance-section">
-                    <h3>Confirmar sua presença</h3>
-                    <div class="attendance-form">
-                        <div class="form-group attendance-input">
-                            <label for="user-name" class="form-label">Seu nome completo</label>
-                            <input type="text" id="user-name" class="form-control" placeholder="Digite seu nome">
-                        </div>
-                        <div class="attendance-options">
-                            <button class="attendance-btn confirm" id="confirm-btn">
-                                <i class="fas fa-check"></i> Confirmar
-                            </button>
-                            <button class="attendance-btn maybe" id="maybe-btn">
-                                <i class="fas fa-question"></i> Talvez
-                            </button>
-                            <button class="attendance-btn decline" id="decline-btn">
-                                <i class="fas fa-times"></i> Não poderei
-                            </button>
-                        </div>
-                    </div>
-                    <div class="attendance-response" id="attendance-response">
-                        <p>Sua resposta foi registrada: <strong id="response-status"></strong></p>
-                    </div>
-                </div>
-                
-                <div class="action-buttons">
-                    <button class="btn btn-whatsapp" id="share-btn">
-                        <i class="fab fa-whatsapp"></i> Compartilhar
-                    </button>
-                    <button class="btn btn-edit" id="edit-btn">
-                        <i class="fas fa-edit"></i> Editar
-                    </button>
-                    <button class="btn btn-delete" id="delete-btn">
-                        <i class="fas fa-trash-alt"></i> Excluir
-                    </button>
-                    <button class="btn btn-secondary" id="back-btn">
-                        <i class="fas fa-arrow-left"></i> Voltar
-                    </button>
-                </div>
-                
-                <!-- Footer minimalista apenas na página de detalhes -->
-                <div class="event-footer">
-                    <p>© 2023 Rolê Certo. Planeje eventos com amigos facilmente.</p>
-                </div>
+
+        <div id="detalhes" class="page">
+            <div class="detalhes-container" id="detalhes-content">
+                <!-- Conteúdo será preenchido via JavaScript -->
             </div>
         </div>
-    </main>
+    </div>
+
+    <button class="floating-btn" id="criar-evento-btn">
+        <i class="fas fa-plus"></i>
+    </button>
 
     <script>
-        // Função para inicialização do app
-        function initApp() {
-            // Verifica se há um evento na URL
-            checkUrlForEvent();
-            
-            // Criar evento de exemplo se não houver eventos
-            const events = getEvents();
-            if (events.length === 0) {
-                const sampleEvent = {
-                    id: 'event-sample',
-                    type: 'other',
-                    name: 'Bau do Raul',
-                    location: 'MIS - Avenida Europa, 158, Jardim Europa, São Paulo',
-                    date: '2025-07-22',
-                    time: '17:00',
-                    description: 'Já está em cartaz a mais nova megaeoposição do MIS! São centenas de itens originais guardados pelo próprio Raul Seixas e sua família, apresentados em cenários grandiosos que referenciam músicas mais icônicas e ajudam a contar quem foi o eterno Maluco Beleza! Uma retrospectiva de escala inédita sobre sua vida e carreira. 💬 Nas terças e terceiras quartas-feiras do mês, ingressos gratuitos.',
-                    organizer: 'Você',
-                    createdAt: '2025-07-20T13:14:00',
-                    participants: [
-                        { 
-                            id: 'organizer', 
-                            name: 'Você', 
-                            initials: 'V', 
-                            status: 'confirmed' 
-                        },
-                        { 
-                            id: 'p1', 
-                            name: 'Carlos', 
-                            initials: 'C', 
-                            status: 'confirmed' 
-                        }
-                    ]
-                };
-                events.push(sampleEvent);
-                saveEvents(events);
+        let eventosData = {
+            1: {
+                id: 1,
+                titulo: "Piquenique no Parque",
+                tipo: "parque",
+                data: "2025-07-26",
+                hora: "14:00",
+                local: "Parque da Cidade, São Paulo",
+                descricao: "Traga sua cesta de piquenique e venha aproveitar uma tarde agradável no parque! Não esqueça de trazer sua toalha e jogos para diversão.",
+                criador: "Libira",
+                criadoEm: "27 de julho de 2025 às 00:05",
+                participantes: [
+                    { nome: "Libira", status: "confirmado" },
+                    { nome: "Carlos", status: "confirmado" },
+                    { nome: "Ana", status: "pendente" },
+                    { nome: "Pedro", status: "recusado" }
+                ]
+            },
+            2: {
+                id: 2,
+                titulo: "Festa de Aniversário",
+                tipo: "outros",
+                data: "2025-07-28",
+                hora: "20:00",
+                local: "Rua das Flores, 123 - Jardim América",
+                descricao: "Celebração dos meus 30 anos! Traga sua bebida preferida. Teremos música ao vivo e buffet completo.",
+                criador: "Você",
+                criadoEm: "20 de julho de 2025 às 18:55",
+                participantes: [
+                    { nome: "Você", status: "confirmado" },
+                    { nome: "Mariana", status: "confirmado" },
+                    { nome: "Ricardo", status: "pendente" }
+                ]
+            },
+            3: {
+                id: 3,
+                titulo: "Happy Hour Sexta",
+                tipo: "barzinho",
+                data: "2025-07-29",
+                hora: "19:00",
+                local: "Bar do Zé, Centro - São Paulo",
+                descricao: "Vamos descontrair depois de uma semana longa de trabalho! Promoção de chopp artesanal até as 21h.",
+                criador: "Você",
+                criadoEm: "20 de julho de 2025 às 19:50",
+                participantes: [
+                    { nome: "Você", status: "confirmado" },
+                    { nome: "Fernanda", status: "confirmado" },
+                    { nome: "Rafael", status: "pendente" }
+                ]
+            },
+            4: {
+                id: 4,
+                titulo: "Festa na Piscina",
+                tipo: "outros",
+                data: "2025-08-05",
+                hora: "15:00",
+                local: "Condomínio Sol Nascente, Bloco B",
+                descricao: "Festa de verão com piscina e churrasco! Traga sua toalha e traje de banho.",
+                criador: "Você",
+                criadoEm: "22 de julho de 2025 às 10:30",
+                participantes: []
             }
-            
-            // Navegação
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const page = link.getAttribute('data-page');
-                    showPage(`${page}-page`);
-                });
-            });
-            
-            document.getElementById('create-btn').addEventListener('click', (e) => {
-                e.preventDefault();
-                // Limpa o formulário ao criar novo evento
-                document.getElementById('eventForm').reset();
-                document.getElementById('eventId').value = '';
-                document.getElementById('save-btn').innerHTML = '<i class="fas fa-calendar-plus"></i> Criar Evento';
-                showPage('create-page');
-            });
-            
-            document.getElementById('cancel-btn').addEventListener('click', (e) => {
-                e.preventDefault();
-                showPage('home-page');
-            });
-            
-            document.getElementById('back-btn').addEventListener('click', (e) => {
-                e.preventDefault();
-                showPage('home-page');
-            });
-            
-            // Formulário de criação de evento
-            document.getElementById('eventForm').addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                const eventId = document.getElementById('eventId').value;
-                const eventType = document.getElementById('eventType').value;
-                const eventName = document.getElementById('eventName').value;
-                const eventLocation = document.getElementById('eventLocation').value;
-                const eventDate = document.getElementById('eventDate').value;
-                const eventTime = document.getElementById('eventTime').value;
-                const eventDescription = document.getElementById('eventDescription').value;
-                
-                let events = getEvents();
-                
-                if (eventId) {
-                    // Edição de evento existente
-                    events = events.map(e => {
-                        if (e.id === eventId) {
-                            return {
-                                ...e,
-                                type: eventType,
-                                name: eventName,
-                                location: eventLocation,
-                                date: eventDate,
-                                time: eventTime,
-                                description: eventDescription
-                            };
-                        }
-                        return e;
-                    });
-                    showToast('Evento atualizado com sucesso!', 'success');
-                } else {
-                    // Criação de novo evento
-                    const newEvent = {
-                        id: 'event-' + Date.now(),
-                        type: eventType,
-                        name: eventName,
-                        location: eventLocation,
-                        date: eventDate,
-                        time: eventTime,
-                        description: eventDescription,
-                        organizer: 'Você',
-                        createdAt: new Date().toISOString(),
-                        participants: [
-                            { 
-                                id: 'organizer', 
-                                name: 'Você', 
-                                initials: 'V', 
-                                status: 'confirmed' 
-                            }
-                        ]
-                    };
-                    events.push(newEvent);
-                    showToast('Evento criado com sucesso!', 'success');
-                }
-                
-                saveEvents(events);
-                
-                setTimeout(() => {
-                    showPage('home-page');
-                }, 1500);
-            });
-            
-            // Configurar data mínima para o campo de data (hoje)
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('eventDate').setAttribute('min', today);
-            
-            // Carrega os eventos ativos inicialmente
-            loadActiveEvents();
-        }
+        };
 
-        // Armazenamento de eventos usando localStorage
-        function getEvents() {
-            const events = localStorage.getItem('rolecerto_events');
-            return events ? JSON.parse(events) : [];
-        }
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const pages = document.querySelectorAll('.page');
+        const eventForm = document.getElementById('event-form');
+        const detalhesContent = document.getElementById('detalhes-content');
+        const criarEventoBtn = document.getElementById('criar-evento-btn');
+        const eventosGrid = document.getElementById('eventos-grid');
+        let currentEventId = null;
 
-        function saveEvents(events) {
-            localStorage.setItem('rolecerto_events', JSON.stringify(events));
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            renderEventos();
+            setupEventListeners();
+        });
 
-        // Funções para navegação entre páginas
-        function showPage(pageId) {
-            // Limpa parâmetros da URL se não for para detalhes do evento
-            if (pageId !== 'event-detail-page') {
-                window.history.replaceState({}, document.title, window.location.pathname);
-            }
-            
-            // Esconde todas as páginas
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Mostra a página solicitada
-            document.getElementById(pageId).classList.add('active');
-            
-            // Atualiza o menu de navegação
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            if(pageId === 'home-page' || pageId === 'history-page') {
-                const page = pageId.split('-')[0];
-                document.querySelector(`.nav-link[data-page="${page}"]`).classList.add('active');
-            }
-            
-            // Se for a página inicial, carrega os eventos
-            if(pageId === 'home-page') {
-                loadActiveEvents();
-            }
-            
-            // Se for a página de histórico, carrega os eventos passados
-            if(pageId === 'history-page') {
-                loadPastEvents();
-            }
-        }
-        
-        // Verifica se há um parâmetro de evento na URL
-        function checkUrlForEvent() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const eventId = urlParams.get('event');
-            
-            if (eventId) {
-                showEventDetail(eventId);
-            }
-        }
-        
-        // Carregar eventos ativos
-        function loadActiveEvents() {
-            const activeEventsContainer = document.getElementById('active-events');
-            activeEventsContainer.innerHTML = '';
-            
-            const events = getEvents();
-            const today = new Date().toISOString().split('T')[0];
-            
-            // Filtrar eventos ativos (data >= hoje)
-            const activeEvents = events.filter(event => event.date >= today);
-            
-            if (activeEvents.length === 0) {
-                activeEventsContainer.innerHTML = `
-                    <div class="card" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
-                        <i class="fas fa-calendar-plus" style="font-size: 3rem; color: #4361ee; margin-bottom: 20px;"></i>
-                        <h3>Nenhum evento encontrado</h3>
-                        <p>Você ainda não criou nenhum evento. Clique em "Criar Evento" para começar!</p>
-                        <button class="btn btn-primary" style="margin-top: 20px;" onclick="showPage('create-page')">
-                            <i class="fas fa-plus-circle"></i> Criar Primeiro Evento
-                        </button>
-                    </div>
-                `;
-                return;
-            }
-            
-            activeEvents.forEach(event => {
-                const eventDate = new Date(event.date);
-                const formattedDate = eventDate.toLocaleDateString('pt-BR', { 
-                    day: 'numeric', 
-                    month: 'long',
-                    year: 'numeric'
-                });
-                
-                // Determina a cor baseada no tipo de evento
-                let bgClass = '';
-                
-                switch(event.type) {
-                    case 'park':
-                        bgClass = 'park-bg';
-                        break;
-                    case 'trail':
-                        bgClass = 'trail-bg';
-                        break;
-                    case 'bar':
-                        bgClass = 'bar-bg';
-                        break;
-                    case 'trip':
-                        bgClass = 'trip-bg';
-                        break;
-                    case 'other':
-                        bgClass = 'other-bg';
-                        break;
-                }
-                
-                // Formatar data de criação
-                const createdAt = new Date(event.createdAt);
-                const formattedCreatedAt = createdAt.toLocaleString('pt-BR', {
-                    day: 'numeric',
-                    month: 'long',
-                    year: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                }).replace(' ', ' às ');
-                
-                const eventCard = document.createElement('div');
-                eventCard.className = 'card event-card';
-                eventCard.innerHTML = `
-                    <div class="card-header ${bgClass}">
-                        <h3 class="card-title">${event.name}</h3>
-                        <span class="card-badge">${getEventTypeName(event.type)}</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="event-date ${bgClass}">
-                            <div class="event-day">${eventDate.getDate()}</div>
-                            <div class="event-month">${eventDate.toLocaleDateString('pt-BR', { month: 'short' }).toUpperCase()}</div>
-                        </div>
-                        <div class="event-info">
-                            <div class="event-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                ${event.location}
-                            </div>
-                            <div class="event-location">
-                                <i class="fas fa-clock"></i>
-                                ${formattedDate} às ${event.time}
-                            </div>
-                            <div class="event-created">
-                                ${event.organizer} · ${formattedCreatedAt}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-primary" onclick="showEventDetail('${event.id}')">
-                            <i class="fas fa-eye"></i> Detalhes
-                        </button>
-                        <button class="btn btn-whatsapp" onclick="shareEvent('${event.id}')">
-                            <i class="fab fa-whatsapp"></i> Compartilhar
-                        </button>
-                    </div>
-                `;
-                activeEventsContainer.appendChild(eventCard);
-            });
-        }
-        
-        // Carregar eventos passados (histórico)
-        function loadPastEvents() {
-            const pastEventsContainer = document.getElementById('past-events');
-            pastEventsContainer.innerHTML = '';
-            
-            const events = getEvents();
-            const today = new Date().toISOString().split('T')[0];
-            
-            // Filtrar eventos passados (data < hoje)
-            const pastEvents = events.filter(event => event.date < today);
-            
-            if (pastEvents.length === 0) {
-                pastEventsContainer.innerHTML = `
-                    <div class="card" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
-                        <i class="fas fa-history" style="font-size: 3rem; color: #4361ee; margin-bottom: 20px;"></i>
-                        <h3>Nenhum evento no histórico</h3>
-                        <p>Seus eventos passados aparecerão aqui após sua realização.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            pastEvents.forEach(event => {
-                const eventDate = new Date(event.date);
-                const formattedDate = eventDate.toLocaleDateString('pt-BR', { 
-                    day: 'numeric', 
-                    month: 'long',
-                    year: 'numeric'
-                });
-                
-                // Determina a cor baseada no tipo de evento
-                let bgClass = '';
-                
-                switch(event.type) {
-                    case 'park':
-                        bgClass = 'park-bg';
-                        break;
-                    case 'trail':
-                        bgClass = 'trail-bg';
-                        break;
-                    case 'bar':
-                        bgClass = 'bar-bg';
-                        break;
-                    case 'trip':
-                        bgClass = 'trip-bg';
-                        break;
-                    case 'other':
-                        bgClass = 'other-bg';
-                        break;
-                }
-                
-                const eventCard = document.createElement('div');
-                eventCard.className = 'card event-card';
-                eventCard.innerHTML = `
-                    <div class="card-header ${bgClass}">
-                        <h3 class="card-title">${event.name}</h3>
-                        <span class="card-badge">${getEventTypeName(event.type)}</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="event-date ${bgClass}">
-                            <div class="event-day">${eventDate.getDate()}</div>
-                            <div class="event-month">${eventDate.toLocaleDateString('pt-BR', { month: 'short' }).toUpperCase()}</div>
-                        </div>
-                        <div class="event-info">
-                            <div class="event-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                ${event.location}
-                            </div>
-                            <div class="event-location">
-                                <i class="fas fa-clock"></i>
-                                ${formattedDate} às ${event.time}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-primary" onclick="showEventDetail('${event.id}')">
-                            <i class="fas fa-eye"></i> Detalhes
-                        </button>
-                        <button class="btn btn-whatsapp" onclick="shareEvent('${event.id}')">
-                            <i class="fab fa-whatsapp"></i> Compartilhar
-                        </button>
-                    </div>
-                `;
-                pastEventsContainer.appendChild(eventCard);
-            });
-        }
-        
-        // Mostrar detalhes do evento
-        function showEventDetail(eventId) {
-            const events = getEvents();
-            const event = events.find(e => e.id === eventId);
-            
-            if (!event) {
-                showToast('Evento não encontrado!', 'error');
-                showPage('home-page');
-                return;
-            }
-            
-            // Atualiza a URL com o ID do evento
-            window.history.pushState({}, '', `?event=${eventId}`);
-            
-            // Atualiza os detalhes na página
-            document.getElementById('detail-title').textContent = event.name;
-            document.getElementById('detail-type').textContent = getEventTypeName(event.type);
-            document.getElementById('detail-location').textContent = event.location;
-            
-            const eventDate = new Date(event.date);
-            document.getElementById('detail-date').textContent = eventDate.toLocaleDateString('pt-BR', { 
-                day: 'numeric', 
-                month: 'long',
-                year: 'numeric'
-            });
-            
-            document.getElementById('detail-time').textContent = `${event.time}`;
-            document.getElementById('detail-organizer').textContent = event.organizer || 'Você';
-            document.getElementById('detail-description').innerHTML = `<p>${event.description}</p>`;
-            
-            // Atualiza o cabeçalho com a cor do tipo de evento
-            const eventHeader = document.getElementById('event-header');
-            eventHeader.className = 'event-header';
-            
-            // Adiciona classe de cor baseada no tipo
-            switch(event.type) {
-                case 'park':
-                    eventHeader.classList.add('park-bg');
-                    break;
-                case 'trail':
-                    eventHeader.classList.add('trail-bg');
-                    break;
-                case 'bar':
-                    eventHeader.classList.add('bar-bg');
-                    break;
-                case 'trip':
-                    eventHeader.classList.add('trip-bg');
-                    break;
-                case 'other':
-                    eventHeader.classList.add('other-bg');
-                    break;
-            }
-            
-            // Atualiza o tipo de evento com a cor
-            const eventTypeEl = document.getElementById('detail-type');
-            eventTypeEl.className = 'event-type-large';
-            eventTypeEl.classList.add(`${event.type}-bg`);
-            
-            // Atualiza participantes
-            updateParticipantsList(event);
-            
-            // Configura o botão de compartilhar
-            document.getElementById('share-btn').onclick = () => shareEvent(eventId);
-            
-            // Configura o botão de editar
-            document.getElementById('edit-btn').onclick = () => editEvent(eventId);
-            
-            // Configura o botão de excluir
-            document.getElementById('delete-btn').onclick = () => deleteEvent(eventId);
-            
-            // Configura botões de confirmação de presença
-            setupAttendanceButtons(eventId);
-            
-            // Verifica se o usuário já respondeu
-            checkUserResponse(eventId);
-            
-            // Mostra a página de detalhes
-            showPage('event-detail-page');
-        }
-        
-        // Atualizar lista de participantes
-        function updateParticipantsList(event) {
-            // Limpar listas atuais
-            document.getElementById('confirmed-list').innerHTML = '';
-            document.getElementById('pending-list').innerHTML = '';
-            document.getElementById('declined-list').innerHTML = '';
-            
-            // Contadores
-            let confirmedCount = 0;
-            let pendingCount = 0;
-            let declinedCount = 0;
-            
-            // Preencher listas
-            if (event.participants) {
-                event.participants.forEach(participant => {
-                    const listItem = document.createElement('li');
-                    listItem.innerHTML = `
-                        <div class="participant-avatar">${participant.initials}</div>
-                        <span>${participant.name}</span>
-                    `;
+        function setupEventListeners() {
+            // Navegação - ambos os botões permanecem ativos
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetPage = button.getAttribute('data-page');
                     
-                    if (participant.status === 'confirmed') {
-                        confirmedCount++;
-                        document.getElementById('confirmed-list').appendChild(listItem);
-                    } else if (participant.status === 'pending') {
-                        pendingCount++;
-                        document.getElementById('pending-list').appendChild(listItem);
-                    } else if (participant.status === 'declined') {
-                        declinedCount++;
-                        document.getElementById('declined-list').appendChild(listItem);
+                    // Não removemos mais a classe active dos botões
+                    pages.forEach(page => page.classList.remove('active'));
+                    document.getElementById(targetPage).classList.add('active');
+                });
+            });
+
+            criarEventoBtn.addEventListener('click', () => {
+                pages.forEach(page => page.classList.remove('active'));
+                document.getElementById('criar').classList.add('active');
+            });
+
+            eventForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const newId = Math.max(...Object.keys(eventosData).map(Number)) + 1;
+                
+                const novoEvento = {
+                    id: newId,
+                    titulo: document.getElementById('event-name').value,
+                    tipo: document.getElementById('event-type').value,
+                    data: document.getElementById('event-date').value,
+                    hora: document.getElementById('event-time').value,
+                    local: document.getElementById('event-location').value,
+                    descricao: document.getElementById('event-description').value,
+                    criador: "Você",
+                    criadoEm: new Date().toLocaleString('pt-BR', { 
+                        day: 'numeric', 
+                        month: 'long', 
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    }),
+                    participantes: []
+                };
+                
+                eventosData[newId] = novoEvento;
+                renderEventos();
+                alert('Evento criado com sucesso!');
+                this.reset();
+                pages.forEach(page => page.classList.remove('active'));
+                document.getElementById('eventos').classList.add('active');
+            });
+        }
+
+        function renderEventos() {
+            eventosGrid.innerHTML = '';
+            
+            Object.values(eventosData).forEach(evento => {
+                const dataObj = new Date(evento.data);
+                const day = dataObj.getDate();
+                const month = dataObj.toLocaleString('pt-BR', { month: 'short' }).toUpperCase();
+                
+                const eventCard = document.createElement('div');
+                eventCard.className = 'event-card';
+                eventCard.innerHTML = `
+                    <div class="card-header categoria-${evento.tipo}">
+                        <div class="event-title">${evento.titulo}</div>
+                        <div class="event-badge">${formatarTipo(evento.tipo)}</div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="date-container">
+                            <div class="date-circle">
+                                <div class="day">${day}</div>
+                                <div class="month">${month}</div>
+                            </div>
+                            <div class="date-info">
+                                <div class="event-date">${formatarDataCompleta(evento.data)}</div>
+                                <div class="event-time">${evento.hora}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="event-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="event-detail">
+                                <strong>Local:</strong> ${evento.local}
+                            </div>
+                        </div>
+                        
+                        <div class="event-info">
+                            <i class="fas fa-info-circle"></i>
+                            <div class="event-detail">
+                                <strong>Descrição:</strong> ${evento.descricao.substring(0, 100)}${evento.descricao.length > 100 ? '...' : ''}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="card-btn details-btn" data-id="${evento.id}">
+                            <i class="fas fa-eye"></i> Detalhes
+                        </button>
+                        <button class="card-btn share-btn" data-id="${evento.id}">
+                            <i class="fas fa-share-alt"></i> Compartilhar
+                        </button>
+                    </div>
+                `;
+                
+                eventosGrid.appendChild(eventCard);
+            });
+            
+            document.querySelectorAll('.details-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const eventId = this.getAttribute('data-id');
+                    showEventDetails(eventId);
+                });
+            });
+            
+            document.querySelectorAll('.share-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const eventId = this.getAttribute('data-id');
+                    shareEvent(eventId);
+                });
+            });
+        }
+
+        function shareEvent(eventId) {
+            const evento = eventosData[eventId];
+            if (!evento) return;
+            
+            const currentUrl = new URL(window.location.href);
+            currentUrl.searchParams.set('evento', eventId);
+            const eventUrl = currentUrl.toString();
+            
+            const mensagem = `Confira este evento no Rolê Certo:\n\n` +
+                             `*${evento.titulo}*\n\n` +
+                             `📅 *Data:* ${formatarDataCompleta(evento.data)}\n` +
+                             `⏰ *Hora:* ${evento.hora}\n` +
+                             `📍 *Local:* ${evento.local}\n\n` +
+                             `🔗 *Link para detalhes:* ${eventUrl}`;
+            
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(mensagem)}`;
+            window.open(whatsappUrl, '_blank', 'width=600,height=500');
+        }
+
+        function showEventDetails(eventId) {
+            currentEventId = eventId;
+            const evento = eventosData[eventId];
+            if (!evento) return;
+            
+            const participantes = {
+                confirmado: evento.participantes.filter(p => p.status === 'confirmado'),
+                pendente: evento.participantes.filter(p => p.status === 'pendente'),
+                recusado: evento.participantes.filter(p => p.status === 'recusado')
+            };
+            
+            detalhesContent.innerHTML = `
+                <div class="detalhes-header">
+                    <h2 class="detalhes-titulo">${evento.titulo}</h2>
+                    <div class="detalhes-badge">${formatarTipo(evento.tipo)}</div>
+                </div>
+                
+                <div class="detalhes-info">
+                    <div class="info-item">
+                        <i class="fas fa-calendar-day info-icon"></i>
+                        <div class="info-text">
+                            <h3>Data e Hora</h3>
+                            <p>${formatarDataCompleta(evento.data)} às ${evento.hora}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt info-icon"></i>
+                        <div class="info-text">
+                            <h3>Local</h3>
+                            <p>${evento.local}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-user info-icon"></i>
+                        <div class="info-text">
+                            <h3>Criador</h3>
+                            <p>${evento.criador} - ${evento.criadoEm}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-info-circle info-icon"></i>
+                    <div class="info-text">
+                        <h3>Descrição</h3>
+                        <p>${evento.descricao}</p>
+                    </div>
+                </div>
+                
+                <div class="presenca-section">
+                    <h3 class="presenca-title">Confirmar sua presença</h3>
+                    <input type="text" class="input-nome" placeholder="Seu nome completo" id="nome-participante">
+                    <div class="opcoes-presenca">
+                        <button class="btn-presenca btn-confirmar" data-status="confirmado">
+                            <i class="fas fa-check"></i> Confirmar
+                        </button>
+                        <button class="btn-presenca btn-talvez" data-status="pendente">
+                            <i class="fas fa-question"></i> Talvez
+                        </button>
+                        <button class="btn-presenca btn-recusar" data-status="recusado">
+                            <i class="fas fa-times"></i> Não poderei
+                        </button>
+                    </div>
+                    <div class="feedback" id="feedback"></div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <h3 style="margin-bottom: 15px; color: #4A00E0;">Participantes</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <div style="background: rgba(76, 175, 80, 0.1); padding: 15px; border-radius: 10px;">
+                            <h4 style="color: var(--verde); margin-bottom: 10px;">Confirmados (${participantes.confirmado.length})</h4>
+                            <ul style="padding-left: 20px;">
+                                ${participantes.confirmado.map(p => `<li>${p.nome}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div style="background: rgba(255, 152, 0, 0.1); padding: 15px; border-radius: 10px;">
+                            <h4 style="color: var(--laranja); margin-bottom: 10px;">Pendentes (${participantes.pendente.length})</h4>
+                            <ul style="padding-left: 20px;">
+                                ${participantes.pendente.map(p => `<li>${p.nome}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div style="background: rgba(156, 39, 176, 0.1); padding: 15px; border-radius: 10px;">
+                            <h4 style="color: var(--roxo); margin-bottom: 10px;">Recusados (${participantes.recusado.length})</h4>
+                            <ul style="padding-left: 20px;">
+                                ${participantes.recusado.map(p => `<li>${p.nome}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="acoes-container">
+                    <button class="btn-acao btn-voltar" id="back-to-events">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                    ${evento.criador === "Você" ? `
+                    <button class="btn-acao btn-editar" id="editar-evento" data-id="${evento.id}">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn-acao btn-excluir" id="excluir-evento" data-id="${evento.id}">
+                        <i class="fas fa-trash"></i> Excluir
+                    </button>
+                    ` : ''}
+                </div>
+            `;
+            
+            document.querySelectorAll('.btn-presenca').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const status = this.dataset.status;
+                    const nomeInput = document.getElementById('nome-participante');
+                    const nome = nomeInput.value.trim();
+                    
+                    if (!nome) {
+                        alert('Por favor, informe seu nome');
+                        return;
+                    }
+                    
+                    const evento = eventosData[currentEventId];
+                    const participanteExistente = evento.participantes.find(p => p.nome === nome);
+                    
+                    if (participanteExistente) {
+                        participanteExistente.status = status;
+                    } else {
+                        evento.participantes.push({ nome, status });
+                    }
+                    
+                    const feedback = document.getElementById('feedback');
+                    feedback.textContent = `Sua presença foi registrada como: ${formatarStatus(status)}`;
+                    feedback.className = `feedback feedback-${status} ativo`;
+                    showEventDetails(currentEventId);
+                    nomeInput.value = '';
+                });
+            });
+            
+            document.getElementById('back-to-events').addEventListener('click', () => {
+                pages.forEach(page => page.classList.remove('active'));
+                document.getElementById('eventos').classList.add('active');
+                renderEventos();
+            });
+            
+            if (document.getElementById('editar-evento')) {
+                document.getElementById('editar-evento').addEventListener('click', function() {
+                    const eventId = this.dataset.id;
+                    alert(`Editando evento ID: ${eventId}`);
+                });
+            }
+            
+            if (document.getElementById('excluir-evento')) {
+                document.getElementById('excluir-evento').addEventListener('click', function() {
+                    const eventId = this.dataset.id;
+                    if (confirm('Tem certeza que deseja excluir este evento?')) {
+                        delete eventosData[eventId];
+                        alert(`Evento ID: ${eventId} excluído com sucesso!`);
+                        pages.forEach(page => page.classList.remove('active'));
+                        document.getElementById('eventos').classList.add('active');
+                        renderEventos();
                     }
                 });
             }
             
-            // Se não houver participantes em uma categoria, exibe uma mensagem
-            if (confirmedCount === 0) {
-                document.getElementById('confirmed-list').innerHTML = '<li>Nenhum participante confirmado</li>';
-            }
-            if (pendingCount === 0) {
-                document.getElementById('pending-list').innerHTML = '<li>Nenhum participante pendente</li>';
-            }
-            if (declinedCount === 0) {
-                document.getElementById('declined-list').innerHTML = '<li>Nenhum participante recusado</li>';
-            }
-            
-            // Atualizar contadores nos títulos
-            document.getElementById('confirmed-count').textContent = confirmedCount;
-            document.getElementById('pending-count').textContent = pendingCount;
-            document.getElementById('declined-count').textContent = declinedCount;
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById('detalhes').classList.add('active');
         }
-        
-        // Configurar botões de confirmação de presença
-        function setupAttendanceButtons(eventId) {
-            document.getElementById('confirm-btn').onclick = () => saveAttendance(eventId, 'confirmed');
-            document.getElementById('maybe-btn').onclick = () => saveAttendance(eventId, 'pending');
-            document.getElementById('decline-btn').onclick = () => saveAttendance(eventId, 'declined');
-        }
-        
-        // Verificar se o usuário já respondeu
-        function checkUserResponse(eventId) {
-            const events = getEvents();
-            const event = events.find(e => e.id === eventId);
-            const userName = localStorage.getItem(`response_${eventId}`);
-            
-            if (userName && event && event.participants) {
-                const userResponse = event.participants.find(p => p.name === userName);
-                if (userResponse) {
-                    showResponseMessage(userResponse.status);
-                    document.getElementById('user-name').value = userName;
-                }
-            }
-        }
-        
-        // Salvar resposta do usuário
-        function saveAttendance(eventId, status) {
-            const userName = document.getElementById('user-name').value.trim();
-            
-            if (!userName) {
-                showToast('Por favor, digite seu nome', 'error');
-                return;
-            }
-            
-            const events = getEvents();
-            const eventIndex = events.findIndex(e => e.id === eventId);
-            
-            if (eventIndex === -1) {
-                showToast('Evento não encontrado!', 'error');
-                return;
-            }
-            
-            const event = events[eventIndex];
-            
-            // Gerar iniciais
-            const initials = userName.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
-            
-            // Criar ou atualizar participante
-            if (!event.participants) event.participants = [];
-            
-            const participantIndex = event.participants.findIndex(p => p.name === userName);
-            
-            if (participantIndex !== -1) {
-                // Atualizar participante existente
-                event.participants[participantIndex] = {
-                    ...event.participants[participantIndex],
-                    status: status
-                };
-            } else {
-                // Adicionar novo participante
-                event.participants.push({
-                    id: 'p-' + Date.now(),
-                    name: userName,
-                    initials: initials,
-                    status: status
-                });
-            }
-            
-            // Salvar eventos
-            events[eventIndex] = event;
-            saveEvents(events);
-            
-            // Atualizar lista de participantes
-            updateParticipantsList(event);
-            
-            // Mostrar mensagem de confirmação
-            showResponseMessage(status);
-            
-            // Salvar resposta no localStorage
-            localStorage.setItem(`response_${eventId}`, userName);
-        }
-        
-        // Mostrar mensagem de resposta
-        function showResponseMessage(status) {
-            const responseMessage = document.getElementById('attendance-response');
-            const statusElement = document.getElementById('response-status');
-            
-            let statusText = '';
-            let statusClass = '';
-            
-            switch(status) {
-                case 'confirmed':
-                    statusText = 'Confirmado';
-                    statusClass = 'confirmed';
-                    break;
-                case 'pending':
-                    statusText = 'Talvez';
-                    statusClass = 'pending';
-                    break;
-                case 'declined':
-                    statusText = 'Não poderei';
-                    statusClass = 'declined';
-                    break;
-            }
-            
-            statusElement.textContent = statusText;
-            statusElement.className = statusClass;
-            responseMessage.classList.add('show');
-        }
-        
-        // Editar evento
-        function editEvent(eventId) {
-            const events = getEvents();
-            const event = events.find(e => e.id === eventId);
-            
-            if (!event) {
-                showToast('Evento não encontrado!', 'error');
-                return;
-            }
-            
-            // Preenche o formulário com os dados do evento
-            document.getElementById('eventId').value = event.id;
-            document.getElementById('eventType').value = event.type;
-            document.getElementById('eventName').value = event.name;
-            document.getElementById('eventLocation').value = event.location;
-            document.getElementById('eventDate').value = event.date;
-            document.getElementById('eventTime').value = event.time;
-            document.getElementById('eventDescription').value = event.description;
-            
-            // Altera o texto do botão para "Atualizar"
-            document.getElementById('save-btn').innerHTML = '<i class="fas fa-save"></i> Atualizar Evento';
-            
-            // Mostra a página de criação/edição
-            showPage('create-page');
-        }
-        
-        // Excluir evento
-        function deleteEvent(eventId) {
-            if(confirm('Tem certeza que deseja excluir este evento?')) {
-                let events = getEvents();
-                events = events.filter(e => e.id !== eventId);
-                saveEvents(events);
-                showToast('Evento excluído com sucesso!', 'success');
-                setTimeout(() => {
-                    showPage('home-page');
-                }, 1500);
-            }
-        }
-        
-        // Compartilhar evento via WhatsApp com link direto
-        function shareEvent(eventId) {
-            const events = getEvents();
-            const event = events.find(e => e.id === eventId);
-            
-            if (!event) {
-                showToast('Evento não encontrado!', 'error');
-                return;
-            }
-            
-            const eventDate = new Date(event.date);
-            const formattedDate = eventDate.toLocaleDateString('pt-BR', { 
-                day: 'numeric', 
-                month: 'long',
-                year: 'numeric'
-            });
-            
-            // Cria um link direto para o evento
-            const eventLink = `${window.location.origin}${window.location.pathname}?event=${eventId}`;
-            
-            const message = encodeURIComponent(
-                `🎉 Você está convidado para: *${event.name}*\n\n` +
-                `📅 *Data:* ${formattedDate}\n` +
-                `⏰ *Horário:* ${event.time}\n` +
-                `📍 *Local:* ${event.location}\n\n` +
-                `🔗 *Confirmar presença:* ${eventLink}\n\n` +
-                `_Enviado pelo Rolê Certo_`
-            );
-            
-            window.open(`https://wa.me/?text=${message}`, '_blank');
-        }
-        
-        // Funções auxiliares
-        function getEventTypeName(type) {
-            const types = {
-                'park': 'Parque',
-                'trail': 'Trilha',
-                'bar': 'Barzinho',
-                'trip': 'Viagem',
-                'other': 'Outros'
+
+        function formatarTipo(tipo) {
+            const tipos = {
+                parque: 'Parque',
+                trilha: 'Trilha',
+                barzinho: 'Barzinho',
+                viagem: 'Viagem',
+                outros: 'Outros'
             };
-            return types[type] || 'Evento';
+            return tipos[tipo] || tipo;
         }
-        
-        function showToast(message, type) {
-            const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toast-message');
-            
-            toastMessage.textContent = message;
-            toast.className = `toast ${type} show`;
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
+
+        function formatarStatus(status) {
+            const statusMap = {
+                confirmado: 'Confirmado',
+                pendente: 'Talvez',
+                recusado: 'Não poderei'
+            };
+            return statusMap[status] || status;
         }
-        
-        // Inicialização otimizada
-        if (document.readyState !== 'loading') {
-            initApp();
-        } else {
-            document.addEventListener('DOMContentLoaded', initApp);
+
+        function formatarDataCompleta(dataString) {
+            const data = new Date(dataString);
+            return data.toLocaleDateString('pt-BR', { 
+                weekday: 'long', 
+                day: 'numeric', 
+                month: 'long', 
+                year: 'numeric' 
+            });
         }
     </script>
 </body>
