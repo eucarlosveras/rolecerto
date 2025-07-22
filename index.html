@@ -1038,12 +1038,17 @@
                 currentUrl.searchParams.set('evento', eventId);
                 const eventUrl = currentUrl.toString();
                 
-                const mensagem = `Evento no Rolê Certo:\n\n
-                    *${evento.titulo}*\n
-                    *Data:* ${formatarDataCompleta(evento.data)}\n
-                    *Hora:* ${evento.hora}\n
-                    *Local:* ${evento.local}\n\n
-                    *Clique aqui para saber mais e confirmar presença:* ${eventUrl}`;
+               const mensagem = [
+                      '📣 *Evento no Rolê Certo!*',
+                      '',
+                      `🎉 *${evento.titulo}*`,
+                      '',
+                      `📅 *Data:* ${formatarDataCompleta(evento.data)}`,
+                      `⏰ *Hora:* ${evento.hora}`,
+                      `📍 *Local:* ${evento.local}`,
+                      '',
+                      `🔗 *Confirme sua presença aqui:* ${eventUrl}`
+                    ].join('\n');
 
                 
                 const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(mensagem)}`;
