@@ -92,7 +92,6 @@
             margin-bottom: 25px;
         }
 
-        /* Botões sempre ativos e visíveis */
         .nav-btn {
             background: linear-gradient(135deg, #8E2DE2, #4A00E0);
             border: none;
@@ -614,16 +613,16 @@
             .logo-sub {
                 font-size: 1.1rem;
             }
+            
+            .card-footer {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
 
         @media (max-width: 480px) {
             .grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .card-footer {
-                flex-direction: column;
-                gap: 10px;
             }
             
             .detalhes-container, .form-container {
@@ -676,7 +675,8 @@
         </div>
 
         <div id="historico" class="page">
-            <div style="text-align: center; padding: 30px; background: white; border-radius: 16px; box-shadow: var(--sombra-card);">
+            <div class="grid" id="historico-grid"></div>
+            <div id="historico-vazio" style="text-align: center; padding: 30px; background: white; border-radius: 16px; box-shadow: var(--sombra-card);">
                 <h2 style="color: #4A00E0; margin-bottom: 20px;">Histórico de Eventos</h2>
                 <p>Nenhum evento histórico disponível no momento.</p>
             </div>
@@ -684,7 +684,7 @@
 
         <div id="criar" class="page">
             <div class="form-container">
-                <h2 style="text-align: center; margin-bottom: 25px; color: #4A00E0;">Criar Novo Evento</h2>
+                <h2 style="text-align: center; margin-bottom: 25px; color: #4A00E0;" id="form-title">Criar Novo Evento</h2>
                 <form id="event-form">
                     <div class="form-group">
                         <label class="form-label" for="event-type">Tipo de Evento</label>
@@ -698,6 +698,11 @@
                         </select>
                     </div>
                     
+                    <div class="form-group">
+                        <label class="form-label" for="event-creator">Seu Nome</label>
+                        <input type="text" class="form-input" id="event-creator" placeholder="Ex: Maria Silva" required>
+                    </div>
+
                     <div class="form-group">
                         <label class="form-label" for="event-name">Nome do Evento</label>
                         <input type="text" class="form-input" id="event-name" placeholder="Ex: Piquenique no Parque" required>
@@ -725,7 +730,7 @@
                         <textarea class="form-textarea" id="event-description" placeholder="Detalhes sobre o evento..."></textarea>
                     </div>
                     
-                    <button type="submit" class="btn-submit">
+                    <button type="submit" class="btn-submit" id="submit-btn">
                         <i class="fas fa-plus-circle"></i> Criar Evento
                     </button>
                 </form>
@@ -773,6 +778,10 @@
         const detalhesContent = document.getElementById('detalhes-content');
         const criarEventoBtn = document.getElementById('criar-evento-btn');
         const eventosGrid = document.getElementById('eventos-grid');
+        const historicoGrid = document.getElementById('historico-grid');
+        const historicoVazio = document.getElementById('historico-vazio');
+        const formTitle = document.getElementById('form-title');
+        const submitBtn = document.getElementById('submit-btn');
         let currentEventId = null;
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -788,10 +797,21 @@
                     
                     pages.forEach(page => page.classList.remove('active'));
                     document.getElementById(targetPage).classList.add('active');
+                    
+                    // Se voltando para eventos, atualizar a lista
+                    if (targetPage === 'eventos' || targetPage === 'historico') {
+                        renderEventos();
+                    }
                 });
             });
 
             criarEventoBtn.addEventListener('click', () => {
+                // Resetar formulário ao abrir
+                eventForm.reset();
+                eventForm.dataset.editing = '';
+                formTitle.textContent = 'Criar Novo Evento';
+                submitBtn.innerHTML = '<i class="fas fa-plus-circle"></i> Criar Evento';
+                
                 pages.forEach(page => page.classList.remove('active'));
                 document.getElementById('criar').classList.add('active');
             });
@@ -799,62 +819,67 @@
             eventForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // Criar novo evento
-                const novoEvento = {
+                const isEditing = this.dataset.editing;
+                const eventData = {
                     titulo: document.getElementById('event-name').value,
                     tipo: document.getElementById('event-type').value,
                     data: document.getElementById('event-date').value,
                     hora: document.getElementById('event-time').value,
                     local: document.getElementById('event-location').value,
                     descricao: document.getElementById('event-description').value,
-                    criador: "Você",
-                    criadoEm: new Date().toLocaleString('pt-BR', { 
+                    criador: document.getElementById("event-creator").value,
+                };
+                
+                if (isEditing) {
+                    // Atualizar evento existente
+                    eventosRef.child(isEditing).update(eventData)
+                        .then(() => {
+                            alert('Evento atualizado com sucesso!');
+                            delete this.dataset.editing;
+                            this.reset();
+                            pages.forEach(page => page.classList.remove('active'));
+                            document.getElementById('eventos').classList.add('active');
+                            renderEventos();
+                            
+                            // Restaurar texto do botão
+                            submitBtn.innerHTML = '<i class="fas fa-plus-circle"></i> Criar Evento';
+                            formTitle.textContent = 'Criar Novo Evento';
+                        })
+                        .catch(error => {
+                            console.error('Erro ao atualizar evento:', error);
+                            alert('Ocorreu um erro ao atualizar o evento. Tente novamente.');
+                        });
+                } else {
+                    // Criar novo evento
+                    eventData.criadoEm = new Date().toLocaleString('pt-BR', { 
                         day: 'numeric', 
                         month: 'long', 
                         year: 'numeric',
                         hour: '2-digit',
                         minute: '2-digit'
-                    }),
-                    participantes: []
-                };
-                
-                // Salvar evento no Firebase
-                eventosRef.push(novoEvento)
-                    .then(() => {
-                        alert('Evento criado com sucesso!');
-                        eventForm.reset();
-                        pages.forEach(page => page.classList.remove('active'));
-                        document.getElementById('eventos').classList.add('active');
-                    })
-                    .catch(error => {
-                        console.error('Erro ao criar evento:', error);
-                        alert('Ocorreu um erro ao criar o evento. Tente novamente.');
                     });
-            });
-        }
-
-        // Ler eventos do Firebase para exibição
-        function renderEventos() {
-            eventosGrid.innerHTML = '<div class="loading"><div class="loading-spinner"></div></div>';
-            
-            eventosRef.once('value').then(function(snapshot) {
-                eventosGrid.innerHTML = '';
-                
-                const eventos = snapshot.val();
-                if (eventos) {
-                    Object.keys(eventos).forEach(eventoId => {
-                        const evento = eventos[eventoId];
-                        evento.id = eventoId;
-                        createEventCard(evento);
-                    });
-                } else {
-                    eventosGrid.innerHTML = '<p style="text-align: center; padding: 30px;">Nenhum evento encontrado.</p>';
+                    eventData.participantes = [];
+                    
+                    // Salvar evento no Firebase
+                    eventosRef.push(eventData)
+                        .then(() => {
+                            alert('Evento criado com sucesso!');
+                            this.reset();
+                            pages.forEach(page => page.classList.remove('active'));
+                            document.getElementById('eventos').classList.add('active');
+                        })
+                        .catch(error => {
+                            console.error('Erro ao criar evento:', error);
+                            alert('Ocorreu um erro ao criar o evento. Tente novamente.');
+                        });
                 }
             });
         }
 
-        function createEventCard(evento) {
-            const dataObj = new Date(evento.data);
+        // Função para criar o elemento DOM do card de evento
+        function createEventCardNode(evento) {
+            const [ano, mes, dia] = evento.data.split('-');
+            const dataObj = new Date(Number(ano), Number(mes) - 1, Number(dia));
             const day = dataObj.getDate();
             const month = dataObj.toLocaleString('pt-BR', { month: 'short' }).toUpperCase();
             
@@ -903,8 +928,6 @@
                 </div>
             `;
             
-            eventosGrid.appendChild(eventCard);
-            
             // Adicionar event listeners aos botões
             eventCard.querySelector('.details-btn').addEventListener('click', function() {
                 showEventDetails(evento.id);
@@ -912,6 +935,97 @@
             
             eventCard.querySelector('.share-btn').addEventListener('click', function() {
                 shareEvent(evento.id);
+            });
+            
+            return eventCard;
+        }
+
+        // Função para editar um evento
+        function editEvent(eventId) {
+            eventosRef.child(eventId).once('value').then(snapshot => {
+                const evento = snapshot.val();
+                if (!evento) return;
+                
+                // Preencher o formulário com os dados do evento
+                document.getElementById('event-type').value = evento.tipo;
+                document.getElementById('event-name').value = evento.titulo;
+                document.getElementById('event-location').value = evento.local;
+                document.getElementById('event-date').value = evento.data;
+                document.getElementById('event-time').value = evento.hora;
+                document.getElementById('event-description').value = evento.descricao;
+                document.getElementById('event-creator').value = evento.criador;
+                
+                // Armazenar o ID do evento sendo editado
+                eventForm.dataset.editing = eventId;
+                
+                // Mudar o título e botão do formulário
+                formTitle.textContent = 'Editar Evento';
+                submitBtn.innerHTML = '<i class="fas fa-save"></i> Atualizar Evento';
+                
+                // Ir para a página de criação/edição
+                pages.forEach(page => page.classList.remove('active'));
+                document.getElementById('criar').classList.add('active');
+            });
+        }
+
+        // Função para excluir um evento
+        function deleteEvent(eventId) {
+            if (confirm('Tem certeza que deseja excluir este evento? Esta ação não pode ser desfeita.')) {
+                eventosRef.child(eventId).remove()
+                    .then(() => {
+                        alert('Evento excluído com sucesso!');
+                        pages.forEach(page => page.classList.remove('active'));
+                        document.getElementById('eventos').classList.add('active');
+                        renderEventos();
+                    })
+                    .catch(error => {
+                        console.error('Erro ao excluir evento:', error);
+                        alert('Ocorreu um erro ao excluir o evento. Tente novamente.');
+                    });
+            }
+        }
+
+        // Ler eventos do Firebase para exibição
+        function renderEventos() {
+            eventosGrid.innerHTML = '<div class="loading"><div class="loading-spinner"></div></div>';
+            historicoGrid.innerHTML = '';
+            
+            eventosRef.on('value', function(snapshot) {
+                eventosGrid.innerHTML = '';
+                historicoGrid.innerHTML = '';
+                
+                const eventos = snapshot.val();
+                let temHistorico = false;
+                
+                if (eventos) {
+                    const hoje = new Date();
+                    hoje.setHours(0, 0, 0, 0); // Resetar horas para comparar apenas a data
+                    
+                    Object.keys(eventos).forEach(eventoId => {
+                        const evento = eventos[eventoId];
+                        evento.id = eventoId;
+                        
+                        const [ano, mes, dia] = evento.data.split('-');
+                        const dataEvento = new Date(ano, mes - 1, dia);
+                        
+                        const card = createEventCardNode(evento);
+                        
+                        if (dataEvento >= hoje) {
+                            eventosGrid.appendChild(card);
+                        } else {
+                            historicoGrid.appendChild(card);
+                            temHistorico = true;
+                        }
+                    });
+                }
+                
+                // Mostrar mensagem se não houver eventos ativos
+                if (!eventosGrid.hasChildNodes()) {
+                    eventosGrid.innerHTML = '<p style="text-align: center; padding: 30px;">Nenhum evento ativo encontrado.</p>';
+                }
+                
+                // Mostrar/ocultar mensagem de histórico vazio
+                historicoVazio.style.display = temHistorico ? 'none' : 'block';
             });
         }
 
@@ -1038,14 +1152,12 @@
                         <button class="btn-acao btn-voltar" id="back-to-events">
                             <i class="fas fa-arrow-left"></i> Voltar
                         </button>
-                        ${evento.criador === "Você" ? `
                         <button class="btn-acao btn-editar" id="editar-evento" data-id="${eventId}">
                             <i class="fas fa-edit"></i> Editar
                         </button>
                         <button class="btn-acao btn-excluir" id="excluir-evento" data-id="${eventId}">
                             <i class="fas fa-trash"></i> Excluir
                         </button>
-                        ` : ''}
                     </div>
                 `;
                 
@@ -1099,33 +1211,17 @@
                     renderEventos();
                 });
                 
-                // Botão editar (se o usuário for o criador)
-                if (document.getElementById('editar-evento')) {
-                    document.getElementById('editar-evento').addEventListener('click', function() {
-                        const eventId = this.dataset.id;
-                        alert(`Editando evento ID: ${eventId}`);
-                    });
-                }
+                // Botão editar
+                document.getElementById('editar-evento').addEventListener('click', function() {
+                    const eventId = this.dataset.id;
+                    editEvent(eventId);
+                });
                 
-                // Botão excluir (se o usuário for o criador)
-                if (document.getElementById('excluir-evento')) {
-                    document.getElementById('excluir-evento').addEventListener('click', function() {
-                        const eventId = this.dataset.id;
-                        if (confirm('Tem certeza que deseja excluir este evento?')) {
-                            eventosRef.child(eventId).remove()
-                                .then(() => {
-                                    alert(`Evento excluído com sucesso!`);
-                                    pages.forEach(page => page.classList.remove('active'));
-                                    document.getElementById('eventos').classList.add('active');
-                                    renderEventos();
-                                })
-                                .catch(error => {
-                                    console.error('Erro ao excluir evento:', error);
-                                    alert('Ocorreu um erro ao excluir o evento. Tente novamente.');
-                                });
-                        }
-                    });
-                }
+                // Botão excluir
+                document.getElementById('excluir-evento').addEventListener('click', function() {
+                    const eventId = this.dataset.id;
+                    deleteEvent(eventId);
+                });
                 
                 pages.forEach(page => page.classList.remove('active'));
                 document.getElementById('detalhes').classList.add('active');
@@ -1153,12 +1249,13 @@
         }
 
         function formatarDataCompleta(dataString) {
-            const data = new Date(dataString);
-            return data.toLocaleDateString('pt-BR', { 
-                weekday: 'long', 
-                day: 'numeric', 
-                month: 'long', 
-                year: 'numeric' 
+            const [ano, mes, dia] = dataString.split('-');
+            const data = new Date(Number(ano), Number(mes) - 1, Number(dia));
+            return data.toLocaleDateString('pt-BR', {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
             });
         }
     </script>
