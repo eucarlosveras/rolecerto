@@ -879,7 +879,7 @@
         // Função para criar o elemento DOM do card de evento
         function createEventCardNode(evento) {
             const [ano, mes, dia] = evento.data.split('-');
-            const dataObj = new Date(Number(ano), Number(mes) - 1, Number(dia));
+            const dataObj = new Date(ano, mes - 1, dia);
             const day = dataObj.getDate();
             const month = dataObj.toLocaleString('pt-BR', { month: 'short' }).toUpperCase();
             
@@ -1005,11 +1005,13 @@
                         const evento = eventos[eventoId];
                         evento.id = eventoId;
                         
+                        // Corrigir a criação da data
                         const [ano, mes, dia] = evento.data.split('-');
                         const dataEvento = new Date(ano, mes - 1, dia);
                         
                         const card = createEventCardNode(evento);
                         
+                        // Comparar apenas a parte da data (sem horas)
                         if (dataEvento >= hoje) {
                             eventosGrid.appendChild(card);
                         } else {
@@ -1038,25 +1040,26 @@
                 currentUrl.searchParams.set('evento', eventId);
                 const eventUrl = currentUrl.toString();
                 
-              const eventUrl = `https://eucarlosveras.github.io/rolecerto/detalhes.html?evento=${evento.id}`;
-
-const mensagem = [
-  '*Evento no Rolê Certo!*',
-  '',
-  `*${evento.titulo}*`,
-  '',
-  `- Data: ${formatarDataCompleta(evento.data)}`,
-  `- Hora: ${evento.hora}`,
-  `- Local: ${evento.local}`,
-  '',
-  `_${evento.descricao}_`,
-  '',
-  `*Confirme sua presença aqui:* ${eventUrl}`
-].join('\n');
-
-const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(mensagem)}`;
-window.open(whatsappUrl, '_blank', 'width=600,height=500');
-
+                // Tenta usar a API de compartilhamento se disponível
+                if (navigator.share) {
+                    navigator.share({
+                        title: evento.titulo,
+                        text: `Confirme sua presença no evento: ${evento.titulo}`,
+                        url: eventUrl
+                    }).catch(console.error);
+                } else {
+                    // Fallback: copiar para a área de transferência
+                    navigator.clipboard.writeText(eventUrl).then(() => {
+                        alert('Link copiado para a área de transferência!');
+                    }).catch(err => {
+                        console.error('Erro ao copiar link: ', err);
+                        prompt('Copie o link:', eventUrl);
+                    });
+                }
+            }).catch(error => {
+                console.error('Erro ao compartilhar evento:', error);
+                alert('Ocorreu um erro ao compartilhar o evento.');
+            });
         }
 
         function showEventDetails(eventId) {
@@ -1259,7 +1262,7 @@ window.open(whatsappUrl, '_blank', 'width=600,height=500');
 
         function formatarDataCompleta(dataString) {
             const [ano, mes, dia] = dataString.split('-');
-            const data = new Date(Number(ano), Number(mes) - 1, Number(dia));
+            const data = new Date(ano, mes - 1, dia);
             return data.toLocaleDateString('pt-BR', {
                 weekday: 'long',
                 day: 'numeric',
