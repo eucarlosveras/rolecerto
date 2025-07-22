@@ -1038,25 +1038,25 @@
                 currentUrl.searchParams.set('evento', eventId);
                 const eventUrl = currentUrl.toString();
                 
-               const mensagem = [
-                      ' *Evento no Rolê Certo!*',
-                      '',
-                      ` *${evento.titulo}*`,
-                      '',
-                      ` *- Data:* ${formatarDataCompleta(evento.data)}`,
-                      ` *- Hora:* ${evento.hora}`,
-                      ` *- Local:* ${evento.local}`,
-                      '',
-                     `_${evento.descricao}_`,
-                      '',
+              const eventUrl = `https://eucarlosveras.github.io/rolecerto/detalhes.html?evento=${evento.id}`;
 
-                      ` *Confirme sua presença aqui:* ${eventUrl}`
-                    ].join('\n');
+const mensagem = [
+  '*Evento no Rolê Certo!*',
+  '',
+  `*${evento.titulo}*`,
+  '',
+  `- Data: ${formatarDataCompleta(evento.data)}`,
+  `- Hora: ${evento.hora}`,
+  `- Local: ${evento.local}`,
+  '',
+  `_${evento.descricao}_`,
+  '',
+  `*Confirme sua presença aqui:* ${eventUrl}`
+].join('\n');
 
-                
-                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(mensagem)}`;
-                window.open(whatsappUrl, '_blank', 'width=600,height=500');
-            });
+const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(mensagem)}`;
+window.open(whatsappUrl, '_blank', 'width=600,height=500');
+
         }
 
         function showEventDetails(eventId) {
