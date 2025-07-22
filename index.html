@@ -1031,31 +1031,36 @@
             });
         }
 
+        // Função para compartilhar evento via WhatsApp
         function shareEvent(eventId) {
             eventosRef.child(eventId).once('value').then(snapshot => {
                 const evento = snapshot.val();
                 if (!evento) return;
                 
-                const currentUrl = new URL(window.location.href);
-                currentUrl.searchParams.set('evento', eventId);
-                const eventUrl = currentUrl.toString();
+                // Construir URL de detalhes do evento
+                const eventUrl = `https://eucarlosveras.github.io/rolecerto/detalhes.html?evento=${eventId}`;
+
+                // Construir mensagem formatada para WhatsApp
+                const mensagem = [
+                    `*Evento no Rolê Certo!*`,
+                    ``,
+                    `*${evento.titulo}*`,
+                    ``,
+                    `- Data: ${formatarDataCompleta(evento.data)}`,
+                    `- Hora: ${evento.hora}`,
+                    `- Local: ${evento.local}`,
+                    ``,
+                    `_${evento.descricao}_`,
+                    ``,
+                    `*Confirme sua presença aqui:* ${eventUrl}`
+                ].join('\n');
+
+                // Gerar URL para WhatsApp
+                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(mensagem)}`;
                 
-                // Tenta usar a API de compartilhamento se disponível
-                if (navigator.share) {
-                    navigator.share({
-                        title: evento.titulo,
-                        text: `Confirme sua presença no evento: ${evento.titulo}`,
-                        url: eventUrl
-                    }).catch(console.error);
-                } else {
-                    // Fallback: copiar para a área de transferência
-                    navigator.clipboard.writeText(eventUrl).then(() => {
-                        alert('Link copiado para a área de transferência!');
-                    }).catch(err => {
-                        console.error('Erro ao copiar link: ', err);
-                        prompt('Copie o link:', eventUrl);
-                    });
-                }
+                // Abrir WhatsApp em nova aba
+                window.open(whatsappUrl, '_blank');
+                
             }).catch(error => {
                 console.error('Erro ao compartilhar evento:', error);
                 alert('Ocorreu um erro ao compartilhar o evento.');
