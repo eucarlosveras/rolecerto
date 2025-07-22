@@ -1039,15 +1039,18 @@
                 const eventUrl = currentUrl.toString();
                 
                const mensagem = [
-                      '📣 *Evento no Rolê Certo!*',
+                      ' *Evento no Rolê Certo!*',
                       '',
-                      `🎉 *${evento.titulo}*`,
+                      ` *${evento.titulo}*`,
                       '',
-                      `📅 *Data:* ${formatarDataCompleta(evento.data)}`,
-                      `⏰ *Hora:* ${evento.hora}`,
-                      `📍 *Local:* ${evento.local}`,
+                      ` *Data:* ${formatarDataCompleta(evento.data)}`,
+                      ` *Hora:* ${evento.hora}`,
+                      ` *Local:* ${evento.local}`,
                       '',
-                      `🔗 *Confirme sua presença aqui:* ${eventUrl}`
+                     `- Sobre: ${evento.descricao}`,
+                      '',
+
+                      ` *Confirme sua presença aqui:* ${eventUrl}`
                     ].join('\n');
 
                 
