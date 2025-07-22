@@ -787,6 +787,14 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderEventos();
             setupEventListeners();
+            
+            // Verificar se há parâmetro de evento na URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventIdFromUrl = urlParams.get('evento');
+            if (eventIdFromUrl) {
+                // Mostrar os detalhes do evento
+                showEventDetails(eventIdFromUrl);
+            }
         });
 
         function setupEventListeners() {
@@ -1037,8 +1045,9 @@
                 const evento = snapshot.val();
                 if (!evento) return;
                 
-                // Construir URL de detalhes do evento
-                const eventUrl = `https://eucarlosveras.github.io/rolecerto/detalhes.html?evento=${eventId}`;
+                // Construir a URL do evento na própria página
+                const baseUrl = window.location.origin + window.location.pathname;
+                const eventUrl = `${baseUrl}?evento=${eventId}`;
 
                 // Construir mensagem formatada para WhatsApp
                 const mensagem = [
@@ -1226,6 +1235,9 @@
                     pages.forEach(page => page.classList.remove('active'));
                     document.getElementById('eventos').classList.add('active');
                     renderEventos();
+                    
+                    // Limpar parâmetro da URL
+                    window.history.replaceState({}, document.title, window.location.pathname);
                 });
                 
                 // Botão editar
