@@ -857,87 +857,6 @@
         .categoria-cultura .event-badge { background: rgba(0, 150, 136, 0.1); color: #009688; }
         .categoria-natureza .event-badge { background: rgba(121, 85, 72, 0.1); color: #795548; }
 
-        /* Estilos adicionais para o chat */
-        .chat-container {
-            background: var(--branco);
-            border-radius: 16px;
-            box-shadow: var(--sombra-card);
-            padding: 20px;
-            max-width: 800px;
-            margin: 40px auto;
-            display: flex;
-            flex-direction: column;
-        }
-        .chat-messages {
-            height: 400px;
-            overflow-y: auto;
-            padding: 10px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .chat-message {
-            max-width: 80%;
-            padding: 12px;
-            border-radius: 15px;
-        }
-        .chat-message.user {
-            background-color: var(--primary);
-            color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 2px;
-        }
-        .chat-message.ai {
-            background-color: var(--light);
-            color: var(--secondary);
-            align-self: flex-start;
-            border-bottom-left-radius: 2px;
-        }
-        .chat-input-container {
-            display: flex;
-            gap: 10px;
-        }
-        .chat-input {
-            flex: 1;
-            padding: 12px 15px;
-            border: var(--borda);
-            border-radius: 25px;
-            font-size: 1rem;
-            background: var(--light);
-        }
-        .chat-send-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: var(--transicao);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .chat-send-btn:hover {
-            opacity: 0.9;
-        }
-        .chat-loading {
-            text-align: center;
-            padding: 10px;
-            font-style: italic;
-            color: var(--gray);
-        }
-        .chat-loading-spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--primary);
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            animation: spin 1s linear infinite;
-            display: inline-block;
-        }
         /* Responsividade */
         @media (max-width: 900px) {
             .grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
@@ -958,7 +877,6 @@
             .logo-sub { font-size: 0.9rem; }
             .nav-btn { padding: 8px 15px; font-size: 0.9rem; }
             .floating-btn { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 1.5rem; }
-            .chat-message { max-width: 90%; }
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -978,7 +896,6 @@
         </div>
         <div class="nav-container">
             <button id="nav-eventos" class="nav-btn active"><i class="fa-solid fa-calendar-days"></i> Eventos</button>
-            <button id="nav-chat" class="nav-btn"><i class="fa-solid fa-robot"></i> AI Chat</button>
         </div>
     </header>
 
@@ -1000,19 +917,19 @@
                     <p>Fique por dentro das novidades e não perca nada do que está acontecendo por perto.</p>
                 </div>
                 <div id="event-grid" class="grid">
-                    <!-- Cards de eventos serão inseridos aqui via JS -->
+                    <!-- Cards de eventos ser\u00e3o inseridos aqui via JS -->
                 </div>
             </div>
         </div>
 
-        <!-- Página de Detalhes do Evento -->
+        <!-- P\u00e1gina de Detalhes do Evento -->
         <div id="detalhes" class="page">
             <div id="detalhes-content">
-                <!-- Conteúdo dos detalhes será inserido aqui via JS -->
+                <!-- Conte\u00fado dos detalhes ser\u00e1 inserido aqui via JS -->
             </div>
         </div>
 
-        <!-- Página de Adicionar Evento -->
+        <!-- P\u00e1gina de Adicionar Evento -->
         <div id="adicionar" class="page">
             <div class="form-container">
                 <div class="section-header text-left !mb-5">
@@ -1021,7 +938,7 @@
                 </div>
                 <form id="add-event-form">
                     <div class="form-group">
-                        <label for="event-title" class="form-label">Título do Evento</label>
+                        <label for="event-title" class="form-label">T\u00edtulo do Evento</label>
                         <input type="text" id="event-title" class="form-input" required>
                     </div>
                     <div class="form-row">
@@ -1030,52 +947,33 @@
                             <input type="date" id="event-date" class="form-input" required>
                         </div>
                         <div class="form-group">
-                            <label for="event-time" class="form-label">Horário</label>
+                            <label for="event-time" class="form-label">Hor\u00e1rio</label>
                             <input type="time" id="event-time" class="form-input" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="event-location" class="form-label">Localização</label>
+                        <label for="event-location" class="form-label">Localiza\u00e7\u00e3o</label>
                         <input type="text" id="event-location" class="form-input" required>
                     </div>
                     <div class="form-group">
                         <label for="event-type" class="form-label">Tipo de Evento</label>
                         <select id="event-type" class="form-select" required>
                             <option value="">Selecione...</option>
-                            <option value="musica">Música ao Vivo</option>
+                            <option value="musica">M\u00fasica ao Vivo</option>
                             <option value="artes">Artes Visuais</option>
-                            <option value="teatro">Teatro & Dança</option>
+                            <option value="teatro">Teatro & Dan\u00e7a</option>
                             <option value="literatura">Literatura & Conhecimento</option>
-                            <option value="intervencoes">Intervenções Urbanas</option>
+                            <option value="intervencoes">Interven\u00e7\u00f5es Urbanas</option>
                             <option value="cultura">Cultura na Quebrada</option>
                             <option value="natureza">Natureza & Cultura</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="event-description" class="form-label">Descrição</label>
+                        <label for="event-description" class="form-label">Descri\u00e7\u00e3o</label>
                         <textarea id="event-description" class="form-textarea" required></textarea>
                     </div>
                     <button type="submit" class="btn-submit">Salvar Evento</button>
                 </form>
-            </div>
-        </div>
-
-        <!-- Página de Chat com IA -->
-        <div id="chat-page" class="page">
-            <div class="chat-container">
-                <div class="section-header text-left !mb-5">
-                    <h2>Converse com a nossa IA</h2>
-                    <p>Pergunte sobre eventos, ideias criativas ou qualquer outra coisa!</p>
-                </div>
-                <div id="chat-messages" class="chat-messages">
-                    <div class="chat-message ai">Olá! Eu sou a sua assistente de eventos. Como posso ajudar?</div>
-                </div>
-                <div class="chat-input-container">
-                    <input type="text" id="chat-input" class="chat-input" placeholder="Digite sua mensagem...">
-                    <button id="chat-send-btn" class="chat-send-btn">
-                        <i class="fa-solid fa-paper-plane"></i>
-                    </button>
-                </div>
             </div>
         </div>
     </main>
@@ -1084,46 +982,40 @@
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLrxHRrneODytVfHktrQJNAAGcuQFHuNE"></script>
     <script>
-        // Chave de API do Google Cloud para o Google Maps e outros serviços.
+        // Chave de API do Google Cloud para o Google Maps
         const apiKey = "AIzaSyCLrxHRrneODytVfHktrQJNAAGcuQFHuNE";
 
-        // Variáveis globais para os elementos da página
+        // Vari\u00e1veis globais para os elementos da p\u00e1gina
         const pages = document.querySelectorAll('.page');
         const navEventosBtn = document.getElementById('nav-eventos');
-        const navChatBtn = document.getElementById('nav-chat');
         const eventGrid = document.getElementById('event-grid');
         const detalhesContent = document.getElementById('detalhes-content');
         const addEventForm = document.getElementById('add-event-form');
         const addEventFloatingBtn = document.getElementById('add-event-floating-btn');
 
-        // Variáveis para o chat
-        const chatInput = document.getElementById('chat-input');
-        const chatSendBtn = document.getElementById('chat-send-btn');
-        const chatMessages = document.getElementById('chat-messages');
-
-        // Array para armazenar os eventos (simulação de um banco de dados)
+        // Array para armazenar os eventos (simula\u00e7\u00e3o de um banco de dados)
         let events = [
             {
                 id: '1',
-                title: 'Festival de Música Independente',
+                title: 'Festival de M\u00fasica Independente',
                 type: 'musica',
                 date: '2025-08-15',
                 time: '19:00',
-                location: 'Praça da Matriz, Centro, São Paulo',
-                description: 'Um evento imperdível com bandas locais e muita energia. Venha curtir o melhor da cena musical independente da cidade!',
+                location: 'Pra\u00e7a da Matriz, Centro, S\u00e3o Paulo',
+                description: 'Um evento imperd\u00edvel com bandas locais e muita energia. Venha curtir o melhor da cena musical independente da cidade!',
                 participants: [
                     { name: 'Ana Souza', status: 'confirmado' },
-                    { name: 'João Silva', status: 'pendente' }
+                    { name: 'Jo\u00e3o Silva', status: 'pendente' }
                 ]
             },
             {
                 id: '2',
-                title: 'Exposição "Cores da Quebrada"',
+                title: 'Exposi\u00e7\u00e3o "Cores da Quebrada"',
                 type: 'artes',
                 date: '2025-08-22',
                 time: '10:00',
                 location: 'Centro Cultural do Bairro, Rio de Janeiro',
-                description: 'Exposição de artes visuais que celebra a cultura e o cotidiano da periferia, com obras de artistas locais emergentes.',
+                description: 'Exposi\u00e7\u00e3o de artes visuais que celebra a cultura e o cotidiano da periferia, com obras de artistas locais emergentes.',
                 participants: [
                     { name: 'Maria Lima', status: 'confirmado' },
                     { name: 'Pedro Santos', status: 'confirmado' },
@@ -1136,8 +1028,8 @@
                 type: 'teatro',
                 date: '2025-09-01',
                 time: '20:30',
-                location: 'Bar do Zé, Avenida Paulista, 2000, São Paulo',
-                description: 'Uma noite para dar boas gargalhadas com comediantes da região. Chegue cedo para garantir seu lugar!',
+                location: 'Bar do Z\u00e9, Avenida Paulista, 2000, S\u00e3o Paulo',
+                description: 'Uma noite para dar boas gargalhadas com comediantes da regi\u00e3o. Chegue cedo para garantir seu lugar!',
                 participants: [
                     { name: 'Carla Dias', status: 'confirmado' },
                     { name: 'Bruno Rocha', status: 'pendente' }
@@ -1150,7 +1042,6 @@
             setupNavigation();
             setupForm();
             setupFloatingButton();
-            setupChat();
         });
 
         function renderEvents() {
@@ -1196,7 +1087,7 @@
                     </div>
                     <div class="event-info flex-grow">
                         <i class="fa-solid fa-user-group"></i>
-                        <p class="event-detail"><strong>${event.participants.length}</strong> confirmaram ou estão pendentes</p>
+                        <p class="event-detail"><strong>${event.participants.length}</strong> confirmaram ou est\u00e3o pendentes</p>
                     </div>
                 </div>
                 <div class="card-footer">
@@ -1231,7 +1122,7 @@
                             <div class="info-icon"><i class="fa-solid fa-calendar-alt"></i></div>
                             <div class="info-text">
                                 <h3>Data e Hora</h3>
-                                <p>${formatarDataCompleta(event.date)} às ${event.time}</p>
+                                <p>${formatarDataCompleta(event.date)} \u00e0s ${event.time}</p>
                             </div>
                         </div>
                         <div class="info-item">
@@ -1277,7 +1168,7 @@
                             </div>
                             <div class="status-box recusados">
                                 <div class="status-header">
-                                    <div class="status-title"><i class="fa-solid fa-times-circle"></i> Não vou</div>
+                                    <div class="status-title"><i class="fa-solid fa-times-circle"></i> N\u00e3o vou</div>
                                     <div class="status-count">${recusados.length}</div>
                                 </div>
                                 <ul class="participantes-lista">
@@ -1288,12 +1179,12 @@
                     </div>
                     
                     <div class="presenca-section">
-                        <h4 class="presenca-title"><i class="fa-solid fa-user-edit"></i> Sua Presença</h4>
+                        <h4 class="presenca-title"><i class="fa-solid fa-user-edit"></i> Sua Presen\u00e7a</h4>
                         <input type="text" id="nome-participante" class="input-nome" placeholder="Seu nome">
                         <div class="opcoes-presenca">
                             <button class="btn-presenca btn-confirmar" data-status="confirmado"><i class="fa-solid fa-check"></i> Confirmar</button>
                             <button class="btn-presenca btn-talvez" data-status="pendente"><i class="fa-solid fa-question"></i> Talvez</button>
-                            <button class="btn-presenca btn-recusar" data-status="recusado"><i class="fa-solid fa-times"></i> Não poderei</button>
+                            <button class="btn-presenca btn-recusar" data-status="recusado"><i class="fa-solid fa-times"></i> N\u00e3o poderei</button>
                         </div>
                         <div id="feedback-presenca" class="feedback"></div>
                     </div>
@@ -1305,7 +1196,7 @@
                 </div>
             `;
             
-            // Adicionar evento aos botões de presença
+            // Adicionar evento aos bot\u00f5es de presen\u00e7a
             document.querySelectorAll('.opcoes-presenca .btn-presenca').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const nome = document.getElementById('nome-participante').value;
@@ -1320,13 +1211,13 @@
                 });
             });
 
-            // Adicionar evento ao botão de voltar
+            // Adicionar evento ao bot\u00e3o de voltar
             document.getElementById('back-to-events').addEventListener('click', () => {
                 pages.forEach(page => page.classList.remove('active'));
                 document.getElementById('eventos').classList.add('active');
             });
 
-            // Adicionar evento ao botão de exclusão
+            // Adicionar evento ao bot\u00e3o de exclus\u00e3o
             document.getElementById('delete-event').addEventListener('click', function() {
                 const eventId = this.dataset.id;
                 deleteEvent(eventId);
@@ -1341,7 +1232,7 @@
 
         function renderMapForEvent(location) {
             if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
-                document.getElementById('map').innerHTML = '<div class="map-error">Serviço do Google Maps não está disponível.</div>';
+                document.getElementById('map').innerHTML = '<div class="map-error">Servi\u00e7o do Google Maps n\u00e3o est\u00e1 dispon\u00edvel.</div>';
                 return;
             }
 
@@ -1359,7 +1250,7 @@
                         title: location
                     });
                 } else {
-                    document.getElementById('map').innerHTML = '<div class="map-error">Não foi possível encontrar a localização no mapa.</div>';
+                    document.getElementById('map').innerHTML = '<div class="map-error">N\u00e3o foi poss\u00edvel encontrar a localiza\u00e7\u00e3o no mapa.</div>';
                     console.error('Geocode failed: ' + status);
                 }
             });
@@ -1376,12 +1267,12 @@
                 event.participants.push({ name, status: newStatus });
             }
             
-            // Exibir feedback para o usuário
+            // Exibir feedback para o usu\u00e1rio
             const feedback = document.getElementById('feedback-presenca');
             feedback.textContent = `Status atualizado para "${formatarStatus(newStatus)}" para ${name}.`;
             feedback.className = `feedback feedback-${newStatus} ativo`;
 
-            // Atualizar a visualização dos detalhes
+            // Atualizar a visualiza\u00e7\u00e3o dos detalhes
             showEventDetails(eventId);
         }
 
@@ -1398,7 +1289,7 @@
             addEventForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const newEvent = {
-                    id: String(Date.now()), // ID único
+                    id: String(Date.now()), // ID \u00fanico
                     title: document.getElementById('event-title').value,
                     type: document.getElementById('event-type').value,
                     date: document.getElementById('event-date').value,
@@ -1420,15 +1311,7 @@
                 pages.forEach(page => page.classList.remove('active'));
                 document.getElementById('eventos').classList.add('active');
                 navEventosBtn.classList.add('active');
-                navChatBtn.classList.remove('active');
                 addEventFloatingBtn.style.display = 'flex';
-            });
-            navChatBtn.addEventListener('click', () => {
-                pages.forEach(page => page.classList.remove('active'));
-                document.getElementById('chat-page').classList.add('active');
-                navChatBtn.classList.add('active');
-                navEventosBtn.classList.remove('active');
-                addEventFloatingBtn.style.display = 'none';
             });
         }
         
@@ -1439,90 +1322,14 @@
             });
         }
         
-        function setupChat() {
-            chatSendBtn.addEventListener('click', sendMessage);
-            chatInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    sendMessage();
-                }
-            });
-        }
-        
-        async function sendMessage() {
-            const userMessage = chatInput.value.trim();
-            if (userMessage === '') return;
-            
-            // Adicionar mensagem do usuário ao chat
-            const userMessageElement = document.createElement('div');
-            userMessageElement.className = 'chat-message user';
-            userMessageElement.textContent = userMessage;
-            chatMessages.appendChild(userMessageElement);
-            chatInput.value = '';
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-
-            // Adicionar um spinner de carregamento
-            const loadingElement = document.createElement('div');
-            loadingElement.className = 'chat-loading';
-            loadingElement.innerHTML = '<span class="chat-loading-spinner"></span> Aguardando resposta...';
-            chatMessages.appendChild(loadingElement);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-
-            // Chamar a API do Gemini
-            try {
-                let chatHistory = [];
-                chatHistory.push({ role: "user", parts: [{ text: `Responda como um assistente de eventos. Seja amigável e útil. O usuário quer saber sobre eventos culturais ou precisa de ajuda. Os eventos disponíveis são: Música, Artes Visuais, Teatro, Literatura, Intervenções Urbanas, Cultura na Quebrada, Natureza e Cultura. Seja criativo e ofereça sugestões baseadas nos tipos de eventos que eu tenho. A pergunta do usuário é: "${userMessage}"` }] });
-                const payload = { contents: chatHistory };
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=`;
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const result = await response.json();
-                
-                // Remover o spinner de carregamento
-                chatMessages.removeChild(loadingElement);
-                
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    const aiResponse = result.candidates[0].content.parts[0].text;
-                    // Adicionar resposta da IA ao chat
-                    const aiMessageElement = document.createElement('div');
-                    aiMessageElement.className = 'chat-message ai';
-                    aiMessageElement.textContent = aiResponse;
-                    chatMessages.appendChild(aiMessageElement);
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                } else {
-                    const errorMessageElement = document.createElement('div');
-                    errorMessageElement.className = 'chat-message ai';
-                    errorMessageElement.textContent = 'Desculpe, não consegui obter uma resposta. Por favor, tente novamente.';
-                    chatMessages.appendChild(errorMessageElement);
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                    console.error('API response was malformed:', result);
-                }
-            } catch (error) {
-                // Remover o spinner de carregamento em caso de erro
-                if (loadingElement.parentNode) {
-                    chatMessages.removeChild(loadingElement);
-                }
-                const errorMessageElement = document.createElement('div');
-                errorMessageElement.className = 'chat-message ai';
-                errorMessageElement.textContent = 'Ocorreu um erro ao conectar com o servidor. Verifique sua chave de API e a conexão.';
-                chatMessages.appendChild(errorMessageElement);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-                console.error('Error calling Gemini API:', error);
-            }
-        }
-
-        // Funções auxiliares para formatação de dados
+        // Fun\u00e7\u00f5es auxiliares para formata\u00e7\u00e3o de dados
         function formatarTipo(tipo) {
             const tipos = {
-                musica: 'Música ao Vivo',
+                musica: 'M\u00fasica ao Vivo',
                 artes: 'Artes Visuais',
-                teatro: 'Teatro & Dança',
+                teatro: 'Teatro & Dan\u00e7a',
                 literatura: 'Literatura & Conhecimento',
-                intervencoes: 'Intervenções Urbanas',
+                intervencoes: 'Interven\u00e7\u00f5es Urbanas',
                 cultura: 'Cultura na Quebrada',
                 natureza: 'Natureza & Cultura'
             };
@@ -1533,7 +1340,7 @@
             const statusMap = {
                 confirmado: 'Confirmado',
                 pendente: 'Talvez',
-                recusado: 'Não poderei'
+                recusado: 'N\u00e3o poderei'
             };
             return statusMap[status] || status;
         }
