@@ -97,7 +97,10 @@
             background: rgba(255, 255, 255, 0.15);
             border-color: rgba(255, 255, 255, 0.5);
         }
-
+        
+        /* Estilo para o novo botão de login do Google */
+        /* Removido o estilo específico para o login do Google para torná-lo mais discreto e profissional */
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -606,11 +609,10 @@
             color: var(--roxo);
             border: 1px solid rgba(156, 39, 176, 0.3);
         }
-
+        
         .participantes-section {
             margin: 40px 0 30px;
         }
-
         .participantes-section h3 {
             margin-bottom: 20px;
             color: var(--secondary);
@@ -620,36 +622,29 @@
             align-items: center;
             gap: 10px;
         }
-
         .participantes-section h3 i {
             color: var(--primary);
         }
-
         .status-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
         }
-
         .status-box {
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
-
         .status-box.confirmados {
             border-top: 4px solid var(--verde);
         }
-
         .status-box.pendentes {
             border-top: 4px solid var(--laranja);
         }
-
         .status-box.recusados {
             border-top: 4px solid var(--roxo);
         }
-
         .status-header {
             display: flex;
             align-items: center;
@@ -658,35 +653,28 @@
             padding-bottom: 10px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
-
         .status-title {
             font-weight: 600;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-
         .status-count {
             font-weight: 700;
             font-size: 1.1rem;
         }
-
         .status-box.confirmados .status-title {
             color: var(--verde);
         }
-
         .status-box.pendentes .status-title {
             color: var(--laranja);
         }
-
         .status-box.recusados .status-title {
             color: var(--roxo);
         }
-
         .participantes-lista {
             list-style: none;
         }
-
         .participantes-lista li {
             padding: 10px 0;
             display: flex;
@@ -694,16 +682,13 @@
             gap: 10px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.03);
         }
-
         .participantes-lista li:last-child {
             border-bottom: none;
         }
-
         .participantes-lista li i {
             color: var(--primary);
             font-size: 0.9rem;
         }
-
         .acoes-container {
             display: flex;
             justify-content: center;
@@ -711,7 +696,6 @@
             margin-top: 30px;
             flex-wrap: wrap;
         }
-
         .btn-acao {
             padding: 14px 28px;
             border: none;
@@ -725,28 +709,23 @@
             font-size: 1rem;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
-
         .btn-voltar {
             background: var(--gray);
             color: var(--branco);
         }
-
         .btn-editar {
             background: var(--laranja);
             color: var(--branco);
         }
-
         .btn-excluir {
             background: #f44336;
             color: var(--branco);
         }
-
         .btn-acao:hover {
             opacity: 0.9;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         }
-
         /* Formulário no estilo Eventbrite */
         .form-container {
             background: var(--branco);
@@ -756,18 +735,15 @@
             max-width: 600px;
             margin: 0 auto;
         }
-
         .form-group {
             margin-bottom: 20px;
         }
-
         .form-label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
             color: var(--secondary);
         }
-
         .form-input, .form-select, .form-textarea {
             width: 100%;
             padding: 12px 15px;
@@ -776,18 +752,15 @@
             font-size: 1rem;
             background: var(--light);
         }
-
         .form-textarea {
             min-height: 120px;
             resize: vertical;
         }
-
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
         }
-
         .btn-submit {
             background: var(--primary);
             color: var(--branco);
@@ -801,12 +774,10 @@
             margin: 30px auto 0;
             transition: var(--transicao);
         }
-
         .btn-submit:hover {
             background: #d04a30;
             transform: translateY(-3px);
         }
-
         /* Botão flutuante no estilo Eventbrite */
         .floating-btn {
             position: fixed;
@@ -827,18 +798,15 @@
             z-index: 100;
             transition: var(--transicao);
         }
-
         .floating-btn:hover {
             transform: scale(1.1);
             box-shadow: 0 8px 25px rgba(240, 85, 55, 0.6);
         }
-
         .loading {
             display: flex;
             justify-content: center;
             padding: 30px;
         }
-
         .loading-spinner {
             width: 40px;
             height: 40px;
@@ -847,7 +815,6 @@
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
-
         /* NOVAS CORES PARA AS CATEGORIAS */
         .categoria-musica .event-badge { background: rgba(76, 175, 80, 0.1); color: #4CAF50; }
         .categoria-artes .event-badge { background: rgba(156, 39, 176, 0.1); color: #9C27B0; }
@@ -855,32 +822,16 @@
         .categoria-literatura .event-badge { background: rgba(33, 150, 243, 0.1); color: #2196F3; }
         .categoria-intervencoes .event-badge { background: rgba(244, 67, 54, 0.1); color: #f44336; }
         .categoria-cultura .event-badge { background: rgba(0, 150, 136, 0.1); color: #009688; }
-        .categoria-natureza .event-badge { background: rgba(121, 85, 72, 0.1); color: #795548; }
+        .categoria-natureza .event-badge { background: rgba(63, 81, 181, 0.1); color: #3f51b5; }
+        .categoria-outro .event-badge { background: rgba(96, 125, 139, 0.1); color: #607d8b; }
 
-        /* Responsividade */
-        @media (max-width: 900px) {
-            .grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-            .hero h1 { font-size: 2.2rem; }
-        }
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 15px; text-align: center; }
-            .nav-container { flex-wrap: wrap; justify-content: center; }
-            .hero { padding: 60px 20px; }
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; margin-bottom: 20px; }
-            .detalhes-container { padding: 20px; }
-            .detalhes-info { grid-template-columns: 1fr; }
-            .participantes-section { margin: 20px 0; }
-        }
-        @media (max-width: 500px) {
-            .logo-main { font-size: 1.8rem; }
-            .logo-sub { font-size: 0.9rem; }
-            .nav-btn { padding: 8px 15px; font-size: 0.9rem; }
-            .floating-btn { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 1.5rem; }
-        }
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
         @keyframes spin {
             0% { transform: rotate(0deg); }
@@ -889,449 +840,578 @@
     </style>
 </head>
 <body>
+
+    <!-- Adiciona o script da API do Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+
     <header>
         <div class="logo">
             <span class="logo-main">Rolê Certo</span>
             <span class="logo-sub">Eventos Sociais</span>
         </div>
         <div class="nav-container">
-            <button id="nav-eventos" class="nav-btn active"><i class="fa-solid fa-calendar-days"></i> Eventos</button>
+            <button id="nav-btn-home" class="nav-btn active"><i class="fas fa-home"></i> Início</button>
+            <button id="nav-btn-adicionar" class="nav-btn"><i class="fas fa-plus"></i> Adicionar</button>
+            
+            <!-- Botão para login com o Google (agora mais discreto) -->
+            <button id="google-login-btn" class="nav-btn" style="display: none;">
+                <i class="fas fa-sign-in-alt"></i> Entrar
+            </button>
+            <!-- Div para exibir informações do usuário logado -->
+            <div id="user-info-container" class="flex items-center gap-2" style="display: none;">
+                <img id="user-profile-pic" class="w-8 h-8 rounded-full" alt="Foto de perfil">
+                <span id="user-name" class="font-medium"></span>
+                <button id="sign-out-btn" class="text-sm font-light text-white/70 hover:text-white transition-colors">
+                    Sair
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <!-- Página de Eventos -->
-        <div id="eventos" class="page active">
+    <div class="container">
+
+        <!-- Página de Início (Home) -->
+        <div id="home" class="page active">
             <div class="hero">
-                <h1>Descubra e Participe de Eventos Culturais</h1>
-                <p>Encontre a sua próxima aventura social, de música a artes visuais, e confirme sua presença!</p>
+                <h1>O que você vai fazer hoje?</h1>
+                <p>Encontre eventos sociais na sua quebrada ou adicione o seu próprio rolê para a galera!</p>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary" id="add-event-btn">Criar Novo Evento</button>
-                    <button class="btn btn-outline" id="view-events-btn">Ver Todos os Eventos</button>
+                    <button class="btn btn-primary" onclick="window.location.href='#eventos';">Encontre Eventos</button>
+                    <button id="hero-btn-adicionar" class="btn btn-outline"><i class="fas fa-plus"></i> Adicione um Evento</button>
                 </div>
             </div>
 
-            <div class="section">
+            <section id="eventos" class="section">
                 <div class="section-header">
-                    <h2>Próximos Eventos</h2>
-                    <p>Fique por dentro das novidades e não perca nada do que está acontecendo por perto.</p>
+                    <h2>Próximos Rolês</h2>
+                    <p>Fique por dentro de tudo que está rolando na sua região. Músicas, arte, teatro e muito mais!</p>
                 </div>
-                <div id="event-grid" class="grid">
-                    <!-- Cards de eventos ser\u00e3o inseridos aqui via JS -->
+                <div id="eventos-container" class="grid">
+                    <!-- Cards de eventos serão inseridos aqui via JavaScript -->
                 </div>
-            </div>
+                <div id="no-events-message" class="text-center text-gray-500 mt-10" style="display: none;">
+                    Nenhum evento encontrado. Que tal adicionar o primeiro?
+                </div>
+                <div id="loading-spinner" class="loading" style="display: none;">
+                    <div class="loading-spinner"></div>
+                </div>
+            </section>
         </div>
 
-        <!-- P\u00e1gina de Detalhes do Evento -->
-        <div id="detalhes" class="page">
-            <div id="detalhes-content">
-                <!-- Conte\u00fado dos detalhes ser\u00e1 inserido aqui via JS -->
-            </div>
-        </div>
-
-        <!-- P\u00e1gina de Adicionar Evento -->
+        <!-- Página de Adicionar Evento -->
         <div id="adicionar" class="page">
+            <div class="section-header">
+                <h2>Adicionar Novo Rolê</h2>
+                <p>Preencha os detalhes do seu evento para que outras pessoas possam encontrá-lo e participar.</p>
+            </div>
             <div class="form-container">
-                <div class="section-header text-left !mb-5">
-                    <h2>Criar Novo Evento</h2>
-                    <p>Preencha os detalhes para divulgar seu evento.</p>
-                </div>
-                <form id="add-event-form">
+                <form id="form-adicionar-evento">
                     <div class="form-group">
-                        <label for="event-title" class="form-label">T\u00edtulo do Evento</label>
-                        <input type="text" id="event-title" class="form-input" required>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="event-date" class="form-label">Data</label>
-                            <input type="date" id="event-date" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="event-time" class="form-label">Hor\u00e1rio</label>
-                            <input type="time" id="event-time" class="form-input" required>
-                        </div>
+                        <label for="titulo" class="form-label">Título do Evento</label>
+                        <input type="text" id="titulo" name="titulo" class="form-input" placeholder="Ex: Roda de Samba da Comunidade" required>
                     </div>
                     <div class="form-group">
-                        <label for="event-location" class="form-label">Localiza\u00e7\u00e3o</label>
-                        <input type="text" id="event-location" class="form-input" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="event-type" class="form-label">Tipo de Evento</label>
-                        <select id="event-type" class="form-select" required>
-                            <option value="">Selecione...</option>
-                            <option value="musica">M\u00fasica ao Vivo</option>
+                        <label for="tipo" class="form-label">Tipo de Evento</label>
+                        <select id="tipo" name="tipo" class="form-select" required>
+                            <option value="">Selecione um tipo...</option>
+                            <option value="musica">Música ao Vivo</option>
                             <option value="artes">Artes Visuais</option>
-                            <option value="teatro">Teatro & Dan\u00e7a</option>
+                            <option value="teatro">Teatro & Dança</option>
                             <option value="literatura">Literatura & Conhecimento</option>
-                            <option value="intervencoes">Interven\u00e7\u00f5es Urbanas</option>
+                            <option value="intervencoes">Intervenções Urbanas</option>
                             <option value="cultura">Cultura na Quebrada</option>
                             <option value="natureza">Natureza & Cultura</option>
+                            <option value="outro">Outro</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="event-description" class="form-label">Descri\u00e7\u00e3o</label>
-                        <textarea id="event-description" class="form-textarea" required></textarea>
+                        <label for="descricao" class="form-label">Descrição</label>
+                        <textarea id="descricao" name="descricao" class="form-textarea" placeholder="Descreva seu evento com detalhes..." required></textarea>
                     </div>
-                    <button type="submit" class="btn-submit">Salvar Evento</button>
+                    <div class="form-group form-row">
+                        <div>
+                            <label for="data" class="form-label">Data</label>
+                            <input type="date" id="data" name="data" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="hora" class="form-label">Hora</label>
+                            <input type="time" id="hora" name="hora" class="form-input">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="local" class="form-label">Local</label>
+                        <input type="text" id="local" name="local" class="form-input" placeholder="Ex: Praça do Campo Limpo, Rua X, 123" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="organizador" class="form-label">Organizador</label>
+                        <input type="text" id="organizador" name="organizador" class="form-input" placeholder="Seu nome ou o nome da organização" required>
+                    </div>
+                    <div id="adicionar-evento-feedback" class="feedback"></div>
+                    <button type="submit" class="btn-submit">Publicar Evento</button>
                 </form>
             </div>
         </div>
-    </main>
 
-    <button id="add-event-floating-btn" class="floating-btn"><i class="fa-solid fa-plus"></i></button>
+        <!-- Página de Detalhes do Evento (dinâmica) -->
+        <div id="detalhes" class="page">
+            <div class="detalhes-container">
+                <div class="detalhes-header">
+                    <h1 id="detalhes-titulo" class="detalhes-titulo"></h1>
+                    <span id="detalhes-categoria" class="detalhes-categoria"></span>
+                </div>
+                <div class="detalhes-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="info-text">
+                            <h3>Data e Hora</h3>
+                            <p id="detalhes-data"></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-text">
+                            <h3>Local</h3>
+                            <p id="detalhes-local"></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-user-circle"></i></div>
+                        <div class="info-text">
+                            <h3>Organizador</h3>
+                            <p id="detalhes-organizador"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detalhes-descricao">
+                    <h3><i class="fas fa-info-circle"></i> Sobre o evento</h3>
+                    <p id="detalhes-descricao-texto"></p>
+                </div>
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLrxHRrneODytVfHktrQJNAAGcuQFHuNE"></script>
-    <script>
-        // Chave de API do Google Cloud para o Google Maps
-        const apiKey = "AIzaSyCLrxHRrneODytVfHktrQJNAAGcuQFHuNE";
+                <div id="map-container">
+                    <h3><i class="fas fa-map"></i> Localização no Mapa</h3>
+                    <div id="map"></div>
+                    <div id="map-error-message" class="map-error" style="display: none;">Não foi possível carregar o mapa.</div>
+                </div>
 
-        // Vari\u00e1veis globais para os elementos da p\u00e1gina
+                <div class="presenca-section">
+                    <h3 class="presenca-title"><i class="fas fa-calendar-check"></i> Você vai?</h3>
+                    <div class="opcoes-presenca">
+                        <button class="btn-presenca btn-confirmar" data-status="confirmado"><i class="fas fa-check"></i> Sim, com certeza!</button>
+                        <button class="btn-presenca btn-talvez" data-status="pendente"><i class="fas fa-question"></i> Talvez</button>
+                        <button class="btn-presenca btn-recusar" data-status="recusado"><i class="fas fa-times"></i> Não poderei</button>
+                    </div>
+                    <div id="presenca-feedback" class="feedback"></div>
+                </div>
+                
+                <div id="participantes-section" class="participantes-section" style="display: none;">
+                    <h3><i class="fas fa-users"></i> Quem vai?</h3>
+                    <div class="status-container">
+                        <!-- Participantes serão injetados aqui -->
+                    </div>
+                </div>
+
+                <div class="acoes-container">
+                    <button class="btn-acao btn-voltar"><i class="fas fa-arrow-left"></i> Voltar para Início</button>
+                    <button class="btn-acao btn-editar" id="btn-editar-evento" style="display:none;"><i class="fas fa-edit"></i> Editar Evento</button>
+                    <button class="btn-acao btn-excluir" id="btn-excluir-evento" style="display:none;"><i class="fas fa-trash-alt"></i> Excluir Evento</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script principal da aplicação -->
+    <script type="module">
+        // IMPORTAÇÕES DO FIREBASE (NÃO REMOVER!)
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getFirestore, doc, getDoc, setDoc, collection, query, onSnapshot, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        
+        // Configurações do Firebase (fornecidas pelo ambiente)
+        const firebaseConfig = JSON.parse(__firebase_config);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        // Inicializa Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        let userId = '';
+
+        // Variáveis globais
+        let eventos = [];
+        let eventoAtualId = null;
+
+        // Elementos do DOM
         const pages = document.querySelectorAll('.page');
-        const navEventosBtn = document.getElementById('nav-eventos');
-        const eventGrid = document.getElementById('event-grid');
-        const detalhesContent = document.getElementById('detalhes-content');
-        const addEventForm = document.getElementById('add-event-form');
-        const addEventFloatingBtn = document.getElementById('add-event-floating-btn');
-
-        // Array para armazenar os eventos (simula\u00e7\u00e3o de um banco de dados)
-        let events = [
-            {
-                id: '1',
-                title: 'Festival de M\u00fasica Independente',
-                type: 'musica',
-                date: '2025-08-15',
-                time: '19:00',
-                location: 'Pra\u00e7a da Matriz, Centro, S\u00e3o Paulo',
-                description: 'Um evento imperd\u00edvel com bandas locais e muita energia. Venha curtir o melhor da cena musical independente da cidade!',
-                participants: [
-                    { name: 'Ana Souza', status: 'confirmado' },
-                    { name: 'Jo\u00e3o Silva', status: 'pendente' }
-                ]
-            },
-            {
-                id: '2',
-                title: 'Exposi\u00e7\u00e3o "Cores da Quebrada"',
-                type: 'artes',
-                date: '2025-08-22',
-                time: '10:00',
-                location: 'Centro Cultural do Bairro, Rio de Janeiro',
-                description: 'Exposi\u00e7\u00e3o de artes visuais que celebra a cultura e o cotidiano da periferia, com obras de artistas locais emergentes.',
-                participants: [
-                    { name: 'Maria Lima', status: 'confirmado' },
-                    { name: 'Pedro Santos', status: 'confirmado' },
-                    { name: 'Lucas Oliveira', status: 'recusado' }
-                ]
-            },
-            {
-                id: '3',
-                title: 'Noite de Stand-up Comedy',
-                type: 'teatro',
-                date: '2025-09-01',
-                time: '20:30',
-                location: 'Bar do Z\u00e9, Avenida Paulista, 2000, S\u00e3o Paulo',
-                description: 'Uma noite para dar boas gargalhadas com comediantes da regi\u00e3o. Chegue cedo para garantir seu lugar!',
-                participants: [
-                    { name: 'Carla Dias', status: 'confirmado' },
-                    { name: 'Bruno Rocha', status: 'pendente' }
-                ]
+        const navBtns = document.querySelectorAll('.nav-btn');
+        const heroBtnAdicionar = document.getElementById('hero-btn-adicionar');
+        const eventosContainer = document.getElementById('eventos-container');
+        const formAdicionarEvento = document.getElementById('form-adicionar-evento');
+        const detalhesPage = document.getElementById('detalhes');
+        const btnVoltarDetalhes = detalhesPage.querySelector('.btn-voltar');
+        const btnEditarEvento = document.getElementById('btn-editar-evento');
+        const btnExcluirEvento = document.getElementById('btn-excluir-evento');
+        const noEventsMessage = document.getElementById('no-events-message');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const presencaButtons = document.querySelectorAll('.btn-presenca');
+        
+        // Elementos de login do Google
+        const googleLoginBtn = document.getElementById('google-login-btn');
+        const userInfoContainer = document.getElementById('user-info-container');
+        const userProfilePic = document.getElementById('user-profile-pic');
+        const userNameSpan = document.getElementById('user-name');
+        const signOutBtn = document.getElementById('sign-out-btn');
+        
+        // Função de login com Google usando um popup
+        googleLoginBtn.addEventListener('click', async () => {
+            const provider = new GoogleAuthProvider();
+            try {
+                const result = await signInWithPopup(auth, provider);
+                const user = result.user;
+                console.log("Usuário logado com sucesso:", user);
+                updateUserInfo(user);
+            } catch (error) {
+                console.error("Erro ao fazer login com o Google:", error);
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                const email = error.customData?.email;
+                const credential = GoogleAuthProvider.credentialFromError(error);
             }
-        ];
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderEvents();
-            setupNavigation();
-            setupForm();
-            setupFloatingButton();
         });
 
-        function renderEvents() {
-            eventGrid.innerHTML = '';
-            events.forEach(event => {
-                const card = createEventCard(event);
-                eventGrid.appendChild(card);
-            });
+        // Função para fazer logout
+        signOutBtn.addEventListener('click', async () => {
+            try {
+                await signOut(auth);
+                console.log("Usuário desconectado.");
+                showLoginButton();
+            } catch (error) {
+                console.error("Erro ao fazer logout:", error);
+            }
+        });
+
+        // Funções para atualizar a interface do usuário
+        function showLoginButton() {
+            googleLoginBtn.style.display = 'flex';
+            userInfoContainer.style.display = 'none';
         }
 
-        function createEventCard(event) {
-            const card = document.createElement('div');
-            card.className = `event-card categoria-${event.type}`;
-
-            // Encontre o nome do tipo de evento formatado
-            const tipoFormatado = formatarTipo(event.type);
-            const badgeClass = `event-badge`;
-
-            const [ano, mes, dia] = event.date.split('-');
-            const data = new Date(Number(ano), Number(mes) - 1, Number(dia));
-            const diaMes = data.getDate();
-            const mesAbreviado = data.toLocaleDateString('pt-BR', { month: 'short' }).replace('.', '');
-
-            card.innerHTML = `
-                <div class="card-header">
-                    <h3 class="event-title">${event.title}</h3>
-                    <span class="${badgeClass}">${tipoFormatado}</span>
-                </div>
-                <div class="card-content">
-                    <div class="date-container">
-                        <div class="date-circle">
-                            <span class="day">${diaMes}</span>
-                            <span class="month">${mesAbreviado}</span>
-                        </div>
-                        <div class="date-info">
-                            <div class="event-date">${formatarDataCompleta(event.date)}</div>
-                            <div class="event-time">${event.time}</div>
-                        </div>
-                    </div>
-                    <div class="event-info">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <p class="event-detail">${event.location}</p>
-                    </div>
-                    <div class="event-info flex-grow">
-                        <i class="fa-solid fa-user-group"></i>
-                        <p class="event-detail"><strong>${event.participants.length}</strong> confirmaram ou est\u00e3o pendentes</p>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <button class="card-btn" data-id="${event.id}">Ver Detalhes</button>
-                </div>
-            `;
-
-            card.querySelector('button').addEventListener('click', function() {
-                const eventId = this.dataset.id;
-                showEventDetails(eventId);
-            });
-
-            return card;
+        function updateUserInfo(user) {
+            googleLoginBtn.style.display = 'none';
+            userInfoContainer.style.display = 'flex';
+            userNameSpan.textContent = user.displayName || user.email;
+            if (user.photoURL) {
+                userProfilePic.src = user.photoURL;
+            } else {
+                // Fallback para uma imagem de perfil padrão
+                userProfilePic.src = 'https://placehold.co/150x150/f05537/fff?text=User';
+            }
         }
+        
+        // Listener para o estado de autenticação do Firebase
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                userId = user.uid;
+                console.log('Usuário autenticado:', userId);
+                updateUserInfo(user);
+                loadEvents();
+            } else {
+                userId = '';
+                console.log('Usuário deslogado ou anônimo.');
+                showLoginButton();
+            }
+        });
 
-        function showEventDetails(eventId) {
-            const event = events.find(e => e.id === eventId);
-            if (!event) return;
-
-            const confirmados = event.participants.filter(p => p.status === 'confirmado');
-            const pendentes = event.participants.filter(p => p.status === 'pendente');
-            const recusados = event.participants.filter(p => p.status === 'recusado');
-
-            detalhesContent.innerHTML = `
-                <div class="detalhes-container">
-                    <div class="detalhes-header">
-                        <span class="detalhes-categoria">${formatarTipo(event.type)}</span>
-                        <h1 class="detalhes-titulo">${event.title}</h1>
-                    </div>
-                    <div class="detalhes-info">
-                        <div class="info-item">
-                            <div class="info-icon"><i class="fa-solid fa-calendar-alt"></i></div>
-                            <div class="info-text">
-                                <h3>Data e Hora</h3>
-                                <p>${formatarDataCompleta(event.date)} \u00e0s ${event.time}</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-icon"><i class="fa-solid fa-map-marker-alt"></i></div>
-                            <div class="info-text">
-                                <h3>Local</h3>
-                                <p>${event.location}</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Container do mapa do Google Maps -->
-                    <div id="map-container">
-                        <h3><i class="fa-solid fa-map-marked-alt"></i> Mapa do Local</h3>
-                        <div id="map"></div>
-                    </div>
-
-                    <div class="detalhes-descricao">
-                        <h3><i class="fa-solid fa-info-circle"></i> Sobre o Evento</h3>
-                        <p>${event.description}</p>
-                    </div>
-
-                    <div class="participantes-section">
-                        <h3><i class="fa-solid fa-users"></i> Participantes</h3>
-                        <div class="status-container">
-                            <div class="status-box confirmados">
-                                <div class="status-header">
-                                    <div class="status-title"><i class="fa-solid fa-check-circle"></i> Confirmados</div>
-                                    <div class="status-count">${confirmados.length}</div>
-                                </div>
-                                <ul class="participantes-lista">
-                                    ${confirmados.map(p => `<li><i class="fa-solid fa-user-check"></i> ${p.name}</li>`).join('')}
-                                </ul>
-                            </div>
-                            <div class="status-box pendentes">
-                                <div class="status-header">
-                                    <div class="status-title"><i class="fa-solid fa-question-circle"></i> Talvez</div>
-                                    <div class="status-count">${pendentes.length}</div>
-                                </div>
-                                <ul class="participantes-lista">
-                                    ${pendentes.map(p => `<li><i class="fa-solid fa-user-clock"></i> ${p.name}</li>`).join('')}
-                                </ul>
-                            </div>
-                            <div class="status-box recusados">
-                                <div class="status-header">
-                                    <div class="status-title"><i class="fa-solid fa-times-circle"></i> N\u00e3o vou</div>
-                                    <div class="status-count">${recusados.length}</div>
-                                </div>
-                                <ul class="participantes-lista">
-                                    ${recusados.map(p => `<li><i class="fa-solid fa-user-slash"></i> ${p.name}</li>`).join('')}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="presenca-section">
-                        <h4 class="presenca-title"><i class="fa-solid fa-user-edit"></i> Sua Presen\u00e7a</h4>
-                        <input type="text" id="nome-participante" class="input-nome" placeholder="Seu nome">
-                        <div class="opcoes-presenca">
-                            <button class="btn-presenca btn-confirmar" data-status="confirmado"><i class="fa-solid fa-check"></i> Confirmar</button>
-                            <button class="btn-presenca btn-talvez" data-status="pendente"><i class="fa-solid fa-question"></i> Talvez</button>
-                            <button class="btn-presenca btn-recusar" data-status="recusado"><i class="fa-solid fa-times"></i> N\u00e3o poderei</button>
-                        </div>
-                        <div id="feedback-presenca" class="feedback"></div>
-                    </div>
-
-                    <div class="acoes-container">
-                        <button class="btn-acao btn-voltar" id="back-to-events"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
-                        <button class="btn-acao btn-excluir" id="delete-event" data-id="${event.id}"><i class="fa-solid fa-trash"></i> Excluir Evento</button>
-                    </div>
-                </div>
-            `;
-            
-            // Adicionar evento aos bot\u00f5es de presen\u00e7a
-            document.querySelectorAll('.opcoes-presenca .btn-presenca').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const nome = document.getElementById('nome-participante').value;
-                    const status = this.dataset.status;
-                    if (nome) {
-                        handleParticipantStatus(eventId, nome, status);
-                    } else {
-                        const feedback = document.getElementById('feedback-presenca');
-                        feedback.className = 'feedback feedback-recusado ativo';
-                        feedback.textContent = 'Por favor, digite seu nome!';
-                    }
-                });
+        // Adiciona um listener para o botão de 'Adicionar Evento' na página inicial
+        heroBtnAdicionar.addEventListener('click', () => {
+            switchPage('adicionar');
+        });
+        
+        // Listener para navegação entre páginas
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.id.replace('nav-btn-', '');
+                switchPage(targetId);
             });
-
-            // Adicionar evento ao bot\u00e3o de voltar
-            document.getElementById('back-to-events').addEventListener('click', () => {
-                pages.forEach(page => page.classList.remove('active'));
-                document.getElementById('eventos').classList.add('active');
-            });
-
-            // Adicionar evento ao bot\u00e3o de exclus\u00e3o
-            document.getElementById('delete-event').addEventListener('click', function() {
-                const eventId = this.dataset.id;
-                deleteEvent(eventId);
-            });
-
+        });
+        
+        // Função para alternar entre as páginas
+        function switchPage(pageId) {
             pages.forEach(page => page.classList.remove('active'));
-            document.getElementById('detalhes').classList.add('active');
-            
-            // Renderizar o mapa para o evento atual
-            renderMapForEvent(event.location);
+            document.getElementById(pageId).classList.add('active');
+            navBtns.forEach(btn => btn.classList.remove('active'));
+            const activeNavBtn = document.getElementById(`nav-btn-${pageId}`);
+            if (activeNavBtn) {
+                activeNavBtn.classList.add('active');
+            }
         }
 
-        function renderMapForEvent(location) {
-            if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
-                document.getElementById('map').innerHTML = '<div class="map-error">Servi\u00e7o do Google Maps n\u00e3o est\u00e1 dispon\u00edvel.</div>';
+        // Função para carregar e exibir os eventos do Firestore
+        async function loadEvents() {
+            console.log('Carregando eventos...');
+            loadingSpinner.style.display = 'flex';
+            eventosContainer.innerHTML = '';
+            noEventsMessage.style.display = 'none';
+
+            try {
+                // Adiciona um listener em tempo real para a coleção 'eventos'
+                const q = collection(db, `artifacts/${appId}/public/data/eventos`);
+                onSnapshot(q, (querySnapshot) => {
+                    eventos = [];
+                    querySnapshot.forEach((doc) => {
+                        const evento = { id: doc.id, ...doc.data() };
+                        eventos.push(evento);
+                    });
+
+                    eventos.sort((a, b) => new Date(a.data) - new Date(b.data));
+
+                    renderEvents(eventos);
+                    loadingSpinner.style.display = 'none';
+                });
+            } catch (error) {
+                console.error("Erro ao carregar eventos:", error);
+                loadingSpinner.style.display = 'none';
+                noEventsMessage.textContent = 'Erro ao carregar os eventos. Tente novamente mais tarde.';
+                noEventsMessage.style.display = 'block';
+            }
+        }
+        
+        // Função para renderizar os cards de eventos
+        function renderEvents(eventosData) {
+            eventosContainer.innerHTML = '';
+            if (eventosData.length === 0) {
+                noEventsMessage.style.display = 'block';
+            } else {
+                noEventsMessage.style.display = 'none';
+                eventosData.forEach(evento => {
+                    const eventCard = document.createElement('div');
+                    eventCard.className = `event-card categoria-${evento.tipo}`;
+                    eventCard.innerHTML = `
+                        <div class="card-header">
+                            <span class="event-badge">${formatarTipo(evento.tipo)}</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="event-title">${evento.titulo}</h3>
+                            <div class="date-container">
+                                <div class="date-circle">
+                                    <span class="day">${new Date(evento.data).getDate()}</span>
+                                    <span class="month">${new Date(evento.data).toLocaleString('pt-BR', { month: 'short' })}</span>
+                                </div>
+                                <div class="date-info">
+                                    <p class="event-date">Data: ${formatarDataCompleta(evento.data)}</p>
+                                    <p class="event-time">Horário: ${evento.hora ? evento.hora : 'Não informado'}</p>
+                                </div>
+                            </div>
+                            <div class="event-info">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p class="event-detail">${evento.local}</p>
+                            </div>
+                        </div>
+                    `;
+                    eventCard.addEventListener('click', () => {
+                        showEventDetails(evento.id);
+                    });
+                    eventosContainer.appendChild(eventCard);
+                });
+            }
+        }
+        
+        // Função para exibir os detalhes de um evento específico
+        async function showEventDetails(id) {
+            eventoAtualId = id;
+            switchPage('detalhes');
+            loadingSpinner.style.display = 'flex';
+            detalhesPage.style.display = 'none';
+
+            try {
+                const docRef = doc(db, `artifacts/${appId}/public/data/eventos`, id);
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    const evento = docSnap.data();
+                    document.getElementById('detalhes-titulo').textContent = evento.titulo;
+                    document.getElementById('detalhes-categoria').textContent = formatarTipo(evento.tipo);
+                    document.getElementById('detalhes-data').textContent = `Dia ${formatarDataCompleta(evento.data)} às ${evento.hora ? evento.hora : 'Não informado'}`;
+                    document.getElementById('detalhes-local').textContent = evento.local;
+                    document.getElementById('detalhes-organizador').textContent = evento.organizador;
+                    document.getElementById('detalhes-descricao-texto').textContent = evento.descricao;
+                    
+                    // Exibe ou esconde os botões de editar e excluir
+                    if (evento.organizadorId === userId) {
+                        btnEditarEvento.style.display = 'inline-flex';
+                        btnExcluirEvento.style.display = 'inline-flex';
+                    } else {
+                        btnEditarEvento.style.display = 'none';
+                        btnExcluirEvento.style.display = 'none';
+                    }
+                    
+                    // Carrega o mapa
+                    initMap(evento.local);
+                    
+                    // Carrega os participantes
+                    loadParticipants(id);
+                    
+                    detalhesPage.style.display = 'block';
+                    loadingSpinner.style.display = 'none';
+                } else {
+                    console.error("Nenhum evento encontrado!");
+                    loadingSpinner.style.display = 'none';
+                }
+            } catch (error) {
+                console.error("Erro ao buscar detalhes do evento:", error);
+                loadingSpinner.style.display = 'none';
+            }
+        }
+        
+        // Função para carregar os participantes em tempo real
+        function loadParticipants(eventoId) {
+            const participantesSection = document.getElementById('participantes-section');
+            if (userId) { // Apenas carrega se o usuário estiver logado
+                participantesSection.style.display = 'block';
+                
+                const q = collection(db, `artifacts/${appId}/public/data/eventos/${eventoId}/participantes`);
+                onSnapshot(q, (querySnapshot) => {
+                    const participantes = [];
+                    querySnapshot.forEach((doc) => {
+                        participantes.push({ id: doc.id, ...doc.data() });
+                    });
+                    
+                    renderParticipants(participantes);
+                });
+            } else {
+                participantesSection.style.display = 'none';
+            }
+        }
+        
+        // Função para renderizar a lista de participantes
+        function renderParticipants(participantes) {
+            const statusContainer = document.querySelector('.status-container');
+            statusContainer.innerHTML = '';
+            
+            const confirmados = participantes.filter(p => p.status === 'confirmado');
+            const pendentes = participantes.filter(p => p.status === 'pendente');
+            const recusados = participantes.filter(p => p.status === 'recusado');
+            
+            // Renderiza os confirmados
+            statusContainer.appendChild(createStatusBox('Confirmados', confirmados, 'confirmados'));
+            // Renderiza os pendentes
+            statusContainer.appendChild(createStatusBox('Talvez', pendentes, 'pendentes'));
+            // Renderiza os recusados
+            statusContainer.appendChild(createStatusBox('Não podem ir', recusados, 'recusados'));
+        }
+        
+        // Função auxiliar para criar as caixas de status dos participantes
+        function createStatusBox(title, list, statusClass) {
+            const box = document.createElement('div');
+            box.className = `status-box ${statusClass}`;
+            
+            const listHtml = list.map(p => `<li><i class="fas fa-user-circle"></i>${p.nome}</li>`).join('');
+            
+            box.innerHTML = `
+                <div class="status-header">
+                    <div class="status-title">${title}</div>
+                    <span class="status-count">${list.length}</span>
+                </div>
+                <ul class="participantes-lista">
+                    ${listHtml}
+                </ul>
+            `;
+            return box;
+        }
+        
+        // Adiciona um listener para o formulário de adicionar evento
+        formAdicionarEvento.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!userId) {
+                showFeedback('adicionar-evento-feedback', 'Por favor, faça login para adicionar um evento.', 'erro');
                 return;
             }
 
-            const geocoder = new google.maps.Geocoder();
-            geocoder.geocode({ 'address': location }, function(results, status) {
-                if (status === 'OK') {
-                    const mapOptions = {
-                        zoom: 15,
-                        center: results[0].geometry.location,
-                    };
-                    const map = new google.maps.Map(document.getElementById('map'), mapOptions);
-                    const marker = new google.maps.Marker({
-                        map: map,
-                        position: results[0].geometry.location,
-                        title: location
-                    });
-                } else {
-                    document.getElementById('map').innerHTML = '<div class="map-error">N\u00e3o foi poss\u00edvel encontrar a localiza\u00e7\u00e3o no mapa.</div>';
-                    console.error('Geocode failed: ' + status);
+            const feedback = document.getElementById('adicionar-evento-feedback');
+            const formData = new FormData(formAdicionarEvento);
+            const data = Object.fromEntries(formData.entries());
+            data.organizadorId = userId; // Adiciona o ID do usuário autenticado
+
+            try {
+                // Salva o novo evento na subcoleção pública
+                const eventosCollectionRef = collection(db, `artifacts/${appId}/public/data/eventos`);
+                await addDoc(eventosCollectionRef, data);
+
+                showFeedback('adicionar-evento-feedback', 'Evento adicionado com sucesso!', 'sucesso');
+                formAdicionarEvento.reset();
+            } catch (e) {
+                console.error("Erro ao adicionar documento: ", e);
+                showFeedback('adicionar-evento-feedback', 'Erro ao adicionar o evento.', 'erro');
+            }
+        });
+        
+        // Adiciona listeners para os botões de presença
+        presencaButtons.forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const status = btn.dataset.status;
+                const feedback = document.getElementById('presenca-feedback');
+
+                if (!userId) {
+                    showFeedback('presenca-feedback', 'Por favor, faça login para confirmar sua presença.', 'erro');
+                    return;
+                }
+                
+                if (eventoAtualId) {
+                    try {
+                        const participanteDocRef = doc(db, `artifacts/${appId}/public/data/eventos/${eventoAtualId}/participantes`, userId);
+                        await setDoc(participanteDocRef, {
+                            nome: auth.currentUser.displayName || auth.currentUser.email,
+                            status: status
+                        });
+                        
+                        showFeedback('presenca-feedback', `Sua presença foi marcada como '${formatarStatus(status)}'.`, 'sucesso');
+                    } catch (e) {
+                        console.error("Erro ao atualizar presença: ", e);
+                        showFeedback('presenca-feedback', 'Erro ao atualizar sua presença. Tente novamente.', 'erro');
+                    }
                 }
             });
-        }
-        
-        function handleParticipantStatus(eventId, name, newStatus) {
-            const event = events.find(e => e.id === eventId);
-            if (!event) return;
+        });
 
-            const existingParticipantIndex = event.participants.findIndex(p => p.name === name);
-            if (existingParticipantIndex > -1) {
-                event.participants[existingParticipantIndex].status = newStatus;
-            } else {
-                event.participants.push({ name, status: newStatus });
+        // Listener para o botão de voltar na página de detalhes
+        btnVoltarDetalhes.addEventListener('click', () => {
+            switchPage('home');
+        });
+        
+        // Listener para o botão de editar evento (ainda a ser implementado)
+        btnEditarEvento.addEventListener('click', () => {
+            console.log('Botão de editar clicado');
+            // TODO: Implementar a lógica de edição do evento
+        });
+        
+        // Listener para o botão de excluir evento
+        btnExcluirEvento.addEventListener('click', async () => {
+            if (eventoAtualId && confirm('Tem certeza que deseja excluir este evento?')) {
+                try {
+                    const docRef = doc(db, `artifacts/${appId}/public/data/eventos`, eventoAtualId);
+                    await deleteDoc(docRef);
+                    console.log("Evento excluído com sucesso!");
+                    switchPage('home');
+                } catch (e) {
+                    console.error("Erro ao excluir o evento: ", e);
+                    // Exibe uma mensagem de erro na página de detalhes
+                }
             }
-            
-            // Exibir feedback para o usu\u00e1rio
-            const feedback = document.getElementById('feedback-presenca');
-            feedback.textContent = `Status atualizado para "${formatarStatus(newStatus)}" para ${name}.`;
-            feedback.className = `feedback feedback-${newStatus} ativo`;
-
-            // Atualizar a visualiza\u00e7\u00e3o dos detalhes
-            showEventDetails(eventId);
-        }
-
-        function deleteEvent(eventId) {
-            if (confirm('Tem certeza que deseja excluir este evento?')) {
-                events = events.filter(e => e.id !== eventId);
-                renderEvents();
-                pages.forEach(page => page.classList.remove('active'));
-                document.getElementById('eventos').classList.add('active');
-            }
-        }
-
-        function setupForm() {
-            addEventForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const newEvent = {
-                    id: String(Date.now()), // ID \u00fanico
-                    title: document.getElementById('event-title').value,
-                    type: document.getElementById('event-type').value,
-                    date: document.getElementById('event-date').value,
-                    time: document.getElementById('event-time').value,
-                    location: document.getElementById('event-location').value,
-                    description: document.getElementById('event-description').value,
-                    participants: []
-                };
-                events.push(newEvent);
-                renderEvents();
-                addEventForm.reset();
-                pages.forEach(page => page.classList.remove('active'));
-                document.getElementById('eventos').classList.add('active');
-            });
-        }
+        });
         
-        function setupNavigation() {
-            navEventosBtn.addEventListener('click', () => {
-                pages.forEach(page => page.classList.remove('active'));
-                document.getElementById('eventos').classList.add('active');
-                navEventosBtn.classList.add('active');
-                addEventFloatingBtn.style.display = 'flex';
-            });
-        }
-        
-        function setupFloatingButton() {
-            addEventFloatingBtn.addEventListener('click', () => {
-                pages.forEach(page => page.classList.remove('active'));
-                document.getElementById('adicionar').classList.add('active');
-            });
-        }
-        
-        // Fun\u00e7\u00f5es auxiliares para formata\u00e7\u00e3o de dados
+        // Funções auxiliares para formatação de dados
         function formatarTipo(tipo) {
             const tipos = {
-                musica: 'M\u00fasica ao Vivo',
+                musica: 'Música ao Vivo',
                 artes: 'Artes Visuais',
-                teatro: 'Teatro & Dan\u00e7a',
+                teatro: 'Teatro & Dança',
                 literatura: 'Literatura & Conhecimento',
-                intervencoes: 'Interven\u00e7\u00f5es Urbanas',
+                intervencoes: 'Intervenções Urbanas',
                 cultura: 'Cultura na Quebrada',
-                natureza: 'Natureza & Cultura'
+                natureza: 'Natureza & Cultura',
+                outro: 'Outro'
             };
             return tipos[tipo] || tipo;
         }
@@ -1340,7 +1420,7 @@
             const statusMap = {
                 confirmado: 'Confirmado',
                 pendente: 'Talvez',
-                recusado: 'N\u00e3o poderei'
+                recusado: 'Não poderei'
             };
             return statusMap[status] || status;
         }
@@ -1348,13 +1428,67 @@
         function formatarDataCompleta(dataString) {
             const [ano, mes, dia] = dataString.split('-');
             const data = new Date(Number(ano), Number(mes) - 1, Number(dia));
-            return data.toLocaleDateString('pt-BR', {
-                weekday: 'long',
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric'
-            });
+            const diaSemana = data.toLocaleDateString('pt-BR', { weekday: 'long' });
+            return `${dia}/${mes}/${ano} (${diaSemana})`;
         }
+        
+        // Função para mostrar feedback na tela
+        function showFeedback(elementId, message, type) {
+            const feedbackElement = document.getElementById(elementId);
+            feedbackElement.textContent = message;
+            feedbackElement.className = `feedback ativo ${type === 'sucesso' ? 'feedback-confirmado' : 'feedback-recusado'}`;
+            setTimeout(() => {
+                feedbackElement.classList.remove('ativo');
+            }, 5000);
+        }
+
+        // Funções do Mapa
+        let map;
+        async function initMap(address) {
+            const geocodeUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(address)}&format=json`;
+            try {
+                const response = await fetch(geocodeUrl);
+                const data = await response.json();
+                
+                if (data.length > 0) {
+                    const lat = parseFloat(data[0].lat);
+                    const lon = parseFloat(data[0].lon);
+                    
+                    if (!map) {
+                        map = L.map('map').setView([lat, lon], 13);
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        }).addTo(map);
+                    } else {
+                        map.setView([lat, lon], 13);
+                    }
+                    L.marker([lat, lon]).addTo(map)
+                        .bindPopup(address)
+                        .openPopup();
+                    
+                    document.getElementById('map-container').style.display = 'block';
+                    document.getElementById('map-error-message').style.display = 'none';
+
+                } else {
+                    document.getElementById('map-container').style.display = 'block';
+                    document.getElementById('map-error-message').style.display = 'block';
+                    document.getElementById('map').innerHTML = ''; // Limpa o mapa se não houver resultado
+                }
+            } catch (error) {
+                console.error('Erro ao geocodificar o endereço:', error);
+                document.getElementById('map-container').style.display = 'block';
+                document.getElementById('map-error-message').style.display = 'block';
+                document.getElementById('map').innerHTML = '';
+            }
+        }
+
+        // Para evitar erros de referência se o mapa não existir
+        if (typeof L !== 'undefined') {
+            // A API Leaflet será carregada dinamicamente no `initMap`
+        } else {
+            console.warn("A API Leaflet não foi carregada. O mapa não funcionará.");
+        }
+        
     </script>
 </body>
 </html>
