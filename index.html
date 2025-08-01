@@ -3,152 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rolê Certo | Eventos Sociais</title>
+    <title>Eventura | Sua Aventura Começa Aqui</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #f05537;
-            --secondary: #39364f;
-            --light: #f8f7fa;
-            --dark: #1e0a3c;
-            --gray: #6f7287;
-            --verde: #4CAF50;
-            --laranja: #FF9800;
-            --roxo: #9C27B0;
-            --azul: #2196F3;
-            --cinza-claro: #f8f9fa;
-            --cinza-escuro: #343a40;
+            --primary: #FF4E50;
+            --primary-dark: #D93B3D;
+            --secondary: #2c3e50;
+            --light: #f9f9f9;
+            --dark: #1A1A1A;
+            --gray: #888;
             --branco: #ffffff;
-            --sombra: 0 8px 24px rgba(0, 0, 0, 0.12);
-            --sombra-card: 0 6px 16px rgba(0, 0, 0, 0.1);
-            --borda: 1px solid rgba(0, 0, 0, 0.08);
-            --transicao: all 0.3s ease;
+            --sombra: 0 10px 30px rgba(0, 0, 0, 0.07);
+            --sombra-card: 0 8px 25px rgba(0, 0, 0, 0.05);
+            --borda-radius: 12px;
+            --transicao: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         body {
             background: var(--light);
             color: var(--secondary);
-            min-height: 100vh;
-            padding: 20px;
-            line-height: 1.6;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.7;
         }
 
         header {
-            background: linear-gradient(90deg, var(--dark) 0%, #4a154b 100%);
-            color: var(--branco);
+            background: var(--branco);
+            color: var(--secondary);
             padding: 15px 5%;
-            border-radius: 16px;
-            box-shadow: var(--sombra);
-            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-        }
-
-        .logo {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transicao);
         }
 
         .logo-main {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            color: var(--branco);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
         }
 
         .logo-sub {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 500;
-            opacity: 0.9;
-            color: var(--branco);
+            opacity: 0.7;
+            color: var(--secondary);
         }
 
         .nav-container {
             display: flex;
-            gap: 10px;
             align-items: center;
+            gap: 15px;
         }
 
         .nav-btn {
             background: transparent;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 10px 20px;
-            border-radius: 30px;
+            border: none;
+            padding: 8px 0;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
             transition: var(--transicao);
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 1rem;
-            color: var(--branco);
-        }
-        
-        .nav-btn.nav-btn-primary {
-            background: var(--primary);
-            border-color: var(--primary);
+            font-size: 0.9rem;
+            color: var(--secondary);
+            position: relative;
+            text-decoration: none;
         }
 
-        .nav-btn:hover, .nav-btn.active {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.5);
+        .nav-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 3px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-btn:hover::after, .nav-btn.active::after {
+            transform: scaleX(1);
         }
         
-        .nav-btn.nav-btn-primary:hover {
-            background: #d04a30;
-            border-color: #d04a30;
+        .nav-btn-primary {
+            padding: 8px 22px;
+            border-radius: 50px;
+            background: var(--primary);
+            color: var(--branco) !important;
+            transition: var(--transicao);
+        }
+
+        .nav-btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(255, 78, 80, 0.3);
+        }
+
+        .nav-btn-primary::after {
+            display: none;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            position: relative;
-            min-height: 70vh;
+            padding: 20px;
         }
 
         .hero {
-            background: linear-gradient(rgba(30, 10, 60, 0.85), rgba(30, 10, 60, 0.85)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1505236858219-8359eb29e329?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') center/cover;
             color: white;
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
-            border-radius: 16px;
-            margin-bottom: 40px;
-            box-shadow: var(--sombra);
+            border-radius: var(--borda-radius);
+            margin-bottom: 50px;
         }
 
         .hero h1 {
-            font-size: 2.8rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
             margin-bottom: 20px;
-            font-weight: 700;
+            font-weight: 800;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto 40px;
             opacity: 0.9;
         }
 
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
         .btn {
-            padding: 14px 28px;
-            border-radius: 4px;
+            padding: 15px 35px;
+            border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
             display: inline-block;
@@ -156,11 +164,13 @@
             cursor: pointer;
             border: none;
             font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
         }
 
         .btn-primary {
-            background: var(--primary);
+            background: linear-gradient(45deg, var(--primary), #fcb69f);
             color: white;
+            box-shadow: 0 4px 15px rgba(255, 78, 80, 0.3);
         }
 
         .btn-outline {
@@ -170,21 +180,22 @@
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
-
-        .section {
-            padding: 40px 0;
+        
+        .btn-primary:hover {
+             box-shadow: 0 6px 20px rgba(255, 78, 80, 0.4);
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .section-header h2 {
-            font-size: 2.2rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
             margin-bottom: 15px;
             color: var(--dark);
         }
@@ -200,348 +211,284 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 30px;
+            gap: 12px;
+            margin-bottom: 40px;
         }
 
         .filter-btn {
             background: var(--branco);
-            border: 1px solid rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
             color: var(--gray);
-            padding: 8px 18px;
-            border-radius: 20px;
+            padding: 10px 22px;
+            border-radius: 30px;
             cursor: pointer;
             font-weight: 500;
+            font-family: 'Poppins', sans-serif;
             transition: var(--transicao);
             font-size: 0.9rem;
         }
 
         .filter-btn:hover {
-            background: var(--light);
             border-color: var(--primary);
             color: var(--primary);
+            transform: translateY(-2px);
         }
 
         .filter-btn.active {
             background: var(--primary);
             color: var(--branco);
             border-color: var(--primary);
-            box-shadow: 0 2px 8px rgba(240, 85, 55, 0.3);
+            box-shadow: 0 2px 8px rgba(255, 78, 80, 0.3);
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .page {
-            display: none;
-        }
-
-        .page.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
+        .page { display: none; }
+        .page.active { display: block; animation: fadeIn 0.6s ease; }
 
         .event-card {
             background: var(--branco);
-            border-radius: 10px;
+            border-radius: var(--borda-radius);
             overflow: hidden;
             box-shadow: var(--sombra-card);
             transition: var(--transicao);
             display: flex;
             flex-direction: column;
-            height: 100%;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
         }
 
         .event-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
         }
-
-        .card-header {
-            padding: 12px 16px;
-            background: var(--light);
-            border-bottom: var(--borda);
+        
+        .card-img-container {
+            height: 180px;
+            overflow: hidden;
         }
-
-        .event-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: var(--secondary);
+        
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
         }
-
-        .event-badge {
-            padding: 4px 10px;
-            border-radius: 16px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            display: inline-block;
+        
+        .event-card:hover .card-img {
+            transform: scale(1.05);
         }
 
         .card-content {
-            padding: 16px;
+            padding: 20px;
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .event-badge {
+            align-self: flex-start;
+            padding: 5px 12px;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .event-info {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: flex;
-            align-items: flex-start;
-            gap: 8px;
+            align-items: center;
+            gap: 10px;
             font-size: 0.9rem;
+            color: var(--gray);
         }
 
         .event-info i {
-            min-width: 20px;
             color: var(--primary);
             font-size: 1rem;
-            margin-top: 3px;
         }
         
-        .event-creator-link {
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-        }
-        
-        .event-creator-link:hover {
-            text-decoration: underline;
-        }
-
         .card-footer {
-            display: flex;
-            padding: 0 16px 16px;
-            gap: 10px;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
         }
 
         .card-btn {
-            flex: 1;
-            padding: 8px;
-            border-radius: 4px;
-            border: 1px solid var(--borda);
-            background: var(--light);
-            color: var(--secondary);
-            font-weight: 500;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            background: var(--primary);
+            color: var(--branco);
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
             cursor: pointer;
             transition: var(--transicao);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            border: none;
         }
 
         .card-btn:hover {
-            background: var(--primary);
-            color: var(--branco);
-            border-color: var(--primary);
+            background: var(--primary-dark);
+            transform: scale(1.02);
         }
 
         .form-container, .auth-container, .profile-container {
             background: var(--branco);
-            border-radius: 16px;
-            box-shadow: var(--sombra-card);
-            padding: 30px;
+            border-radius: var(--borda-radius);
+            box-shadow: var(--sombra);
+            padding: 40px;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 40px auto;
         }
         
-        .auth-container {
-            max-width: 450px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
         .form-label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
+            font-family: 'Poppins', sans-serif;
             color: var(--secondary);
         }
 
         .form-input, .form-select, .form-textarea {
             width: 100%;
-            padding: 12px 15px;
-            border: var(--borda);
+            padding: 14px 18px;
+            border: 1px solid #ddd;
             border-radius: 8px;
             font-size: 1rem;
-            background: var(--light);
+            background: #fdfdfd;
+            transition: var(--transicao);
         }
-
-        .form-textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+        
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 78, 80, 0.1);
         }
 
         .btn-submit {
-            background: var(--primary);
-            color: var(--branco);
-            border: none;
-            padding: 14px 30px;
-            border-radius: 4px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: block;
             width: 100%;
-            margin-top: 10px;
-            transition: var(--transicao);
-        }
-
-        .btn-submit:hover {
-            background: #d04a30;
         }
         
-        .auth-toggle {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9rem;
+        .detalhes-container {
+            background: var(--branco);
+            border-radius: var(--borda-radius);
+            box-shadow: var(--sombra);
+            padding: 30px 40px;
+            max-width: 850px;
+            margin: 40px auto;
         }
         
-        .auth-toggle a {
-            color: var(--primary);
-            font-weight: 600;
-            cursor: pointer;
-        }
-        
-        .error-message {
-            color: #f44336;
-            background: rgba(244, 67, 54, 0.1);
-            border: 1px solid rgba(244, 67, 54, 0.2);
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            text-align: center;
-            display: none;
-        }
-
-        /* Profile Page */
-        .profile-header {
+        .detalhes-header {
             display: flex;
             align-items: center;
             gap: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
             margin-bottom: 30px;
-            flex-wrap: wrap;
         }
         
-        .profile-pic-container {
-            position: relative;
+        .detalhes-img-container {
+            width: 100%;
+            height: 350px;
+            border-radius: var(--borda-radius);
+            overflow: hidden;
+            margin-bottom: 30px;
         }
-
-        .profile-pic {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
+        
+        .detalhes-img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border: 4px solid var(--branco);
-            box-shadow: var(--sombra-card);
-        }
-        
-        #profile-pic-upload {
-            display: none;
         }
 
-        #upload-pic-label {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
-            background: var(--primary);
-            color: var(--branco);
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border: 2px solid var(--branco);
-            transition: var(--transicao);
-        }
-        
-        #upload-pic-label:hover {
-            transform: scale(1.1);
-        }
-        
-        .profile-info h3 {
-            font-size: 1.8rem;
+        .detalhes-header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
             color: var(--dark);
         }
         
-        .profile-info p {
-            color: var(--gray);
+        .detalhes-body {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        
+        .detalhes-main {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .detalhes-sidebar .detalhes-section {
+            background: #fdfdfd;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            margin-bottom: 20px;
         }
 
-        .floating-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: var(--branco);
-            border: none;
-            box-shadow: 0 6px 20px rgba(240, 85, 55, 0.4);
-            cursor: pointer;
+        .detalhes-label {
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            color: var(--secondary);
+            font-size: 1rem;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            z-index: 100;
-            transition: var(--transicao);
+            gap: 8px;
         }
-
-        .floating-btn:hover {
-            transform: scale(1.1);
+        
+        .detalhes-info {
+            font-size: 1rem;
+            color: #555;
         }
-
-        .loading {
+        
+        .detalhes-creator {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
             display: flex;
-            justify-content: center;
-            padding: 30px;
+            align-items: center;
+            gap: 15px;
         }
-
-        .loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-left-color: var(--primary);
+        
+        .detalhes-creator img {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            object-fit: cover;
         }
 
         .categoria-musica .event-badge { background: rgba(76, 175, 80, 0.1); color: #4CAF50; }
         .categoria-artes .event-badge { background: rgba(156, 39, 176, 0.1); color: #9C27B0; }
         .categoria-teatro .event-badge { background: rgba(255, 152, 0, 0.1); color: #FF9800; }
         .categoria-literatura .event-badge { background: rgba(33, 150, 243, 0.1); color: #2196F3; }
-        .categoria-intervencoes .event-badge { background: rgba(244, 67, 54, 0.1); color: #f44336; }
         .categoria-cultura .event-badge { background: rgba(0, 150, 136, 0.1); color: #009688; }
-        .categoria-natureza .event-badge { background: rgba(121, 85, 72, 0.1); color: #795548; }
         .categoria-barzinho .event-badge { background: rgba(255, 193, 7, 0.1); color: #FFC107; }
         .categoria-trilha .event-badge { background: rgba(139, 195, 74, 0.1); color: #8BC34A; }
 
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+            .hero h1 { font-size: 2.5rem; }
+            .detalhes-body { grid-template-columns: 1fr; }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
@@ -549,203 +496,48 @@
 <body>
     <header>
         <div class="logo">
-            <div class="logo-main">Rolê Certo</div>
-            <div class="logo-sub">Organize seus eventos sociais</div>
+            <div class="logo-main">Eventura</div>
         </div>
-        
-        <div class="nav-container" id="nav-container">
-            <!-- Os botões de navegação serão inseridos aqui pelo JS -->
-        </div>
+        <div class="nav-container" id="nav-container"></div>
     </header>
 
     <div class="container">
         <!-- PÁGINA PRINCIPAL (EVENTOS) -->
         <div id="eventos" class="page active">
             <section class="hero">
-                <h1>Encontre seu próximo rolê favorito</h1>
-                <p>Descubra os melhores eventos, encontros e experiências sociais perto de você</p>
+                <h1>Encontre sua Próxima Aventura</h1>
+                <p>Descubra os melhores eventos, encontros e experiências sociais perto de você.</p>
                 <div class="hero-buttons">
                     <button class="btn btn-primary" id="explore-events">
-                        <i class="fas fa-search"></i> Explorar eventos
+                        <i class="fas fa-search"></i> Explorar Eventos
                     </button>
                     <button class="btn btn-outline" id="create-event-hero">
-                        <i class="fas fa-plus"></i> Criar evento
+                        <i class="fas fa-plus"></i> Criar Evento
                     </button>
                 </div>
             </section>
             <div class="section">
                 <div class="section-header">
-                    <h2>Eventos Ativos</h2>
-                    <p>Filtre por categoria para encontrar o que mais te interessa</p>
+                    <h2>Eventos em Destaque</h2>
+                    <p>Filtre por categoria para encontrar o que mais te interessa.</p>
                 </div>
-                <div class="category-filters" id="category-filters">
-                    <button class="filter-btn active" data-category="all">Todos</button>
-                    <button class="filter-btn" data-category="barzinho">Barzinho</button>
-                    <button class="filter-btn" data-category="trilha">Trilha</button>
-                    <button class="filter-btn" data-category="musica">Música</button>
-                    <button class="filter-btn" data-category="artes">Artes</button>
-                    <button class="filter-btn" data-category="cultura">Cultura</button>
-                </div>
+                <div class="category-filters" id="category-filters"></div>
                 <div class="grid" id="eventos-grid">
                     <div class="loading"><div class="loading-spinner"></div></div>
                 </div>
             </div>
         </div>
 
-        <!-- PÁGINA DE AUTENTICAÇÃO (LOGIN/CADASTRO) -->
-        <div id="auth" class="page">
-             <div class="auth-container">
-                <div id="login-view">
-                    <div class="section-header"><h2>Login</h2></div>
-                    <form id="login-form">
-                        <div class="error-message" id="login-error"></div>
-                        <div class="form-group">
-                            <label class="form-label" for="login-email">Email</label>
-                            <input type="email" class="form-input" id="login-email" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="login-password">Senha</label>
-                            <input type="password" class="form-input" id="login-password" required>
-                        </div>
-                        <button type="submit" class="btn-submit">Entrar</button>
-                    </form>
-                    <p class="auth-toggle">Não tem uma conta? <a id="show-register">Cadastre-se</a></p>
-                </div>
-                <div id="register-view" style="display: none;">
-                    <div class="section-header"><h2>Cadastro</h2></div>
-                    <form id="register-form">
-                        <div class="error-message" id="register-error"></div>
-                        <div class="form-group">
-                            <label class="form-label" for="register-name">Nome Completo</label>
-                            <input type="text" class="form-input" id="register-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="register-email">Email</label>
-                            <input type="email" class="form-input" id="register-email" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="register-password">Senha (mínimo 6 caracteres)</label>
-                            <input type="password" class="form-input" id="register-password" required>
-                        </div>
-                        <button type="submit" class="btn-submit">Criar Conta</button>
-                    </form>
-                    <p class="auth-toggle">Já tem uma conta? <a id="show-login">Faça Login</a></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- PÁGINA DE PERFIL -->
-        <div id="profile" class="page">
-            <div class="profile-container">
-                <form id="profile-form">
-                    <div class="profile-header">
-                        <div class="profile-pic-container">
-                            <img src="https://placehold.co/120x120/f05537/FFFFFF?text=Perfil" id="profile-pic-preview" class="profile-pic" alt="Foto de Perfil">
-                            <input type="file" id="profile-pic-upload" accept="image/*">
-                            <label for="profile-pic-upload" id="upload-pic-label"><i class="fas fa-camera"></i></label>
-                        </div>
-                        <div class="profile-info">
-                            <h3 id="profile-name-display">Nome do Usuário</h3>
-                            <p id="profile-email-display">email@dominio.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="profile-bio">Biografia / Resumo Pessoal</label>
-                        <textarea id="profile-bio" class="form-textarea" placeholder="Conte um pouco sobre você..."></textarea>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="profile-location">Localização (Cidade/Estado)</label>
-                            <input type="text" id="profile-location" class="form-input" placeholder="Ex: São Paulo, SP">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="profile-interests">Interesses (separados por vírgula)</label>
-                            <input type="text" id="profile-interests" class="form-input" placeholder="Ex: música, esportes, workshops">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="profile-instagram">Instagram</label>
-                            <input type="text" id="profile-instagram" class="form-input" placeholder="usuario_instagram">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="profile-twitter">Twitter (X)</label>
-                            <input type="text" id="profile-twitter" class="form-input" placeholder="usuario_twitter">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Privacidade do Perfil</label>
-                        <select id="profile-privacy" class="form-select">
-                            <option value="public">Público - Todos podem ver seu perfil</option>
-                            <option value="private">Privado - Apenas informações básicas são visíveis</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-submit">Salvar Alterações</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- PÁGINA DE CRIAÇÃO DE EVENTO -->
-        <div id="criar" class="page">
-             <div class="form-container">
-                <form id="event-form">
-                    <div class="section-header">
-                        <h2 id="form-title">Criar Novo Evento</h2>
-                        <p>Compartilhe seu evento com a comunidade</p>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="event-type">Tipo de Evento</label>
-                        <select class="form-select" id="event-type" required>
-                            <option value="">Selecione o tipo</option>
-                            <option value="barzinho">Barzinho</option>
-                            <option value="trilha">Trilha</option>
-                            <option value="musica">Música ao Vivo</option>
-                            <option value="artes">Artes Visuais</option>
-                            <option value="teatro">Teatro & Dança</option>
-                            <option value="literatura">Literatura</option>
-                            <option value="cultura">Cultura na Quebrada</option>
-                            <option value="natureza">Natureza & Cultura</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="event-name">Nome do Evento</label>
-                        <input type="text" class="form-input" id="event-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="event-location">Local</label>
-                        <input type="text" class="form-input" id="event-location" required>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="event-date">Data</label>
-                            <input type="date" class="form-input" id="event-date" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="event-time">Horário</label>
-                            <input type="time" class="form-input" id="event-time" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="event-description">Descrição</label>
-                        <textarea class="form-textarea" id="event-description" placeholder="Detalhes sobre o evento..."></textarea>
-                    </div>
-                     <input type="hidden" id="event-creator-name">
-                     <input type="hidden" id="event-creator-id">
-                    <button type="submit" class="btn-submit" id="submit-btn">Criar Evento</button>
-                </form>
-            </div>
-        </div>
-        
         <!-- PÁGINA DE DETALHES DO EVENTO -->
         <div id="detalhes" class="page">
-            <div class="detalhes-container" id="detalhes-content"></div>
+            <div id="detalhes-content"></div>
         </div>
+        
+        <!-- OUTRAS PÁGINAS (FORMULÁRIOS, PERFIL) -->
+        <div id="auth" class="page"></div>
+        <div id="profile" class="page"></div>
+        <div id="criar" class="page"></div>
     </div>
-
-    <button class="floating-btn" id="criar-evento-btn">
-        <i class="fas fa-plus"></i>
-    </button>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
@@ -771,395 +563,295 @@
         const eventosRef = db.ref('eventos');
         const usersRef = db.ref('users');
         
-        // Elementos da UI
-        const navContainer = document.getElementById('nav-container');
         const pages = document.querySelectorAll('.page');
-        const eventosGrid = document.getElementById('eventos-grid');
-        const categoryFilters = document.getElementById('category-filters');
-        const criarEventoBtn = document.getElementById('criar-evento-btn');
-
-        let currentFilter = 'all';
         let allEvents = {};
         let allUsers = {};
+        let currentFilter = 'all';
 
-        // --- CONTROLE DE AUTENTICAÇÃO E UI ---
-        
-        auth.onAuthStateChanged(user => {
+        const categoryMap = {
+            all: { name: 'Todos', icon: 'fa-globe' },
+            musica: { name: 'Música', icon: 'fa-music', image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=60' },
+            artes: { name: 'Artes', icon: 'fa-paint-brush', image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=60' },
+            teatro: { name: 'Teatro', icon: 'fa-theater-masks', image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=800&q=60' },
+            cultura: { name: 'Cultura', icon: 'fa-landmark', image: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=800&q=60' },
+            barzinho: { name: 'Barzinho', icon: 'fa-glass-cheers', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=60' },
+            trilha: { name: 'Trilha', icon: 'fa-hiking', image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=800&q=60' }
+        };
+
+        const getElement = (id) => document.getElementById(id);
+
+        const showPage = (pageId) => {
+            pages.forEach(page => page.classList.remove('active'));
+            getElement(pageId).classList.add('active');
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.page === pageId);
+            });
+            window.scrollTo(0, 0);
+        };
+
+        const renderNav = (user) => {
+            const navContainer = getElement('nav-container');
             if (user) {
-                // Usuário está logado
-                usersRef.child(user.uid).on('value', snapshot => { // Changed to .on for real-time updates
-                    const userData = snapshot.val() || {};
-                    updateUIForLoggedInUser(user, userData);
+                navContainer.innerHTML = `
+                    <a href="#" class="nav-btn active" data-page="eventos"><i class="fas fa-home"></i> Início</a>
+                    <a href="#" class="nav-btn" data-page="profile"><i class="fas fa-user"></i> Perfil</a>
+                    <a href="#" class="nav-btn" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    <a href="#" class="nav-btn nav-btn-primary" data-page="criar"><i class="fas fa-plus-circle"></i> Criar Evento</a>
+                `;
+                getElement('logout-btn').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    auth.signOut()
                 });
             } else {
-                // Usuário não está logado
-                updateUIForLoggedOutUser();
+                navContainer.innerHTML = `
+                    <a href="#" class="nav-btn active" data-page="eventos"><i class="fas fa-home"></i> Início</a>
+                    <a href="#" class="nav-btn nav-btn-primary" data-page="auth"><i class="fas fa-sign-in-alt"></i> Login</a>
+                `;
             }
-            // Sempre renderiza os eventos, independentemente do status de login
-            fetchDataAndRender();
-        });
-
-        function updateUIForLoggedInUser(user, userData) {
-            navContainer.innerHTML = `
-                <button class="nav-btn active" data-page="eventos"><i class="fas fa-calendar-check"></i> Eventos</button>
-                <button class="nav-btn" data-page="profile"><i class="fas fa-user"></i> Meu Perfil</button>
-                <button class="nav-btn" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Sair</button>
-            `;
-            document.getElementById('logout-btn').addEventListener('click', () => auth.signOut());
-            
-            document.getElementById('event-creator-name').value = userData.name || user.displayName;
-            document.getElementById('event-creator-id').value = user.uid;
-            
-            criarEventoBtn.style.display = 'flex';
-            document.getElementById('create-event-hero').style.display = 'inline-block';
-
-            setupNavButtons();
-            populateProfileForm(user, userData);
-        }
-
-        function updateUIForLoggedOutUser() {
-            navContainer.innerHTML = `
-                <button class="nav-btn active" data-page="eventos"><i class="fas fa-home"></i> Início</button>
-                <button class="nav-btn" data-page="auth" data-view="login"><i class="fas fa-sign-in-alt"></i> Login</button>
-            `;
-            criarEventoBtn.style.display = 'none';
-            document.getElementById('create-event-hero').style.display = 'none';
-            setupNavButtons();
-        }
-
-        function setupNavButtons() {
             document.querySelectorAll('.nav-btn').forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetPage = button.getAttribute('data-page');
-                    showPage(targetPage);
+                if (button.dataset.page) {
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showPage(button.dataset.page)
+                    });
+                }
+            });
+        };
 
-                    if (targetPage === 'auth') {
-                        const view = button.getAttribute('data-view');
-                        showAuthView(view || 'login');
-                    }
+        const renderFilters = () => {
+            const filtersContainer = getElement('category-filters');
+            filtersContainer.innerHTML = Object.keys(categoryMap).map(key => `
+                <button class="filter-btn ${key === currentFilter ? 'active' : ''}" data-category="${key}">
+                    <i class="fas ${categoryMap[key].icon}"></i> ${categoryMap[key].name}
+                </button>
+            `).join('');
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentFilter = btn.dataset.category;
+                    renderFilters();
+                    renderEventos();
                 });
             });
-        }
-        
-        function showPage(pageId) {
-            pages.forEach(page => page.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                if (btn.dataset.page === pageId) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-        }
+        };
 
-
-        // --- LÓGICA DE DADOS (FETCH) ---
-
-        function fetchDataAndRender() {
-            eventosGrid.innerHTML = '<div class="loading"><div class="loading-spinner"></div></div>';
-            
-            eventosRef.on('value', snapshot => {
-                allEvents = snapshot.val() || {};
-                renderEventos(currentFilter);
-            });
-            
-            usersRef.on('value', snapshot => {
-                allUsers = snapshot.val() || {};
-                renderEventos(currentFilter);
-            });
-        }
-
-        // --- RENDERIZAÇÃO DE EVENTOS ---
-
-        function renderEventos(filterCategory = 'all') {
-            eventosGrid.innerHTML = '';
-            let hasActiveEvents = false;
-
-            const sortedEventKeys = Object.keys(allEvents).sort((a, b) => {
-                return new Date(allEvents[b].data) - new Date(allEvents[a].data);
-            });
-
-            sortedEventKeys.forEach(key => {
-                const evento = { id: key, ...allEvents[key] };
-                const eventDate = new Date(evento.data);
-                const today = new Date();
-                today.setHours(0, 0, 0, 0);
-
-                if (eventDate >= today) {
-                    if (filterCategory === 'all' || evento.tipo === filterCategory) {
-                        const card = createEventCardNode(evento);
-                        eventosGrid.appendChild(card);
-                        hasActiveEvents = true;
-                    }
-                }
-            });
-
-            if (!hasActiveEvents) {
-                eventosGrid.innerHTML = `<p style="text-align: center; padding: 30px; grid-column: 1 / -1;">Nenhum evento ativo encontrado para a categoria selecionada.</p>`;
-            }
-        }
-
-        function createEventCardNode(evento) {
+        const createEventCard = (evento) => {
+            const creator = allUsers[evento.criadorId] || {};
+            const category = categoryMap[evento.tipo] || {};
             const card = document.createElement('div');
             card.className = `event-card categoria-${evento.tipo}`;
-            
-            const creatorName = allUsers[evento.criadorId] ? allUsers[evento.criadorId].name : (evento.criadorName || "Anônimo");
-            
             card.innerHTML = `
-                <div class="card-header">
-                    <h3 class="event-title">${evento.titulo}</h3>
-                    <span class="event-badge">${formatarTipo(evento.tipo)}</span>
+                <div class="card-img-container">
+                    <img src="${category.image || 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=800&q=60'}" class="card-img" alt="${evento.titulo}">
                 </div>
                 <div class="card-content">
+                    <span class="event-badge">${category.name || 'Evento'}</span>
+                    <h3 class="event-title">${evento.titulo}</h3>
                     <div class="event-info">
                         <i class="fas fa-calendar-alt"></i>
-                        <div>${formatarDataCompleta(evento.data)} às ${evento.hora}</div>
+                        <span>${new Date(evento.data).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', timeZone: 'UTC' })}</span>
                     </div>
                     <div class="event-info">
                         <i class="fas fa-map-marker-alt"></i>
-                        <div>${evento.local}</div>
+                        <span>${evento.local}</span>
                     </div>
-                    <div class="event-info">
-                        <i class="fas fa-user"></i>
-                        <div>Criado por <a href="#" class="event-creator-link" data-uid="${evento.criadorId}">${creatorName}</a></div>
+                    <div class="card-footer">
+                         <button class="card-btn details-btn" data-id="${evento.id}">Ver Detalhes</button>
                     </div>
-                </div>
-                <div class="card-footer">
-                    <button class="card-btn details-btn" data-id="${evento.id}"><i class="fas fa-eye"></i> Detalhes</button>
                 </div>
             `;
-            
             card.querySelector('.details-btn').addEventListener('click', () => showEventDetails(evento.id));
-            
-            const creatorLink = card.querySelector('.event-creator-link');
-            if(creatorLink) {
-                creatorLink.addEventListener('click', (e) => { 
-                    e.preventDefault(); 
-                    // Implementar visualização de perfil público
-                    alert(`Visualizando perfil de ${creatorName}`);
-                });
-            }
-            
             return card;
+        };
+
+        const renderEventos = () => {
+            const grid = getElement('eventos-grid');
+            grid.innerHTML = '';
+            const filteredEvents = Object.keys(allEvents)
+                .map(key => ({ id: key, ...allEvents[key] }))
+                .filter(evento => new Date(evento.data) >= new Date())
+                .filter(evento => currentFilter === 'all' || evento.tipo === currentFilter)
+                .sort((a, b) => new Date(a.data) - new Date(b.data));
+
+            if (filteredEvents.length > 0) {
+                filteredEvents.forEach(evento => grid.appendChild(createEventCard(evento)));
+            } else {
+                grid.innerHTML = `<p>Nenhum evento encontrado para esta categoria.</p>`;
+            }
+        };
+
+        const showEventDetails = (eventId) => {
+            const evento = allEvents[eventId];
+            if (!evento) return;
+            const creator = allUsers[evento.criadorId] || {};
+            const category = categoryMap[evento.tipo] || {};
+            const content = getElement('detalhes-content');
+            content.innerHTML = `
+                <div class="detalhes-container">
+                    <button class="btn btn-outline" id="back-to-events" style="border-color: var(--gray); color: var(--gray); margin-bottom: 20px;"><i class="fas fa-arrow-left"></i> Voltar</button>
+                    <div class="detalhes-img-container">
+                       <img src="${category.image || 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=800&q=60'}" class="detalhes-img" alt="${evento.titulo}">
+                    </div>
+                    <div class="detalhes-header">
+                        <h2>${evento.titulo}</h2>
+                    </div>
+                    <div class="detalhes-body">
+                        <div class="detalhes-main">
+                            <p>${evento.descricao || 'Nenhuma descrição fornecida.'}</p>
+                        </div>
+                        <aside class="detalhes-sidebar">
+                            <div class="detalhes-section">
+                                <span class="detalhes-label"><i class="fas fa-calendar-alt"></i> Data e Hora</span>
+                                <span class="detalhes-info">${new Date(evento.data).toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' })} às ${evento.hora}</span>
+                            </div>
+                            <div class="detalhes-section">
+                                <span class="detalhes-label"><i class="fas fa-map-marker-alt"></i> Local</span>
+                                <span class="detalhes-info">${evento.local}</span>
+                            </div>
+                            <div class="detalhes-section detalhes-creator">
+                                <img src="${creator.profilePicUrl || 'https://placehold.co/50x50/FF4E50/FFFFFF?text=P'}" alt="Foto do criador">
+                                <div>
+                                    <span class="detalhes-label" style="font-size: 0.8rem; margin: 0;">Organizado por</span>
+                                    <a href="#" class="event-creator-link">${creator.name || 'Anônimo'}</a>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            `;
+            getElement('back-to-events').addEventListener('click', () => showPage('eventos'));
+            showPage('detalhes');
+        };
+        
+        const renderFormPage = (pageId, content) => {
+            const page = getElement(pageId);
+            page.innerHTML = `<div class="form-container">${content}</div>`;
         }
 
+        const setupUI = (user, userData) => {
+            renderNav(user);
+            renderFilters();
+            renderEventos();
+            
+            // Render forms
+            const authHTML = `
+                <div id="login-view">
+                    <div class="section-header"><h2>Login</h2></div>
+                    <form id="login-form">
+                        <div class="error-message" id="login-error"></div>
+                        <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" id="login-email" required></div>
+                        <div class="form-group"><label class="form-label">Senha</label><input type="password" class="form-input" id="login-password" required></div>
+                        <button type="submit" class="btn btn-primary btn-submit">Entrar</button>
+                    </form>
+                    <p class="auth-toggle">Não tem conta? <a id="show-register">Cadastre-se</a></p>
+                </div>
+                <div id="register-view" style="display: none;">
+                    <div class="section-header"><h2>Cadastro</h2></div>
+                    <form id="register-form">
+                        <div class="error-message" id="register-error"></div>
+                        <div class="form-group"><label class="form-label">Nome</label><input type="text" class="form-input" id="register-name" required></div>
+                        <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" id="register-email" required></div>
+                        <div class="form-group"><label class="form-label">Senha</label><input type="password" class="form-input" id="register-password" required></div>
+                        <button type="submit" class="btn btn-primary btn-submit">Criar Conta</button>
+                    </form>
+                    <p class="auth-toggle">Já tem conta? <a id="show-login">Faça Login</a></p>
+                </div>
+            `;
+            renderFormPage('auth', authHTML);
 
-        // --- LÓGICA DOS FORMULÁRIOS ---
+            const createEventHTML = `
+                <form id="event-form">
+                    <div class="section-header"><h2>Criar Novo Evento</h2></div>
+                    <div class="form-group">
+                        <label class="form-label">Tipo de Evento</label>
+                        <select class="form-select" id="event-type" required>${Object.keys(categoryMap).filter(k=>k!=='all').map(k=>`<option value="${k}">${categoryMap[k].name}</option>`).join('')}</select>
+                    </div>
+                    <div class="form-group"><label class="form-label">Nome do Evento</label><input type="text" class="form-input" id="event-name" required></div>
+                    <div class="form-group"><label class="form-label">Local</label><input type="text" class="form-input" id="event-location" required></div>
+                    <div class="form-row">
+                        <div class="form-group"><label class="form-label">Data</label><input type="date" class="form-input" id="event-date" required></div>
+                        <div class="form-group"><label class="form-label">Horário</label><input type="time" class="form-input" id="event-time" required></div>
+                    </div>
+                    <div class="form-group"><label class="form-label">Descrição</label><textarea class="form-textarea" id="event-description"></textarea></div>
+                    <button type="submit" class="btn btn-primary btn-submit">Publicar Evento</button>
+                </form>
+            `;
+            renderFormPage('criar', createEventHTML);
 
-        // Auth
-        const loginForm = document.getElementById('login-form');
-        const registerForm = document.getElementById('register-form');
-        const loginError = document.getElementById('login-error');
-        const registerError = document.getElementById('register-error');
+            // Add event listeners for forms
+            getElement('show-register').addEventListener('click', () => { getElement('login-view').style.display = 'none'; getElement('register-view').style.display = 'block'; });
+            getElement('show-login').addEventListener('click', () => { getElement('login-view').style.display = 'block'; getElement('register-view').style.display = 'none'; });
+            
+            getElement('login-form').addEventListener('submit', handleAuthSubmit);
+            getElement('register-form').addEventListener('submit', handleAuthSubmit);
+            getElement('event-form').addEventListener('submit', handleEventSubmit);
+            
+            getElement('explore-events').addEventListener('click', () => document.querySelector('.section').scrollIntoView({ behavior: 'smooth' }));
+            getElement('create-event-hero').addEventListener('click', () => user ? showPage('criar') : showPage('auth'));
+        };
 
-        loginForm.addEventListener('submit', e => {
+        const handleAuthSubmit = (e) => {
             e.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-            auth.signInWithEmailAndPassword(email, password)
-                .then(() => showPage('eventos'))
-                .catch(err => {
-                    loginError.textContent = getAuthErrorMessage(err.code);
-                    loginError.style.display = 'block';
-                });
-        });
+            const isRegister = e.target.id === 'register-form';
+            const email = getElement(isRegister ? 'register-email' : 'login-email').value;
+            const password = getElement(isRegister ? 'register-password' : 'login-password').value;
+            const errorEl = getElement(isRegister ? 'register-error' : 'login-error');
 
-        registerForm.addEventListener('submit', e => {
-            e.preventDefault();
-            const name = document.getElementById('register-name').value;
-            const email = document.getElementById('register-email').value;
-            const password = document.getElementById('register-password').value;
-
-            auth.createUserWithEmailAndPassword(email, password)
-                .then(userCredential => {
-                    const user = userCredential.user;
-                    usersRef.child(user.uid).set({
-                        name: name,
-                        email: email,
-                        privacy: 'public',
-                    });
-                    return user.updateProfile({ displayName: name });
-                })
-                .then(() => showPage('eventos'))
-                .catch(err => {
-                    registerError.textContent = getAuthErrorMessage(err.code);
-                    registerError.style.display = 'block';
-                });
-        });
-
-        // Evento
-        const eventForm = document.getElementById('event-form');
-        eventForm.addEventListener('submit', e => {
-            e.preventDefault();
-            if (!auth.currentUser) {
-                alert("Você precisa estar logado para criar um evento.");
-                showPage('auth');
-                return;
+            if (isRegister) {
+                const name = getElement('register-name').value;
+                auth.createUserWithEmailAndPassword(email, password)
+                    .then(cred => {
+                        usersRef.child(cred.user.uid).set({ name, email, privacy: 'public' });
+                        cred.user.updateProfile({ displayName: name });
+                    })
+                    .catch(err => errorEl.textContent = err.message);
+            } else {
+                auth.signInWithEmailAndPassword(email, password)
+                    .catch(err => errorEl.textContent = err.message);
             }
+        };
+        
+        const handleEventSubmit = (e) => {
+            e.preventDefault();
+            const user = auth.currentUser;
+            if (!user) return;
             const eventData = {
-                titulo: document.getElementById('event-name').value,
-                tipo: document.getElementById('event-type').value,
-                data: document.getElementById('event-date').value,
-                hora: document.getElementById('event-time').value,
-                local: document.getElementById('event-location').value,
-                descricao: document.getElementById('event-description').value,
-                criadorName: document.getElementById('event-creator-name').value,
-                criadorId: document.getElementById('event-creator-id').value,
+                titulo: getElement('event-name').value,
+                tipo: getElement('event-type').value,
+                data: getElement('event-date').value,
+                hora: getElement('event-time').value,
+                local: getElement('event-location').value,
+                descricao: getElement('event-description').value,
+                criadorId: user.uid,
                 criadoEm: new Date().toISOString(),
             };
-            eventosRef.push(eventData)
-                .then(() => {
-                    alert('Evento criado com sucesso!');
-                    eventForm.reset();
-                    showPage('eventos');
-                })
-                .catch(error => console.error("Erro ao criar evento:", error));
-        });
-        
-        // Perfil
-        const profileForm = document.getElementById('profile-form');
-        profileForm.addEventListener('submit', e => {
-            e.preventDefault();
-            const user = auth.currentUser;
-            if (!user) return;
-            
-            const profileData = {
-                bio: document.getElementById('profile-bio').value,
-                location: document.getElementById('profile-location').value,
-                interests: document.getElementById('profile-interests').value,
-                privacy: document.getElementById('profile-privacy').value,
-                socials: {
-                    instagram: document.getElementById('profile-instagram').value,
-                    twitter: document.getElementById('profile-twitter').value,
-                }
-            };
-            
-            usersRef.child(user.uid).update(profileData)
-                .then(() => alert("Perfil atualizado com sucesso!"))
-                .catch(err => alert("Erro ao atualizar perfil: " + err.message));
-        });
-        
-        document.getElementById('profile-pic-upload').addEventListener('change', e => {
-            const file = e.target.files[0];
-            if (!file) return;
-            
-            const user = auth.currentUser;
-            if (!user) return;
-            
-            const filePath = `profile_pictures/${user.uid}/${file.name}`;
-            const fileRef = storage.ref(filePath);
-            
-            fileRef.put(file).then(snapshot => {
-                return snapshot.ref.getDownloadURL();
-            }).then(url => {
-                document.getElementById('profile-pic-preview').src = url;
-                return usersRef.child(user.uid).update({ profilePicUrl: url });
-            }).then(() => {
-                alert("Foto de perfil atualizada!");
-            }).catch(err => {
-                console.error("Erro no upload:", err);
-                alert("Falha no upload da foto.");
+            eventosRef.push(eventData).then(() => {
+                alert('Evento criado!');
+                showPage('eventos');
             });
+        };
+
+        auth.onAuthStateChanged(user => {
+            renderNav(user);
+            if (user) {
+                usersRef.child(user.uid).on('value', snapshot => {
+                    // Handle user data if needed
+                });
+            }
         });
 
+        eventosRef.on('value', snapshot => {
+            allEvents = snapshot.val() || {};
+            renderEventos();
+        });
 
-        // --- NAVEGAÇÃO E HELPERS ---
-
+        usersRef.on('value', snapshot => {
+            allUsers = snapshot.val() || {};
+            renderEventos();
+        });
+        
         document.addEventListener('DOMContentLoaded', () => {
-            setupEventListeners();
-            fetchDataAndRender();
+             setupUI(auth.currentUser);
         });
-
-        function setupEventListeners() {
-            categoryFilters.addEventListener('click', (e) => {
-                if (e.target.classList.contains('filter-btn')) {
-                    currentFilter = e.target.dataset.category;
-                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                    e.target.classList.add('active');
-                    renderEventos(currentFilter);
-                }
-            });
-            
-            document.getElementById('show-register').addEventListener('click', () => showAuthView('register'));
-            document.getElementById('show-login').addEventListener('click', () => showAuthView('login'));
-            
-            criarEventoBtn.addEventListener('click', () => {
-                 if (auth.currentUser) {
-                    showPage('criar');
-                } else {
-                    alert("Faça login ou cadastre-se para criar um evento.");
-                    showPage('auth');
-                }
-            });
-            document.getElementById('create-event-hero').addEventListener('click', () => {
-                if (auth.currentUser) {
-                    showPage('criar');
-                } else {
-                    alert("Faça login ou cadastre-se para criar um evento.");
-                    showPage('auth');
-                }
-            });
-            document.getElementById('explore-events').addEventListener('click', () => showPage('eventos'));
-        }
-        
-        function populateProfileForm(user, userData) {
-            document.getElementById('profile-name-display').textContent = userData.name || user.displayName;
-            document.getElementById('profile-email-display').textContent = user.email;
-            document.getElementById('profile-bio').value = userData.bio || '';
-            document.getElementById('profile-location').value = userData.location || '';
-            document.getElementById('profile-interests').value = userData.interests || '';
-            document.getElementById('profile-privacy').value = userData.privacy || 'public';
-            if (userData.socials) {
-                document.getElementById('profile-instagram').value = userData.socials.instagram || '';
-                document.getElementById('profile-twitter').value = userData.socials.twitter || '';
-            }
-            if (userData.profilePicUrl) {
-                document.getElementById('profile-pic-preview').src = userData.profilePicUrl;
-            } else {
-                document.getElementById('profile-pic-preview').src = 'https://placehold.co/120x120/f05537/FFFFFF?text=Perfil';
-            }
-        }
-
-        function showAuthView(view) {
-            document.getElementById('login-view').style.display = view === 'login' ? 'block' : 'none';
-            document.getElementById('register-view').style.display = view === 'register' ? 'block' : 'none';
-            loginError.style.display = 'none';
-            registerError.style.display = 'none';
-        }
-        
-        function showEventDetails(eventId) {
-            const evento = allEvents[eventId];
-            alert(`Detalhes do Evento:\n\nTítulo: ${evento.titulo}\nLocal: ${evento.local}\nDescrição: ${evento.descricao}`);
-        }
-
-        function formatarTipo(tipo) {
-            const tipos = { all: 'Todos', musica: 'Música', artes: 'Artes', teatro: 'Teatro', literatura: 'Literatura', cultura: 'Cultura', natureza: 'Natureza', barzinho: 'Barzinho', trilha: 'Trilha' };
-            return tipos[tipo] || tipo;
-        }
-
-        function formatarDataCompleta(dataString) {
-            const data = new Date(dataString);
-            return data.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' });
-        }
-        
-        function getAuthErrorMessage(code) {
-            switch (code) {
-                case 'auth/wrong-password':
-                    return 'Senha incorreta. Tente novamente.';
-                case 'auth/user-not-found':
-                    return 'Nenhum usuário encontrado com este e-mail.';
-                case 'auth/weak-password':
-                    return 'Sua senha deve ter pelo menos 6 caracteres.';
-                case 'auth/email-already-in-use':
-                    return 'Este e-mail já está cadastrado.';
-                case 'auth/invalid-email':
-                    return 'O formato do e-mail é inválido.';
-                default:
-                    return 'Ocorreu um erro. Tente novamente.';
-            }
-        }
 
     </script>
 </body>
